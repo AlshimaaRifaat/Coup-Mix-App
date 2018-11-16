@@ -53,6 +53,7 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
             case R.id.lang_checkbox_arabic:
                 if(arabicLanguage.isChecked())
                 {
+                    englishlanguage.setChecked( false );
                     Language="ar";
                     //setLocale("ar");
                    // recreate();
@@ -64,6 +65,7 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
                 {
                     //setLocale("en");
                     //recreate();
+                    arabicLanguage.setChecked( false );
                     Language="en";
 
                 }
