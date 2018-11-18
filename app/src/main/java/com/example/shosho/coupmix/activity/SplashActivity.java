@@ -44,7 +44,7 @@ SharedPreferences sharedPreferences;
                     }else
                     {
                         setLocale(  );
-                        startActivity( new Intent( SplashActivity.this,MainActivity.class ) );
+                        startActivity( new Intent( SplashActivity.this,NavigationActivity.class ) );
                     }   finish();
                 }
             }

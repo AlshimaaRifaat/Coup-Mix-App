@@ -34,7 +34,7 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View view) {
                 if(Language!=null) {
                     setLocale( Language );
-                    startActivity( new Intent( LanguageActivity.this,MainActivity.class ) );
+                    startActivity( new Intent( LanguageActivity.this,NavigationActivity.class ) );
 
 
                 }else {

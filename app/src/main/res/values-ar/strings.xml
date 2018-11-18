@@ -6,4 +6,10 @@
     <string name="Arabic">عربي</string>
     <string name="Done">تم</string>
     <string name="hello_blank_fragment">هالو بلانك فراجمنت</string>
+    <string name="Home">الصفحه الرئيسيه</string>
+    <string name="Category">الفئه</string>
+    <string name="Brand">الماركه</string>
+    <string name="MyOrders">طلباتي</string>
+    <string name="AboutCoupMix">CoupMix حول</string>
+    <string name="title_activity_navigation">الصفحه الرئيسيه</string>
 </resources>

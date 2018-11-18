@@ -5,9 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:paddingTop="@dimen/_140sdp"
-    android:paddingLeft="@dimen/_10sdp"
     tools:context=".activity.LanguageActivity">
+    <ImageView
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:src="@drawable/icon_language"
+        android:layout_centerHorizontal="true"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,12 +21,13 @@
         android:text="@string/choose_language"
         android:id="@+id/lang_choose_language"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_195sdp"
         android:textStyle="normal"
         android:textSize="@dimen/_15sdp"
         />
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_70sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_15sdp"
@@ -31,16 +38,18 @@
         android:layout_height="@dimen/_45sdp"
         android:text="@string/English"
         android:checked="false"
-        android:gravity="end"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:layout_below="@+id/lang_choose_language"
         android:id="@+id/lang_checkbox_english"/>
 
         <CheckBox
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/_40sdp"
             android:text="@string/Arabic"
             android:checked="false"
-            android:gravity="end"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:id="@+id/lang_checkbox_arabic"/>
 
@@ -49,7 +58,7 @@
 <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_95sdp"
+    android:layout_marginTop="@dimen/_60sdp"
     android:text="@string/Done"
     android:textColor="#fff"
     android:textSize="@dimen/_15sdp"
