@@ -12,4 +12,6 @@
     <string name="MyOrders">طلباتي</string>
     <string name="AboutCoupMix">CoupMix حول</string>
     <string name="title_activity_navigation">الصفحه الرئيسيه</string>
+    <string name="NoNetworkAvailable">No Network Available</string>
+    <string name="Categories">الفئات</string>
 </resources>

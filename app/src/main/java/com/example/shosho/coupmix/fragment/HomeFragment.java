@@ -1,21 +1,24 @@
 package com.example.shosho.coupmix.fragment;
 
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.shosho.coupmix.activity.LanguageActivity;
+import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.adapter.BannerAdapter;
+import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.model.BookData;
 import com.example.shosho.coupmix.presenter.BookPresenter;
-import com.example.shosho.coupmix.view.PictureView;
+import com.example.shosho.coupmix.view.BookView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +28,7 @@ import java.util.TimerTask;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements PictureView {
+public class HomeFragment extends Fragment implements BookView,SwipeRefreshLayout.OnRefreshListener {
 RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
 BannerAdapter bannerAdapter;
@@ -33,6 +36,13 @@ BannerAdapter bannerAdapter;
 int position;
 List<BookData> banner =new ArrayList();
 boolean end;
+
+NetworkConnection networkConnection;
+private SwipeRefreshLayout swipeRefreshLayout;
+
+RecyclerView recyclerViewCategory;
+HomeCategoryAdapter homeCategoryAdapter;
+
     View view;
     public HomeFragment() {
         // Required empty public constructor
@@ -44,9 +54,38 @@ boolean end;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        view= inflater.inflate( R.layout.fragment_home, container, false );
+       swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh );
+       networkConnection=new NetworkConnection( getContext() );
        recycle();
        banner();
+       category();
+       swipRefresh();
+
         return view;
+
+    }
+
+    private void swipRefresh() {
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_green_dark );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if(networkConnection.isNetworkAvailable( getContext() ))
+                {
+                    swipeRefreshLayout.setRefreshing( true );
+                    bookPresenter.getBookResult( "ar","slider" );
+                    bookPresenter.getBookResult( "ar", "instit");
+                }
+            }
+        } );
+    }
+
+    private void category() {
+        bookPresenter=new BookPresenter( getContext(),this );
+        bookPresenter.getBookResult( "ar","instit" );
+
 
     }
 
@@ -55,12 +94,14 @@ boolean end;
         bookPresenter.getBookResult( "ar","slider" );
     }
 
-    private void recycle() {
+    private void recycle()
+    {
         recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
+        recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
     }
 
     @Override
-    public void showPictureData(List<BookData> booksData) {
+    public void showBannerData(List<BookData> booksData) {
         banner=booksData;
         bannerAdapter=new BannerAdapter( getContext(),booksData );
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager( getContext() );
@@ -70,15 +111,37 @@ boolean end;
 
         if(booksData.size()>1) {
             Timer timer = new Timer();
-            timer.scheduleAtFixedRate( new AutoScrollTask(), 2000, 4000 );
+            timer.scheduleAtFixedRate( new AutoScrollTask(), 3000, 5000 );
         }
+
+        homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
+        recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3 ) );
+        recyclerViewCategory.setAdapter( homeCategoryAdapter );
+        swipeRefreshLayout.setRefreshing( false );
+
 
     }
 
     @Override
     public void error() {
+        swipeRefreshLayout.setRefreshing( false );
 
     }
+
+    @Override
+    public void onRefresh() {
+        if(networkConnection.isNetworkAvailable( getContext() ))
+        {
+            swipeRefreshLayout.setRefreshing( true );
+            bookPresenter.getBookResult( "ar","slider" );
+            bookPresenter.getBookResult( "ar","instit" );
+        }else
+        {
+            Toast.makeText( getContext(), R.string.NoNetworkAvailable, Toast.LENGTH_SHORT ).show();
+        }
+
+    }
+
     public class AutoScrollTask extends TimerTask
     {
 

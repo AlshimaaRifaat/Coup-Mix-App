@@ -19,5 +19,7 @@
     <string name="Brand">Brand</string>
     <string name="MyOrders">My Orders</string>
     <string name="AboutCoupMix">About CoupMix</string>
+    <string name="NoNetworkAvailable">لا يتوفر انترنت</string>
+    <string name="Categories">Categories</string>
 
 </resources>
