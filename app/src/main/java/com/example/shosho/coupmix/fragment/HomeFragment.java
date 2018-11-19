@@ -16,6 +16,7 @@ import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.adapter.BannerAdapter;
 import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
+import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
 import com.example.shosho.coupmix.model.BookData;
 import com.example.shosho.coupmix.presenter.BookPresenter;
 import com.example.shosho.coupmix.view.BookView;
@@ -43,6 +44,8 @@ private SwipeRefreshLayout swipeRefreshLayout;
 RecyclerView recyclerViewCategory;
 HomeCategoryAdapter homeCategoryAdapter;
 
+RecyclerView recyclerViewFeatureProduct;
+HomeFeatureProductAdapter homeFeatureProductAdapter;
     View view;
     public HomeFragment() {
         // Required empty public constructor
@@ -59,10 +62,16 @@ HomeCategoryAdapter homeCategoryAdapter;
        recycle();
        banner();
        category();
+       featureProduct();
        swipRefresh();
 
         return view;
 
+    }
+
+    private void featureProduct() {
+        bookPresenter=new BookPresenter( getContext(),this );
+        bookPresenter.getBookResult( "ar","translation" );
     }
 
     private void swipRefresh() {
@@ -77,6 +86,7 @@ HomeCategoryAdapter homeCategoryAdapter;
                     swipeRefreshLayout.setRefreshing( true );
                     bookPresenter.getBookResult( "ar","slider" );
                     bookPresenter.getBookResult( "ar", "instit");
+                    bookPresenter.getBookResult( "ar","translation" );
                 }
             }
         } );
@@ -98,6 +108,7 @@ HomeCategoryAdapter homeCategoryAdapter;
     {
         recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
         recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
+        recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
     }
 
     @Override
@@ -117,6 +128,11 @@ HomeCategoryAdapter homeCategoryAdapter;
         homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
         recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3 ) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
+
+        homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
+        recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),3 ) );
+        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
+
         swipeRefreshLayout.setRefreshing( false );
 
 
@@ -135,6 +151,7 @@ HomeCategoryAdapter homeCategoryAdapter;
             swipeRefreshLayout.setRefreshing( true );
             bookPresenter.getBookResult( "ar","slider" );
             bookPresenter.getBookResult( "ar","instit" );
+            bookPresenter.getBookResult( "ar","translation" );
         }else
         {
             Toast.makeText( getContext(), R.string.NoNetworkAvailable, Toast.LENGTH_SHORT ).show();

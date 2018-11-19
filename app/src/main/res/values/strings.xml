@@ -21,5 +21,7 @@
     <string name="AboutCoupMix">About CoupMix</string>
     <string name="NoNetworkAvailable">لا يتوفر انترنت</string>
     <string name="Categories">Categories</string>
+    <string name="Search">Search</string>
+    <string name="FeaturesProducts">Features Products</string>
 
 </resources>
