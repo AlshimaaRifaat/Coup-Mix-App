@@ -16,4 +16,14 @@
     <string name="Categories">الفئات</string>
     <string name="Search">بحث</string>
     <string name="FeaturesProducts">ميزات المنتجات</string>
+    <string name="showDetails">اظهر التفاصيل</string>
+    <string name="Order">Order</string>
+    <string name="No">No.</string>
+    <string name="CancelOrder">Cancel Order</string>
+    <string name="Bookedon">Booked on</string>
+    <string name="Name">Name</string>
+    <string name="Address">Address</string>
+    <string name="Phone">Phone</string>
+    <string name="Email">Email</string>
+    <string name="Notes">Notes</string>
 </resources>

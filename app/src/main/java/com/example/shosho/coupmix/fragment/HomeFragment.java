@@ -30,13 +30,13 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements BookView,SwipeRefreshLayout.OnRefreshListener {
-RecyclerView recyclerViewBanner;
+//RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
-BannerAdapter bannerAdapter;
+//BannerAdapter bannerAdapter;
 
-int position;
+/*int position;
 List<BookData> banner =new ArrayList();
-boolean end;
+boolean end;*/
 
 NetworkConnection networkConnection;
 private SwipeRefreshLayout swipeRefreshLayout;
@@ -44,8 +44,8 @@ private SwipeRefreshLayout swipeRefreshLayout;
 RecyclerView recyclerViewCategory;
 HomeCategoryAdapter homeCategoryAdapter;
 
-RecyclerView recyclerViewFeatureProduct;
-HomeFeatureProductAdapter homeFeatureProductAdapter;
+//RecyclerView recyclerViewFeatureProduct;
+//HomeFeatureProductAdapter homeFeatureProductAdapter;
     View view;
     public HomeFragment() {
         // Required empty public constructor
@@ -60,19 +60,19 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
        swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh );
        networkConnection=new NetworkConnection( getContext() );
        recycle();
-       banner();
+      // banner();
        category();
-       featureProduct();
+      // featureProduct();
        swipRefresh();
 
         return view;
 
     }
 
-    private void featureProduct() {
+   /* private void featureProduct() {
         bookPresenter=new BookPresenter( getContext(),this );
         bookPresenter.getBookResult( "ar","translation" );
-    }
+    }*/
 
     private void swipRefresh() {
         swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_green_dark );
@@ -84,9 +84,9 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
                 if(networkConnection.isNetworkAvailable( getContext() ))
                 {
                     swipeRefreshLayout.setRefreshing( true );
-                    bookPresenter.getBookResult( "ar","slider" );
-                    bookPresenter.getBookResult( "ar", "instit");
-                    bookPresenter.getBookResult( "ar","translation" );
+                   // bookPresenter.getBookResult( "ar","slider" );
+                    bookPresenter.getBookResult( );
+                   // bookPresenter.getBookResult( "ar","translation" );
                 }
             }
         } );
@@ -94,26 +94,26 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
 
     private void category() {
         bookPresenter=new BookPresenter( getContext(),this );
-        bookPresenter.getBookResult( "ar","instit" );
+        bookPresenter.getBookResult(  );
 
 
     }
 
-    private void banner() {
+   /* private void banner() {
         bookPresenter=new BookPresenter( getContext(),this );
         bookPresenter.getBookResult( "ar","slider" );
-    }
+    }*/
 
     private void recycle()
     {
-        recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
+       // recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
         recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
-        recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
+       // recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
     }
 
     @Override
-    public void showBannerData(List<BookData> booksData) {
-        banner=booksData;
+    public void showData(List<BookData> booksData) {
+       /* banner=booksData;
         bannerAdapter=new BannerAdapter( getContext(),booksData );
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager( getContext() );
         linearLayoutManager.setOrientation( LinearLayoutManager.HORIZONTAL );
@@ -123,15 +123,15 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
         if(booksData.size()>1) {
             Timer timer = new Timer();
             timer.scheduleAtFixedRate( new AutoScrollTask(), 3000, 5000 );
-        }
+        }*/
 
         homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
-        recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3 ) );
+        recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
 
-        homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
-        recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),3 ) );
-        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
+       /* homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
+        recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
+        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );*/
 
         swipeRefreshLayout.setRefreshing( false );
 
@@ -149,9 +149,9 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
         if(networkConnection.isNetworkAvailable( getContext() ))
         {
             swipeRefreshLayout.setRefreshing( true );
-            bookPresenter.getBookResult( "ar","slider" );
-            bookPresenter.getBookResult( "ar","instit" );
-            bookPresenter.getBookResult( "ar","translation" );
+          //  bookPresenter.getBookResult( "ar","slider" );
+            bookPresenter.getBookResult(  );
+           // bookPresenter.getBookResult( "ar","translation" );
         }else
         {
             Toast.makeText( getContext(), R.string.NoNetworkAvailable, Toast.LENGTH_SHORT ).show();
@@ -159,7 +159,7 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
 
     }
 
-    public class AutoScrollTask extends TimerTask
+   /* public class AutoScrollTask extends TimerTask
     {
 
         @Override
@@ -181,5 +181,5 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
             }
             recyclerViewBanner.smoothScrollToPosition( position );
         }
-    }
+    }*/
 }

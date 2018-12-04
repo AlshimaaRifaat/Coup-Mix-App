@@ -23,5 +23,15 @@
     <string name="Categories">Categories</string>
     <string name="Search">Search</string>
     <string name="FeaturesProducts">Features Products</string>
+    <string name="showDetails">show Details</string>
+    <string name="Order">Order</string>
+    <string name="No">No.</string>
+    <string name="CancelOrder">Cancel Order</string>
+    <string name="Bookedon">Booked on</string>
+    <string name="Name">Name</string>
+    <string name="Address">Address</string>
+    <string name="Phone">Phone</string>
+    <string name="Email">Email</string>
+    <string name="Notes">Notes</string>
 
 </resources>
