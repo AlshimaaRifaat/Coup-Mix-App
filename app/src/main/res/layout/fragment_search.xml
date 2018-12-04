@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8e8ea"
+    tools:context=".fragment.SearchFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+  <!--  <Spinner
+        android:id="@+id/search_location_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_120sdp"
+        android:background="#fff"
+        android:layout_marginLeft="@dimen/_17sdp"
+        android:layout_marginRight="@dimen/_17sdp"
+        android:layout_marginBottom="@dimen/_10sdp"></Spinner>
+
+    <Spinner
+        android:id="@+id/search_brand_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="#fff"
+        android:layout_marginLeft="@dimen/_17sdp"
+        android:layout_marginRight="@dimen/_17sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_below="@+id/search_location_spinner"></Spinner>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_120sdp"
+        android:text="@string/Search"
+        android:textColor="#fff"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_17sdp"
+        android:layout_marginRight="@dimen/_17sdp"
+        android:background="@drawable/button"
+        android:layout_below="@+id/search_brand_spinner"
+        android:id="@+id/search_btn"
+        />
+-->
+</RelativeLayout>

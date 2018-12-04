@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_220sdp"
+    android:layout_margin="@dimen/_1sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_2sdp"
+        android:orientation="vertical">
+    <ImageView
+        android:id="@+id/row_category_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_85sdp"
+        android:background="#e62c2c"
+        />
+    <TextView
+    android:id="@+id/row_category_item_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:textStyle="bold"
+    android:textColor="#000"
+    android:textSize="@dimen/_17sdp"
+    android:text="title"/>
+        <TextView
+            android:id="@+id/row_category_item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_17sdp"
+            android:text="description"/>
+        <TextView
+            android:id="@+id/row_category_item_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="country"
+            android:textColor="#07aba7"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/row_category_item_discount_ratio"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_gravity="end"
+        android:text="discount ratio"
+        android:textColor="#000"
+        android:gravity="center"
+        android:textSize="@dimen/_12sdp"
+        android:background="@drawable/subtraction3"
+        android:layout_marginTop="@dimen/_140sdp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_170sdp"
+        android:background="@drawable/relative_category_item">
+        <Button
+            android:id="@+id/row_category_item_btn"
+            android:layout_width="@dimen/_105sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="@string/showDetails"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:textSize="@dimen/_13sdp"
+            android:background="@drawable/button_show_details"/>
+        <TextView
+            android:id="@+id/row_category_item_price_before_disc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/row_category_item_price_after_disc"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="price before"
+            android:textColor="#fff"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            />
+
+        <TextView
+            android:id="@+id/row_category_item_price_after_disc"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="price after"
+            android:textColor="#fff"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+           />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -17,8 +17,11 @@ import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.adapter.BannerAdapter;
 import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
+import com.example.shosho.coupmix.model.BannerData;
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.presenter.BannerPresenter;
 import com.example.shosho.coupmix.presenter.BookPresenter;
+import com.example.shosho.coupmix.view.BannerView;
 import com.example.shosho.coupmix.view.BookView;
 
 import java.util.ArrayList;
@@ -29,14 +32,16 @@ import java.util.TimerTask;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements BookView,SwipeRefreshLayout.OnRefreshListener {
-//RecyclerView recyclerViewBanner;
+public class HomeFragment extends Fragment implements BookView,SwipeRefreshLayout.OnRefreshListener,BannerView {
+RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
-//BannerAdapter bannerAdapter;
+BannerAdapter bannerAdapter;
 
-/*int position;
-List<BookData> banner =new ArrayList();
-boolean end;*/
+int position;
+List<BannerData> banners =new ArrayList();
+boolean end;
+BannerPresenter bannerPresenter;
+
 
 NetworkConnection networkConnection;
 private SwipeRefreshLayout swipeRefreshLayout;
@@ -60,7 +65,7 @@ HomeCategoryAdapter homeCategoryAdapter;
        swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh );
        networkConnection=new NetworkConnection( getContext() );
        recycle();
-      // banner();
+       banner();
        category();
       // featureProduct();
        swipRefresh();
@@ -84,7 +89,7 @@ HomeCategoryAdapter homeCategoryAdapter;
                 if(networkConnection.isNetworkAvailable( getContext() ))
                 {
                     swipeRefreshLayout.setRefreshing( true );
-                   // bookPresenter.getBookResult( "ar","slider" );
+                    bannerPresenter.getBannerResult();
                     bookPresenter.getBookResult( );
                    // bookPresenter.getBookResult( "ar","translation" );
                 }
@@ -99,14 +104,14 @@ HomeCategoryAdapter homeCategoryAdapter;
 
     }
 
-   /* private void banner() {
-        bookPresenter=new BookPresenter( getContext(),this );
-        bookPresenter.getBookResult( "ar","slider" );
-    }*/
+    private void banner() {
+        bannerPresenter=new BannerPresenter( getContext(),this );
+        bannerPresenter.getBannerResult();
+    }
 
     private void recycle()
     {
-       // recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
+        recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
         recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
        // recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
     }
@@ -139,6 +144,23 @@ HomeCategoryAdapter homeCategoryAdapter;
     }
 
     @Override
+    public void showBannerData(List<BannerData> bannersData) {
+        banners=bannersData;
+        bannerAdapter=new BannerAdapter( getContext(),bannersData );
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager( getContext() );
+        linearLayoutManager.setOrientation( LinearLayoutManager.HORIZONTAL );
+        recyclerViewBanner.setLayoutManager( linearLayoutManager );
+        recyclerViewBanner.setAdapter( bannerAdapter );
+
+        if(bannersData.size()>1) {
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate( new AutoScrollTask(), 3000, 5000 );
+        }
+        swipeRefreshLayout.setRefreshing( false );
+    }
+
+
+    @Override
     public void error() {
         swipeRefreshLayout.setRefreshing( false );
 
@@ -159,12 +181,12 @@ HomeCategoryAdapter homeCategoryAdapter;
 
     }
 
-   /* public class AutoScrollTask extends TimerTask
+    public class AutoScrollTask extends TimerTask
     {
 
         @Override
         public void run() {
-            if(position==banner.size()-1)
+            if(position==banners.size()-1)
             {
                 end=true;
             }else if(position==0)
@@ -181,5 +203,5 @@ HomeCategoryAdapter homeCategoryAdapter;
             }
             recyclerViewBanner.smoothScrollToPosition( position );
         }
-    }*/
+    }
 }

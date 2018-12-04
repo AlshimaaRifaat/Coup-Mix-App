@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/Home" />
+        <item
+            android:id="@+id/nav_category"
+            android:icon="@drawable/box"
+            android:title="@string/Category" />
+        <item
+            android:id="@+id/nav_brand"
+            android:icon="@drawable/layer1"
+            android:title="@string/Brand" />
+        <item
+            android:id="@+id/nav_my_orders"
+            android:icon="@drawable/orders"
+            android:title="@string/MyOrders" />
+        <item
+            android:id="@+id/nav_about_coup_mix"
+            android:icon="@drawable/faq"
+            android:title="@string/AboutCoupMix"/>
+    </group>
+
+
+
+</menu>
