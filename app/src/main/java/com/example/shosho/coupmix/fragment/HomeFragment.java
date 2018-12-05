@@ -19,10 +19,12 @@ import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
 import com.example.shosho.coupmix.model.BannerData;
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.model.SearchLocBrand;
 import com.example.shosho.coupmix.presenter.BannerPresenter;
 import com.example.shosho.coupmix.presenter.BookPresenter;
 import com.example.shosho.coupmix.view.BannerView;
 import com.example.shosho.coupmix.view.BookView;
+import com.example.shosho.coupmix.view.SearchLocBrandView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,8 @@ import java.util.TimerTask;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements BookView,SwipeRefreshLayout.OnRefreshListener,BannerView {
+public class HomeFragment extends Fragment implements
+        BookView,SwipeRefreshLayout.OnRefreshListener,BannerView,SearchLocBrandView {
 RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
 BannerAdapter bannerAdapter;
@@ -49,8 +52,8 @@ private SwipeRefreshLayout swipeRefreshLayout;
 RecyclerView recyclerViewCategory;
 HomeCategoryAdapter homeCategoryAdapter;
 
-//RecyclerView recyclerViewFeatureProduct;
-//HomeFeatureProductAdapter homeFeatureProductAdapter;
+RecyclerView recyclerViewFeatureProduct;
+HomeFeatureProductAdapter homeFeatureProductAdapter;
     View view;
     public HomeFragment() {
         // Required empty public constructor
@@ -67,17 +70,17 @@ HomeCategoryAdapter homeCategoryAdapter;
        recycle();
        banner();
        category();
-      // featureProduct();
+       featureProduct();
        swipRefresh();
 
         return view;
 
     }
 
-   /* private void featureProduct() {
+    private void featureProduct() {
         bookPresenter=new BookPresenter( getContext(),this );
-        bookPresenter.getBookResult( "ar","translation" );
-    }*/
+        bookPresenter.getBookResult(  );
+    }
 
     private void swipRefresh() {
         swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_green_dark );
@@ -102,6 +105,7 @@ HomeCategoryAdapter homeCategoryAdapter;
         bookPresenter.getBookResult(  );
 
 
+
     }
 
     private void banner() {
@@ -113,7 +117,7 @@ HomeCategoryAdapter homeCategoryAdapter;
     {
         recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
         recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
-       // recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
+        recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
     }
 
     @Override
@@ -131,15 +135,15 @@ HomeCategoryAdapter homeCategoryAdapter;
         }*/
 
         homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
+        homeCategoryAdapter.onClick( this );
         recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
 
-       /* homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
+        homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
         recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
-        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );*/
+        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
 
         swipeRefreshLayout.setRefreshing( false );
-
 
     }
 
@@ -171,14 +175,19 @@ HomeCategoryAdapter homeCategoryAdapter;
         if(networkConnection.isNetworkAvailable( getContext() ))
         {
             swipeRefreshLayout.setRefreshing( true );
-          //  bookPresenter.getBookResult( "ar","slider" );
+          // bookPresenter.getBookResult( "ar","slider" );
             bookPresenter.getBookResult(  );
-           // bookPresenter.getBookResult( "ar","translation" );
+            bookPresenter.getBookResult();
         }else
         {
             Toast.makeText( getContext(), R.string.NoNetworkAvailable, Toast.LENGTH_SHORT ).show();
         }
+    }
 
+    @Override
+    public void showSearhLocBrandPage(SearchLocBrand searchLocBrand) {
+        getFragmentManager().beginTransaction().replace( R.id.Content_navigation,new SearchLocBrandFragment() )
+                .addToBackStack( null ).commit();
     }
 
     public class AutoScrollTask extends TimerTask

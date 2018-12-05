@@ -11,7 +11,7 @@ import retrofit2.http.QueryMap;
 
 public interface Service {
     // /api_elshekh/Allpeotry/?api_token=100&lang=ar&section=book
-    @GET("15y75u")
+    @GET("umdwu")
     Call<BooksResponse> getBooksData();
 
     @GET("p0oc6")

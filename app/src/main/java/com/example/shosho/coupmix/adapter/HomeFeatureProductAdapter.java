@@ -15,10 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class HomeFeatureProductAdapter
-{
-
-       /* extends RecyclerView.Adapter<HomeFeatureProductAdapter.ViewHolder> {
+public class HomeFeatureProductAdapter extends RecyclerView.Adapter<HomeFeatureProductAdapter.ViewHolder> {
     private Context context;
     private List<BookData> booksData;
 
@@ -38,11 +35,11 @@ public class HomeFeatureProductAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Picasso.with( context ).load( "http://alhabib-abobakr.com/uploads/"+
-        booksData.get( position ).getCImg()).into(holder.imageView);
+        Picasso.with( context ).load(
+        booksData.get( position ).getFeatureProdImg()).into(holder.imageView);
 
-        holder.name.setText(booksData.get( position ).getCName());
-        holder.discount.setText(booksData.get( position ).getTitle()); //replaced title with date
+        holder.name.setText(booksData.get( position ).getFeatureProdName());
+        holder.discount.setText(booksData.get( position ).getDiscount());
 
     }
 
@@ -62,5 +59,5 @@ public class HomeFeatureProductAdapter
             discount=itemView.findViewById( R.id.row_home_feature_product_discount );
 
         }
-    }*/
+    }
 }

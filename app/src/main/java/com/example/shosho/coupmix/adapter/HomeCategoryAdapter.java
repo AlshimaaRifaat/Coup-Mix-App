@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.model.SearchLocBrand;
+import com.example.shosho.coupmix.view.SearchLocBrandView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.List;
 public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder> {
     private Context context;
     private List<BookData> booksData;
-
+    SearchLocBrandView searchLocBrandView;
     public HomeCategoryAdapter(Context context, List<BookData> booksData) {
         this.context = context;
         this.booksData = booksData;
@@ -31,16 +33,28 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         View view=LayoutInflater.from( context ).inflate(R.layout.row_home_category,parent,false);
         return new HomeCategoryAdapter.ViewHolder(view);
     }
-
+    public void onClick(SearchLocBrandView searchLocBrandView)
+    {
+        this.searchLocBrandView=searchLocBrandView;
+    }
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Picasso.with( context ).load(
                 booksData.get( position ).getIconUrl() ).into(holder.imageView);
 
-        holder.name.setText(booksData.get( position ).getName());
+        holder.name.setText(booksData.get( position ).getCatName());
         Typeface customFontLight=Typeface.createFromAsset( context.getAssets()
                 ,"Fonts/SST Arabic Light.ttf" );
         holder.name.setTypeface( customFontLight );
+
+        holder.itemView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchLocBrand searchLocBrand=new SearchLocBrand();
+                searchLocBrand.setID( booksData.get( position ).getCatID() );
+                searchLocBrandView.showSearhLocBrandPage( searchLocBrand );
+            }
+        } );
     }
 
     @Override

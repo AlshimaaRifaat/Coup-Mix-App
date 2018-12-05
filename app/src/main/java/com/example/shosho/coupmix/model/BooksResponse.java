@@ -4,8 +4,11 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BooksResponse {
+import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class BooksResponse {
 
     @SerializedName("Cat")
     @Expose
@@ -18,4 +21,5 @@ public class BooksResponse {
     public void setCat(List<BookData> cat) {
         this.cat = cat;
     }
+
 }

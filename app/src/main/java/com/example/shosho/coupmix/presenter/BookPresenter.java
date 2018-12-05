@@ -19,9 +19,9 @@ public class BookPresenter {
     Context context;
     BookView bookView;
 
-    public BookPresenter(Context context, BookView pictureView) {
+    public BookPresenter(Context context, BookView bookView) {
         this.context = context;
-        this.bookView = pictureView;
+        this.bookView = bookView;
     }
 
     public void getBookResult() {
