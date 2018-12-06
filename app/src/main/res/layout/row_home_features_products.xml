@@ -44,6 +44,56 @@
         android:textSize="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:textColor="#9c9898"/>
+    <TextView
+        android:id="@+id/row_home_feature_product_coupon_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text coupon details"
+        android:layout_marginTop="@dimen/_22sdp"
+       android:layout_toEndOf="@id/row_home_feature_product_name"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_7sdp"
+        android:textColor="#000"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/row_home_feature_product_features_offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text features offer"
+        android:layout_toEndOf="@id/row_home_feature_product_discount"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_7sdp"
+        android:textColor="#000"
+        android:layout_below="@+id/row_home_feature_product_coupon_details"
+       android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/row_home_feature_product_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text country"
+        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_toEndOf="@id/row_home_feature_product_coupon_details"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_7sdp"
+        android:textColor="#000"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/row_home_feature_product_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text phone"
+        android:layout_toEndOf="@id/row_home_feature_product_features_offer"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_7sdp"
+        android:textColor="#000"
+        android:layout_below="@+id/row_home_feature_product_coupon_details"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
+        />
 </RelativeLayout>
 
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.model.BookData;
 import com.example.shosho.coupmix.model.SearchLocBrand;
+import com.example.shosho.coupmix.view.DetailsProductView;
 import com.example.shosho.coupmix.view.SearchLocBrandView;
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +23,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
     private Context context;
     private List<BookData> booksData;
     SearchLocBrandView searchLocBrandView;
+
     public HomeCategoryAdapter(Context context, List<BookData> booksData) {
         this.context = context;
         this.booksData = booksData;

@@ -126,7 +126,7 @@ if(item.isChecked())
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace( R.id.Content_navigation,fragment ).commit();
+        fragmentTransaction.replace( R.id.content_navigation,fragment ).commit();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );

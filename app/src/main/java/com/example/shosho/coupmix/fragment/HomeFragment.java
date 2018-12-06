@@ -19,11 +19,13 @@ import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
 import com.example.shosho.coupmix.model.BannerData;
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.model.ProductDetails;
 import com.example.shosho.coupmix.model.SearchLocBrand;
 import com.example.shosho.coupmix.presenter.BannerPresenter;
 import com.example.shosho.coupmix.presenter.BookPresenter;
 import com.example.shosho.coupmix.view.BannerView;
 import com.example.shosho.coupmix.view.BookView;
+import com.example.shosho.coupmix.view.DetailsProductView;
 import com.example.shosho.coupmix.view.SearchLocBrandView;
 
 import java.util.ArrayList;
@@ -35,7 +37,7 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements
-        BookView,SwipeRefreshLayout.OnRefreshListener,BannerView,SearchLocBrandView {
+        BookView,SwipeRefreshLayout.OnRefreshListener,BannerView,SearchLocBrandView,DetailsProductView {
 RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
 BannerAdapter bannerAdapter;
@@ -140,6 +142,7 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
 
         homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
+        homeFeatureProductAdapter.onClick( this );
         recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
         recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
 
@@ -186,7 +189,23 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
 
     @Override
     public void showSearhLocBrandPage(SearchLocBrand searchLocBrand) {
-        getFragmentManager().beginTransaction().replace( R.id.Content_navigation,new SearchLocBrandFragment() )
+        getFragmentManager().beginTransaction().replace( R.id.content_navigation,new SearchLocBrandFragment() )
+                .addToBackStack( null ).commit();
+    }
+
+    @Override
+    public void showProductDetails(ProductDetails productDetails) {
+        DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
+        Bundle bundle=new Bundle( );
+        bundle.putString( "image" ,productDetails.getImage());
+        bundle.putString( "name" ,productDetails.getName());
+        bundle.putString( "discount" ,productDetails.getDiscount());
+        bundle.putString( "couponDetails" ,productDetails.getCouponDetails() );
+        bundle.putString( "featuresOffer" ,productDetails.getFeaturesOffer() );
+        bundle.putString( "country" ,productDetails.getCountry() );
+        bundle.putString( "phone" ,productDetails.getPhone() );
+        detailsCategoryItemFragment.setArguments( bundle );
+        getFragmentManager().beginTransaction().replace( R.id.content_navigation,detailsCategoryItemFragment )
                 .addToBackStack( null ).commit();
     }
 
