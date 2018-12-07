@@ -13,6 +13,7 @@
         android:id="@+id/row_category_item_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_85sdp"
+        android:scaleType="fitXY"
         android:background="#e62c2c"
         />
     <TextView

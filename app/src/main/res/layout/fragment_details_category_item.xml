@@ -14,6 +14,7 @@
             android:id="@+id/details_category_item_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_140sdp"
+            android:scaleType="fitXY"
             android:background="#da0d0d"
            />
         <android.support.v7.widget.CardView

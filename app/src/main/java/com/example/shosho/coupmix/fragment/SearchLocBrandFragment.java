@@ -11,14 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.adapter.MySpinnerAdapter;
 import com.example.shosho.coupmix.model.BookData;
 import com.example.shosho.coupmix.presenter.BookPresenter;
 import com.example.shosho.coupmix.view.BookView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +33,8 @@ ArrayAdapter<BookData> booksAdapter;
 BookPresenter bookPresenter;
 Spinner locationSpinner;
 String Model,ModelID;
+MySpinnerAdapter mySpinnerAdapter;
+Button searchBtn;
     public SearchLocBrandFragment() {
         // Required empty public constructor
     }
@@ -42,50 +48,64 @@ String Model,ModelID;
      init();
      bookPresenter=new BookPresenter( getContext(),this );
         bookPresenter.getBookResult();
+        searchBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace( R.id.content_navigation,new CategoryItemFragment() )
+                        .addToBackStack( null ).commit();
+
+            }
+        } );
        return view;
     }
 
-    private void init() {
+    private void init()
+    {
         locationSpinner=view.findViewById( R.id.search_location_spinner );
+        searchBtn=view.findViewById( R.id.search_btn );
     }
-
-
-
 
 
     @Override
     public void showData(final List<BookData> booksData) {
-        booksAdapter=new ArrayAdapter<BookData>( getContext(),R.layout.spinner_text_item,booksData )
+        ArrayList<String> locations=new ArrayList<>(  );
+        for(int i=0;i<booksData.size();i++)
         {
-            @Override
-            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                TextView textView=(TextView)super.getDropDownView( position,convertView,parent );
-                textView.setTextColor( Color.BLACK );
-                return textView;
-            }
-        };
-        booksAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item );
-        locationSpinner.setOnItemSelectedListener(this  );
-        locationSpinner.setAdapter( booksAdapter );
+            locations.add( booksData.get( i ).getLocation() );
+        }
+
+        mySpinnerAdapter =new MySpinnerAdapter( getContext(), android.R.layout.simple_list_item_1);
+        mySpinnerAdapter.addAll( locations );
+        mySpinnerAdapter.add( "Location");
+        locationSpinner.setAdapter( mySpinnerAdapter );
+        locationSpinner.setSelection( mySpinnerAdapter.getCount() );
         locationSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Model=locationSpinner.getSelectedItem().toString();
-                for (i=0;i<booksData.size();i++)
+                if (locationSpinner.getSelectedItem()=="Location")
                 {
-                    if(booksData.get(i).getLocation().equals( Model ))
+
+                }
+                else
+                {
+                    Model=locationSpinner.getSelectedItem().toString();
+                    for (i=0;i<booksData.size();i++)
                     {
-                        ModelID=booksData.get(i).getCatID();
+                        if(booksData.get(i).getLocation().equals( Model ))
+                        {
+                            ModelID=booksData.get(i).getCatID();
+                        }
                     }
                 }
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });
+        } );
+
+
 
     }
     @Override

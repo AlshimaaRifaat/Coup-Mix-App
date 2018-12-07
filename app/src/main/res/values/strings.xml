@@ -33,5 +33,6 @@
     <string name="Phone">Phone</string>
     <string name="Email">Email</string>
     <string name="Notes">Notes</string>
+    <string name="Location">Location</string>
 
 </resources>

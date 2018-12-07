@@ -1,10 +1,12 @@
 package com.example.shosho.coupmix.presenter;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
+import com.example.shosho.coupmix.fragment.HomeFragment;
 import com.example.shosho.coupmix.model.BooksResponse;
 import com.example.shosho.coupmix.view.BookView;
 
@@ -32,6 +34,8 @@ public class BookPresenter {
             @Override
             public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
                 if (response.isSuccessful()) {
+
+                    HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
                     bookView.showData( response.body().getCat() );
                 }
             }
@@ -39,6 +43,7 @@ public class BookPresenter {
             @Override
             public void onFailure(Call<BooksResponse> call, Throwable t) {
                 bookView.error();
+
                 Toast.makeText( context, "غير متصل بالانترنت ,من فضلك تاكد من اتصالك بالانترنت", Toast.LENGTH_SHORT ).show();
             }
         } );

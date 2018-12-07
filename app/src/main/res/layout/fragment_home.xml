@@ -5,10 +5,15 @@
     android:layout_height="match_parent"
     android:id="@+id/home_swip_refresh"
     tools:context=".fragment.HomeFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/home_scroll">
 <RelativeLayout
 
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
   <android.support.v7.widget.RecyclerView
        android:layout_width="match_parent"
@@ -25,8 +30,8 @@
     android:layout_marginLeft="@dimen/_2sdp"
     android:layout_marginRight="@dimen/_2sdp"
     android:layout_below="@+id/home_recycler_banner"
-    android:layout_marginTop="@dimen/_2sdp"
-    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
     >
 
     <TextView
@@ -35,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Categories"
         android:textSize="@dimen/_13sdp"
-        android:textColor="#959595"
+        android:textColor="#4c4d4f"
         android:layout_below="@+id/home_recycler_banner"
         android:layout_margin="@dimen/_5sdp"/>
 
@@ -50,12 +55,12 @@
     <android.support.v7.widget.CardView
         android:id="@+id/home_card_view_features_products"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#fff"
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_marginRight="@dimen/_2sdp"
         android:layout_below="@+id/home_card_view_category"
-        android:layout_marginBottom="@dimen/_2sdp">
+        >
 
         <TextView
             android:id="@+id/home_features_products_text"
@@ -63,14 +68,15 @@
             android:layout_height="wrap_content"
             android:text="@string/FeaturesProducts"
             android:textSize="@dimen/_13sdp"
-            android:textColor="#959595"
+            android:textColor="#4c4d4f"
             android:layout_margin="@dimen/_5sdp"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/home_recycler_view_features_products"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_30sdp"
             android:layout_below="@+id/home_features_products_text"></android.support.v7.widget.RecyclerView>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
+    </ScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

@@ -33,7 +33,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull BannerAdapter.ViewHolder holder, int position) {
-        Picasso.with( context ).load( "http://alhabib-abobakr.com/uploads/"
+        Picasso.with( context ).load( "http://coupomix.com/uploads/"
                 +bannersData.get( position ).getCImg() ).into(holder.imageView);
     }
 

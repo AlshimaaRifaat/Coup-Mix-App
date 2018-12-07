@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.NetworkConnection;
@@ -42,6 +43,8 @@ RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
 BannerAdapter bannerAdapter;
 
+public static ScrollView scrollViewHome;
+
 int position;
 List<BannerData> banners =new ArrayList();
 boolean end;
@@ -69,7 +72,8 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
        view= inflater.inflate( R.layout.fragment_home, container, false );
        swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh );
        networkConnection=new NetworkConnection( getContext() );
-       recycle();
+
+       init();
        banner();
        category();
        featureProduct();
@@ -115,8 +119,9 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
         bannerPresenter.getBannerResult();
     }
 
-    private void recycle()
+    private void init()
     {
+        scrollViewHome=view.findViewById( R.id.home_scroll );
         recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
         recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
         recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );

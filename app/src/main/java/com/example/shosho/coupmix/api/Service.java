@@ -14,7 +14,7 @@ public interface Service {
     @GET("umdwu")
     Call<BooksResponse> getBooksData();
 
-    @GET("p0oc6")
+    @GET("api/slider/")
     Call<BannerResponse>getBannerData();
 
 
