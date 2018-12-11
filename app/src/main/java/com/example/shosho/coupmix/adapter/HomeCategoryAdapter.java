@@ -10,19 +10,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.model.BookData;
-import com.example.shosho.coupmix.model.SearchLocBrand;
-import com.example.shosho.coupmix.view.DetailsProductView;
-import com.example.shosho.coupmix.view.SearchLocBrandView;
+import com.example.shosho.coupmix.model.SearchLocBrandData;
+import com.example.shosho.coupmix.view.OnClickItemCategoryView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
+import com.example.shosho.coupmix.R;
 public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder> {
     private Context context;
     private List<BookData> booksData;
-    SearchLocBrandView searchLocBrandView;
+    OnClickItemCategoryView onClickItemCategoryView;
 
     public HomeCategoryAdapter(Context context, List<BookData> booksData) {
         this.context = context;
@@ -35,16 +33,16 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         View view=LayoutInflater.from( context ).inflate(R.layout.row_home_category,parent,false);
         return new HomeCategoryAdapter.ViewHolder(view);
     }
-    public void onClick(SearchLocBrandView searchLocBrandView)
+    public void onClick(OnClickItemCategoryView onClickItemCategoryView)
     {
-        this.searchLocBrandView=searchLocBrandView;
+        this.onClickItemCategoryView=onClickItemCategoryView;
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Picasso.with( context ).load(
-                booksData.get( position ).getIconUrl() ).into(holder.imageView);
+        Picasso.with( context ).load("http://coupomix.com/"+
+                booksData.get( position ).getImage() ).into(holder.imageView);
 
-        holder.name.setText(booksData.get( position ).getCatName());
+        holder.name.setText(booksData.get( position ).getTitle());
         Typeface customFontLight=Typeface.createFromAsset( context.getAssets()
                 ,"Fonts/SST Arabic Light.ttf" );
         holder.name.setTypeface( customFontLight );
@@ -52,9 +50,9 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SearchLocBrand searchLocBrand=new SearchLocBrand();
-                searchLocBrand.setID( booksData.get( position ).getCatID() );
-                searchLocBrandView.showSearhLocBrandPage( searchLocBrand );
+                SearchLocBrandData searchLocBrandData=new SearchLocBrandData();
+             //   searchLocBrand.setID( booksData.get( position ).getId() );
+                onClickItemCategoryView.showOnClickItemCategoryResult( searchLocBrandData );
             }
         } );
     }

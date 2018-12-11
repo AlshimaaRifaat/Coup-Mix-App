@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
 import com.example.shosho.coupmix.fragment.HomeFragment;
@@ -26,25 +27,26 @@ public class BookPresenter {
         this.bookView = bookView;
     }
 
-    public void getBookResult() {
-
+    public void getBookResult(String Lang) {
+        Map<String,String> map=new HashMap<>(  );
+        map.put( "lang","en" );
         Service service = Client.getClient().create( Service.class );
-        Call<BooksResponse> call = service.getBooksData(  );
+        Call<BooksResponse> call = service.getBooksData(  map);
         call.enqueue( new Callback<BooksResponse>() {
             @Override
             public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
                 if (response.isSuccessful()) {
 
                     HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
-                    bookView.showData( response.body().getCat() );
+                    bookView.showData( response.body().getData() );
                 }
             }
 
             @Override
             public void onFailure(Call<BooksResponse> call, Throwable t) {
                 bookView.error();
-
-                Toast.makeText( context, "غير متصل بالانترنت ,من فضلك تاكد من اتصالك بالانترنت", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( context, R.string.NoNetworkAvailable,
+                        Toast.LENGTH_SHORT).show();
             }
         } );
 

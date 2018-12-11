@@ -20,14 +20,17 @@ import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
 import com.example.shosho.coupmix.model.BannerData;
 import com.example.shosho.coupmix.model.BookData;
-import com.example.shosho.coupmix.model.ProductDetails;
-import com.example.shosho.coupmix.model.SearchLocBrand;
+import com.example.shosho.coupmix.model.FeatureProductData;
+import com.example.shosho.coupmix.model.FeatureProductDetails;
+import com.example.shosho.coupmix.model.SearchLocBrandData;
 import com.example.shosho.coupmix.presenter.BannerPresenter;
 import com.example.shosho.coupmix.presenter.BookPresenter;
+import com.example.shosho.coupmix.presenter.FeatureProductPresenter;
 import com.example.shosho.coupmix.view.BannerView;
 import com.example.shosho.coupmix.view.BookView;
-import com.example.shosho.coupmix.view.DetailsProductView;
-import com.example.shosho.coupmix.view.SearchLocBrandView;
+import com.example.shosho.coupmix.view.OnClickItemFeatureProductView;
+import com.example.shosho.coupmix.view.FeatureProductView;
+import com.example.shosho.coupmix.view.OnClickItemCategoryView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +41,8 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements
-        BookView,SwipeRefreshLayout.OnRefreshListener,BannerView,SearchLocBrandView,DetailsProductView {
+        BookView,SwipeRefreshLayout.OnRefreshListener,
+        BannerView,OnClickItemCategoryView,OnClickItemFeatureProductView,FeatureProductView {
 RecyclerView recyclerViewBanner;
 BookPresenter bookPresenter;
 BannerAdapter bannerAdapter;
@@ -59,6 +63,8 @@ HomeCategoryAdapter homeCategoryAdapter;
 
 RecyclerView recyclerViewFeatureProduct;
 HomeFeatureProductAdapter homeFeatureProductAdapter;
+
+FeatureProductPresenter featureProductPresenter;
     View view;
     public HomeFragment() {
         // Required empty public constructor
@@ -84,8 +90,8 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
     }
 
     private void featureProduct() {
-        bookPresenter=new BookPresenter( getContext(),this );
-        bookPresenter.getBookResult(  );
+        featureProductPresenter=new FeatureProductPresenter( getContext(),this );
+        featureProductPresenter.getFeatureProductResult("en"  );
     }
 
     private void swipRefresh() {
@@ -99,8 +105,8 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
                 {
                     swipeRefreshLayout.setRefreshing( true );
                     bannerPresenter.getBannerResult();
-                    bookPresenter.getBookResult( );
-                   // bookPresenter.getBookResult( "ar","translation" );
+                    bookPresenter.getBookResult( "en");
+                    featureProductPresenter.getFeatureProductResult( "en" );
                 }
             }
         } );
@@ -108,7 +114,7 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
 
     private void category() {
         bookPresenter=new BookPresenter( getContext(),this );
-        bookPresenter.getBookResult(  );
+        bookPresenter.getBookResult( "en" );
 
 
 
@@ -146,17 +152,23 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
         recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
 
-        homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
+        /*homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
         homeFeatureProductAdapter.onClick( this );
         recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
         recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
 
-        swipeRefreshLayout.setRefreshing( false );
+        swipeRefreshLayout.setRefreshing( false );*/
+
+    }
+
+    @Override
+    public void showBrandData(List<BookData> booksData) {
 
     }
 
     @Override
     public void showBannerData(List<BannerData> bannersData) {
+
         banners=bannersData;
         bannerAdapter=new BannerAdapter( getContext(),bannersData );
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager( getContext() );
@@ -173,6 +185,17 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
 
 
     @Override
+    public void showFeaturesProductsData(List<FeatureProductData> featuresProductsData) {
+        homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),featuresProductsData );
+        homeFeatureProductAdapter.onClick( this );
+        recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
+        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
+
+        swipeRefreshLayout.setRefreshing( false );
+
+    }
+
+    @Override
     public void error() {
         swipeRefreshLayout.setRefreshing( false );
 
@@ -183,32 +206,36 @@ HomeFeatureProductAdapter homeFeatureProductAdapter;
         if(networkConnection.isNetworkAvailable( getContext() ))
         {
             swipeRefreshLayout.setRefreshing( true );
-          // bookPresenter.getBookResult( "ar","slider" );
-            bookPresenter.getBookResult(  );
-            bookPresenter.getBookResult();
+            bookPresenter.getBookResult("en"  );
+            featureProductPresenter.getFeatureProductResult("en"  );
+
         }else
         {
             Toast.makeText( getContext(), R.string.NoNetworkAvailable, Toast.LENGTH_SHORT ).show();
         }
     }
 
+
+
+
+
     @Override
-    public void showSearhLocBrandPage(SearchLocBrand searchLocBrand) {
+    public void showOnClickItemCategoryResult(SearchLocBrandData searchLocBrandData) {
         getFragmentManager().beginTransaction().replace( R.id.content_navigation,new SearchLocBrandFragment() )
                 .addToBackStack( null ).commit();
     }
 
     @Override
-    public void showProductDetails(ProductDetails productDetails) {
+    public void showOnClickItemFeatureProductResult(FeatureProductDetails featureProductDetails) {
         DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
         Bundle bundle=new Bundle( );
-        bundle.putString( "image" ,productDetails.getImage());
-        bundle.putString( "name" ,productDetails.getName());
-        bundle.putString( "discount" ,productDetails.getDiscount());
-        bundle.putString( "couponDetails" ,productDetails.getCouponDetails() );
-        bundle.putString( "featuresOffer" ,productDetails.getFeaturesOffer() );
-        bundle.putString( "country" ,productDetails.getCountry() );
-        bundle.putString( "phone" ,productDetails.getPhone() );
+        bundle.putString( "image" ,featureProductDetails.getImage());
+        bundle.putString( "name" ,featureProductDetails.getName());
+        bundle.putString( "discount" ,featureProductDetails.getDiscount());
+        bundle.putString( "couponDetails" ,featureProductDetails.getCouponDetails() );
+        bundle.putString( "featuresOffer" ,featureProductDetails.getFeaturesOffer() );
+        bundle.putString( "country" ,featureProductDetails.getCountry() );
+        bundle.putString( "phone" ,featureProductDetails.getPhone() );
         detailsCategoryItemFragment.setArguments( bundle );
         getFragmentManager().beginTransaction().replace( R.id.content_navigation,detailsCategoryItemFragment )
                 .addToBackStack( null ).commit();

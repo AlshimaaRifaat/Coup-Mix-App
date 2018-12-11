@@ -10,7 +10,7 @@
     android:orientation="horizontal">-->
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_75sdp"
+    android:layout_height="wrap_content"
     android:background="#f0f2f1"
     android:layout_margin="@dimen/_1sdp">
     <ImageView
@@ -21,17 +21,18 @@
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
+        android:scaleType="fitXY"
         />
     <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">-->
     <TextView
-        android:id="@+id/row_home_feature_product_name"
+        android:id="@+id/row_home_feature_product_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/row_home_feature_product_image"
-        android:text="name"
+        android:text="title"
         android:layout_marginTop="@dimen/_22sdp"
         android:textSize="@dimen/_12sdp"
         android:textColor="#505455"
@@ -40,7 +41,7 @@
         android:id="@+id/row_home_feature_product_discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/row_home_feature_product_name"
+        android:layout_below="@+id/row_home_feature_product_title"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_toEndOf="@+id/row_home_feature_product_image"
         android:text="description"
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="text coupon details"
         android:layout_marginTop="@dimen/_22sdp"
-       android:layout_toEndOf="@id/row_home_feature_product_name"
+       android:layout_toEndOf="@id/row_home_feature_product_title"
         android:textSize="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:textColor="#000"

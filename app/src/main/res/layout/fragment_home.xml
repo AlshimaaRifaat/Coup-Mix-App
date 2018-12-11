@@ -59,6 +59,7 @@
         android:background="#fff"
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_marginRight="@dimen/_2sdp"
+
         android:layout_below="@+id/home_card_view_category"
         >
 

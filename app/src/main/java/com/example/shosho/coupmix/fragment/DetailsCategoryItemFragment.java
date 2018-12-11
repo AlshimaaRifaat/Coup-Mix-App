@@ -1,6 +1,7 @@
 package com.example.shosho.coupmix.fragment;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,9 +16,9 @@ import com.squareup.picasso.Picasso;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class    DetailsCategoryItemFragment extends Fragment {
+public class DetailsCategoryItemFragment extends Fragment {
 ImageView imageView;
-TextView name;
+TextView title;
 TextView discount;
 TextView couponDetails;
 TextView featuresOffer;
@@ -36,12 +37,12 @@ View view;
         // Inflate the layout for this fragment
         view=inflater.inflate( R.layout.fragment_details_category_item, container, false );
         imageView=view.findViewById( R.id.details_category_item_image );
-        name=view.findViewById( R.id.details_category_item_text_name );
-        discount=view.findViewById( R.id.details_category_item_text_discount );
-        couponDetails=view.findViewById( R.id.details_category_item_text_coupon_details );
-        featuresOffer=view.findViewById( R.id.details_category_item_text_features_offer);
-        country =view.findViewById( R.id.details_category_item_text_country);
-        phone=view.findViewById( R.id.details_category_item_text_phone);
+        title=view.findViewById( R.id.details_category_item_text_title );
+       discount=view.findViewById( R.id.details_category_item_text_discount );
+       couponDetails=view.findViewById( R.id.details_category_item_text_coupon_details );
+       featuresOffer=view.findViewById( R.id.details_category_item_text_features_offer);
+      country =view.findViewById( R.id.details_category_item_text_country);
+       phone=view.findViewById( R.id.details_category_item_text_phone);
         Bundle bundle=this.getArguments();
         if(bundle!=null)
         {
@@ -54,12 +55,22 @@ View view;
             String Phone=bundle.getString("phone");
 
             Picasso.with( getContext() )
-                    .load( Image ).into(imageView);
-            name.setText(Name);
+                    .load( "http://coupomix.com/"+Image ).into(imageView);
+            title.setText(Name);
             discount.setText( Discount );
-            couponDetails.setText(CouponDetails);
+
+            Typeface customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
+            couponDetails.setTypeface( customFontLight );
+            couponDetails.setText( CouponDetails );
+
+             customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
+            featuresOffer.setTypeface( customFontLight );
             featuresOffer.setText(FeaturesOffer);
+
+            customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
+            country.setTypeface( customFontLight );
             country.setText(Country);
+
             phone.setText(Phone);
         }
         return view;

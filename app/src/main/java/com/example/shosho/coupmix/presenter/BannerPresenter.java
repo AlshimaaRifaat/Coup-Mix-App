@@ -2,10 +2,14 @@ package com.example.shosho.coupmix.presenter;
 
 import android.content.Context;
 
+import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
 import com.example.shosho.coupmix.model.BannerResponse;
 import com.example.shosho.coupmix.view.BannerView;
+import com.example.shosho.coupmix.fragment.HomeFragment;
+import android.view.View;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -31,13 +35,17 @@ public class BannerPresenter {
             public void onResponse(Call<BannerResponse> call, Response<BannerResponse> response) {
                 if(response.isSuccessful())
                 {
+                    HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
                     bannerView.showBannerData( response.body().getData() );
                 }
             }
 
             @Override
             public void onFailure(Call<BannerResponse> call, Throwable t) {
-               bannerView.error();
+
+                bannerView.error();
+                Toast.makeText( context, R.string.NoNetworkAvailable,
+                        Toast.LENGTH_SHORT).show();
             }
         } );
     }
