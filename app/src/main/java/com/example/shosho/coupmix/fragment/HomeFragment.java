@@ -237,7 +237,8 @@ FeatureProductPresenter featureProductPresenter;
         bundle.putString( "country" ,featureProductDetails.getCountry() );
         bundle.putString( "phone" ,featureProductDetails.getPhone() );
         detailsCategoryItemFragment.setArguments( bundle );
-        getFragmentManager().beginTransaction().replace( R.id.content_navigation,detailsCategoryItemFragment )
+        getFragmentManager().beginTransaction()
+                .replace( R.id.content_navigation,detailsCategoryItemFragment )
                 .addToBackStack( null ).commit();
     }
 

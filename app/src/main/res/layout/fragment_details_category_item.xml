@@ -16,6 +16,7 @@
             android:layout_height="@dimen/_140sdp"
             android:scaleType="fitXY"
             android:background="#da0d0d"
+            android:visibility="gone"
             />
         <android.support.v7.widget.CardView
             android:id="@+id/details_category_item_card_title"
@@ -147,6 +148,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/details_category_item_text_direction"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:textColor="#474e54"
@@ -160,22 +162,27 @@
                     android:background="@drawable/layer_1"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_60sdp"
+                    android:layout_below="@id/details_category_item_text_direction"
+                    android:layout_marginTop="@dimen/_17sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     />
 
-                <TextView
+                <TextView android:layout_below="@id/details_category_item_text_direction"
+
                     android:id="@+id/details_category_item_text_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_62sdp"
                     android:layout_toEndOf="@+id/details_category_item_image_location"
                     android:text="Egypt"
+                    android:textAlignment="gravity"
+                    android:gravity="left"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginRight="@dimen/_10sdp"/>
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_19sdp"
+                    />
 
                 <ImageView
                     android:id="@+id/details_category_item_image_phone"
@@ -184,7 +191,7 @@
                     android:background="@drawable/layer_0"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_below="@id/details_category_item_image_location"
+                    android:layout_below="@id/details_category_item_text_country"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
@@ -198,9 +205,11 @@
                     android:text="0114158652"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
+                    android:textAlignment="gravity"
+                    android:gravity="left"
                     android:layout_toEndOf="@+id/details_category_item_image_phone"
-                    android:layout_below="@+id/details_category_item_text_country"
-                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_below="@id/details_category_item_text_country"
+                    android:layout_marginTop="@dimen/_22sdp"
                     />
                 <Button
                     android:layout_width="match_parent"

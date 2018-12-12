@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.adapter.BrandSpinnerAdapter;
@@ -70,7 +71,7 @@ SearchLocBrandPresenter searchLocBrandPresenter;
              bundle.putString("brand", BrandModel);
              categoryItemFragment.setArguments(bundle);
              getFragmentManager().beginTransaction().replace
-                     ( R.id.content_navigation,new CategoryItemFragment() )
+                     ( R.id.content_navigation,categoryItemFragment )
                      .addToBackStack( null ).commit();
          }
      } );
@@ -88,7 +89,7 @@ SearchLocBrandPresenter searchLocBrandPresenter;
     {
         locationSpinner=view.findViewById( R.id.search_location_spinner );
         brandSpinner=view.findViewById( R.id.search_brand_spinner );
-        searchBtn=view.findViewById( R.id.search_btn );
+        searchBtn=view.findViewById( R.id.search_btn2 );
     }
 
     @Override

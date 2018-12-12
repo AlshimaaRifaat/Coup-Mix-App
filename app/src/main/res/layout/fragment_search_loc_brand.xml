@@ -49,7 +49,7 @@
         android:layout_marginRight="@dimen/_17sdp"
         android:background="@drawable/button"
         android:layout_below="@+id/search_relative_brand"
-        android:id="@+id/search_btn"
+        android:id="@+id/search_btn2"
         android:textAllCaps="false"
         />
 

@@ -52,7 +52,6 @@ View view;
         if (bundle != null) {
             Location = bundle.getString( "location" );
             Brand = bundle.getString( "brand" );
-
             searchLocBrandPresenter = new SearchLocBrandPresenter( getContext(), this );
             searchLocBrandPresenter.getSearchLocBrandResult( "en", Location, Brand );
         }
@@ -67,11 +66,12 @@ View view;
 
     @Override
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
+        Toast.makeText( getContext(), locBrandDataList.get( 0 ).getTitle(), Toast.LENGTH_SHORT ).show();
      categoryItemAdapter=new CategoryItemAdapter( getContext(),locBrandDataList );
      LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
      recyclerView.setLayoutManager(linearLayoutManager);
      recyclerView.setAdapter( categoryItemAdapter );
-        Toast.makeText( getContext(), "sucess", Toast.LENGTH_SHORT ).show();
+
 
 
     }

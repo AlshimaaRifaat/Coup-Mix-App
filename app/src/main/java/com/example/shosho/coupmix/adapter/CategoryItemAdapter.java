@@ -37,9 +37,15 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
                 searchLocBrandDataList.get( position ).getImage() ).into(holder.imageView);
 
         holder.title.setText(searchLocBrandDataList.get( position ).getTitle());
-        holder.description.setText( searchLocBrandDataList.get(position).getDescription() );
+        String Description=searchLocBrandDataList.get(position).getDescription();
+
+        if(Description.length()>=35)
+            Description=Description.substring( 0,35 )+"...";
+        holder.description.setText( Description );
         holder.location.setText( searchLocBrandDataList.get(position).getLocation() );
-        holder.discount.setText( searchLocBrandDataList.get(position).getOfferPercentage() );
+        String OfferPercentage=searchLocBrandDataList.get(position).getOfferPercentage();
+        OfferPercentage="(-"+OfferPercentage+"%)";
+        holder.discount.setText(OfferPercentage);
     }
 
     @Override
