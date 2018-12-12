@@ -185,7 +185,7 @@ FeatureProductPresenter featureProductPresenter;
 
 
     @Override
-    public void showFeaturesProductsData(List<FeatureProductData> featuresProductsData) {
+    public void showFeaturesProductsData(List<FeatureProductData>  featuresProductsData) {
         homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),featuresProductsData );
         homeFeatureProductAdapter.onClick( this );
         recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );

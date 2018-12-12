@@ -34,7 +34,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnItemSelectedListener
-        ,LocationView,BrandView,SearchLocBrandView {
+        ,LocationView,BrandView {
 //ArrayAdapter<BookData> booksAdapter;
 LocationPresenter locationPresenter;
 Spinner locationSpinner;
@@ -61,22 +61,26 @@ SearchLocBrandPresenter searchLocBrandPresenter;
         // Inflate the layout for this fragment
        view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
      init();
+     searchBtn.setOnClickListener( new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             CategoryItemFragment categoryItemFragment=new CategoryItemFragment();
+             Bundle bundle = new Bundle();
+             bundle.putString("location", LocationModel);
+             bundle.putString("brand", BrandModel);
+             categoryItemFragment.setArguments(bundle);
+             getFragmentManager().beginTransaction().replace
+                     ( R.id.content_navigation,new CategoryItemFragment() )
+                     .addToBackStack( null ).commit();
+         }
+     } );
      locationPresenter=new LocationPresenter( getContext(),this );
      locationPresenter.getLocationResult("en","10");
 
      brandPresenter=new BrandPresenter( getContext(),this );
 
-      searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
-        searchBtn.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+      //searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
 
-                getFragmentManager().beginTransaction().replace
-                        ( R.id.content_navigation,new CategoryItemFragment() )
-                        .addToBackStack( null ).commit();
-
-            }
-        } );
        return view;
     }
 
@@ -174,13 +178,14 @@ SearchLocBrandPresenter searchLocBrandPresenter;
 
     }
 
-    @Override
+   /* @Override
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
-        // locationPresenter.getLocationResult("en","10");
-        // brandPresenter.getBrandResult("en",LocationModel  );
+        *//* locationPresenter.getLocationResult("en", "10");
+         brandPresenter.getBrandResult("en",LocationModel  );
+         *//*
 
 
-    }
+    }*/
 
     @Override
     public void error() {

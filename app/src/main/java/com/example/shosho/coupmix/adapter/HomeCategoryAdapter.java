@@ -51,7 +51,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             @Override
             public void onClick(View view) {
                 SearchLocBrandData searchLocBrandData=new SearchLocBrandData();
-             //   searchLocBrand.setID( booksData.get( position ).getId() );
+             //  searchLocBrand.setID( booksData.get( position ).getId() );
                 onClickItemCategoryView.showOnClickItemCategoryResult( searchLocBrandData );
             }
         } );

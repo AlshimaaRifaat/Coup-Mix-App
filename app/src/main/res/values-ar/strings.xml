@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CoupMix</string>
+    <string name="app_name">كوبو ميكس</string>
     <string name="choose_language"> قم باختيار اللغه</string>
     <string name="English">انجليزي</string>
     <string name="Arabic">عربي</string>
@@ -10,22 +10,22 @@
     <string name="Category">الفئه</string>
     <string name="Brand">الماركه</string>
     <string name="MyOrders">طلباتي</string>
-    <string name="AboutCoupMix">CoupMix حول</string>
+    <string name="AboutCoupMix">  حول كوبو ميكس</string>
     <string name="title_activity_navigation">الصفحه الرئيسيه</string>
     <string name="NoNetworkAvailable">لا يتوفر انترنت</string>
     <string name="Categories">الفئات</string>
     <string name="Search">بحث</string>
     <string name="FeaturesProducts">ميزات المنتجات</string>
     <string name="showDetails">اظهر التفاصيل</string>
-    <string name="Order">Order</string>
+    <string name="Order">طلب</string>
     <string name="No">No.</string>
-    <string name="CancelOrder">Cancel Order</string>
-    <string name="Bookedon">Booked on</string>
-    <string name="Name">Name</string>
-    <string name="Address">Address</string>
-    <string name="Phone">Phone</string>
-    <string name="Email">Email</string>
-    <string name="Notes">Notes</string>
-    <string name="Location">Location</string>
-    <string name="Discount">Discount :</string>
+    <string name="CancelOrder">الغاء الطلب</string>
+    <string name="Bookedon"> حجز فى</string>
+    <string name="Name">الاسم</string>
+    <string name="Address">العنوان</string>
+    <string name="Phone">التليفون</string>
+    <string name="Email">البريد الالكترونى</string>
+    <string name="Notes">ملاحظات</string>
+    <string name="Location">الموقع</string>
+    <string name="Discount">الخصم :</string>
 </resources>
