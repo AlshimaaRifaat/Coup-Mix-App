@@ -41,7 +41,7 @@ View view;
        discount=view.findViewById( R.id.details_category_item_text_discount );
        couponDetails=view.findViewById( R.id.details_category_item_text_coupon_details );
        featuresOffer=view.findViewById( R.id.details_category_item_text_features_offer);
-      country =view.findViewById( R.id.details_category_item_text_country);
+       country =view.findViewById( R.id.details_category_item_text_country);
        phone=view.findViewById( R.id.details_category_item_text_phone);
         Bundle bundle=this.getArguments();
         if(bundle!=null)
@@ -57,7 +57,7 @@ View view;
             Picasso.with( getContext() )
                     .load( "http://coupomix.com/"+Image ).into(imageView);
             title.setText(Name);
-            discount.setText( Discount );
+            discount.setText( "( -"+Discount+"% )" );
 
             Typeface customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
             couponDetails.setTypeface( customFontLight );

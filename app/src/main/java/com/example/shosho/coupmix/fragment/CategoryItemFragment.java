@@ -8,25 +8,31 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.adapter.CategoryItemAdapter;
+import com.example.shosho.coupmix.model.CategoryItemDetails;
+import com.example.shosho.coupmix.model.FeatureProductDetails;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
 import com.example.shosho.coupmix.presenter.BrandPresenter;
 import com.example.shosho.coupmix.presenter.LocationPresenter;
 import com.example.shosho.coupmix.presenter.SearchLocBrandPresenter;
+import com.example.shosho.coupmix.view.OnClickDetailsCategoryItemView;
 import com.example.shosho.coupmix.view.SearchLocBrandView;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoryItemFragment extends Fragment implements SearchLocBrandView {
+public class CategoryItemFragment extends Fragment implements SearchLocBrandView,OnClickDetailsCategoryItemView
+        {
 
 
 
@@ -36,7 +42,8 @@ CategoryItemAdapter categoryItemAdapter;
 String Location,Brand;
 
 
-
+Button showdetails;
+//CategoryItemDetails categoryItemDetails;
     public CategoryItemFragment() {
         // Required empty public constructor
     }
@@ -48,6 +55,7 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate( R.layout.fragment_category_item, container, false );
         Recycle();
+        init();
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             Location = bundle.getString( "location" );
@@ -55,9 +63,48 @@ View view;
             searchLocBrandPresenter = new SearchLocBrandPresenter( getContext(), this );
             searchLocBrandPresenter.getSearchLocBrandResult( "en", Location, Brand );
         }
+
+       /* showdetails.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
+                Bundle bundle=new Bundle( );
+                bundle.putString( "image" ,featureProductDetails.getImage());
+                bundle.putString( "name",featureProductDetails.getName() );
+                bundle.putString( "discount",featureProductDetails.getDiscount() );
+                bundle.putString( "couponDetails",featureProductDetails.getCouponDetails() );
+                bundle.putString( "featuresOffer",featureProductDetails.getFeaturesOffer() );
+                bundle.putString( "country",featureProductDetails.getCountry() );
+                bundle.putString( "phone",featureProductDetails.getPhone() );
+                detailsCategoryItemFragment.setArguments( bundle );
+                getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
+                        .addToBackStack( null ).commit();
+            }
+        } );*/
+       /* showdetails.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
+                ArrayList<FeatureProductDetails> featureProductDetails=new FeatureProductDetails();
+                Bundle bundle=new Bundle( );
+                bundle.putString( "image" ,);
+                bundle.putString( "name", );
+                bundle.putString( "discount", );
+                bundle.putString(  "couponDetails", );
+                bundle.putString( "featuresOffer", );
+                bundle.putString( "country",);
+                bundle.putString( "phone", );
+                detailsCategoryItemFragment.setArguments( bundle );
+                getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
+                        .addToBackStack( null ).commit();
+            }
+        } );*/
         return view;
     }
 
+    private void init() {
+        showdetails=view.findViewById( R.id.row_category_item_btn );
+    }
 
 
     private void Recycle() {
@@ -68,6 +115,7 @@ View view;
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
         Toast.makeText( getContext(), locBrandDataList.get( 0 ).getTitle(), Toast.LENGTH_SHORT ).show();
      categoryItemAdapter=new CategoryItemAdapter( getContext(),locBrandDataList );
+     categoryItemAdapter.onClick( this );
      LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
      recyclerView.setLayoutManager(linearLayoutManager);
      recyclerView.setAdapter( categoryItemAdapter );
@@ -80,4 +128,22 @@ View view;
     public void error() {
 
     }
-}
+
+
+
+            @Override
+            public void showOnClickDetailsCategoryItemResult(CategoryItemDetails categoryItemDetails) {
+                DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
+                Bundle bundle=new Bundle( );
+                bundle.putString( "image" ,categoryItemDetails.getImage());
+                bundle.putString( "name" ,categoryItemDetails.getName());
+                bundle.putString( "discount" ,categoryItemDetails.getDiscount());
+                bundle.putString( "couponDetails" ,categoryItemDetails.getCouponDetails() );
+                bundle.putString( "featuresOffer" ,categoryItemDetails.getFeaturesOffer() );
+                bundle.putString( "country" ,categoryItemDetails.getCountry() );
+                bundle.putString( "phone" ,categoryItemDetails.getPhone() );
+                detailsCategoryItemFragment.setArguments( bundle );
+                getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
+                        .addToBackStack( null ).commit();
+            }
+        }

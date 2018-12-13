@@ -46,7 +46,7 @@ public class HomeFeatureProductAdapter extends RecyclerView.Adapter<HomeFeatureP
         Typeface customFontMedium = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Medium.ttf" );
         holder.title.setTypeface( customFontMedium );
         holder.title.setText(featureProductDataList.get( position ).getTitle());
-        holder.discount.setText(featureProductDataList.get( position ).getOfferPercentage()+" % Discount");
+        holder.discount.setText(featureProductDataList.get( position ).getOfferPercentage()+"% Discount");
 
 
        holder.itemView.setOnClickListener( new View.OnClickListener() {

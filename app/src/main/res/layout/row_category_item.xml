@@ -17,10 +17,44 @@
         android:scaleType="fitXY"
         android:background="#e62c2c"
         android:layout_alignParentTop="true" />
+        <TextView
+            android:id="@+id/row_category_item_text_coupon_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="#6b6c6e"
+            android:textSize="@dimen/_12sdp"
+            android:text="coupon detail"
+            android:layout_below="@id/row_category_item_image"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/row_category_item_text_feature_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="#6b6c6e"
+            android:textSize="@dimen/_12sdp"
+            android:text="feature offer"
+            android:layout_below="@+id/row_category_item_text_coupon_detail"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/row_category_item_text_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="#6b6c6e"
+            android:textSize="@dimen/_12sdp"
+            android:text="phone"
+            android:layout_below="@+id/row_category_item_text_feature_offer"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
 
     <TextView
         android:id="@+id/row_category_item_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:textStyle="bold"
@@ -29,9 +63,10 @@
         android:text="title"
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_below="@id/row_category_item_image"/>
+
         <TextView
             android:id="@+id/row_category_item_description"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:textSize="@dimen/_14sdp"
