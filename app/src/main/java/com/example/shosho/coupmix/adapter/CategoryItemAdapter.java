@@ -25,6 +25,7 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
     private Context context;
     private List<SearchLocBrandData> searchLocBrandDataList;
     OnClickDetailsCategoryItemView onClickDetailsCategoryItemView;
+
     public CategoryItemAdapter(Context context, List<SearchLocBrandData> searchLocBrandDataList) {
         this.context = context;
         this.searchLocBrandDataList = searchLocBrandDataList;

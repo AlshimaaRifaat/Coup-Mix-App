@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.model.CategorySendID;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
 import com.example.shosho.coupmix.view.OnClickItemCategoryView;
 import com.squareup.picasso.Picasso;
@@ -50,8 +51,11 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*SearchLocBrandData searchLocBrandData=new SearchLocBrandData();
+
+                onClickItemCategoryView.showOnClickItemCategoryResult( searchLocBrandData );*/
                 SearchLocBrandData searchLocBrandData=new SearchLocBrandData();
-             //  searchLocBrand.setID( booksData.get( position ).getId() );
+                searchLocBrandData.setId( booksData.get( position ).getId().toString() );
                 onClickItemCategoryView.showOnClickItemCategoryResult( searchLocBrandData );
             }
         } );

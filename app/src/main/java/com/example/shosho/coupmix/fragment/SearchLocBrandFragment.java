@@ -61,7 +61,10 @@ SearchLocBrandPresenter searchLocBrandPresenter;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
+
+
      init();
+
      searchBtn.setOnClickListener( new View.OnClickListener() {
          @Override
          public void onClick(View view) {
@@ -76,11 +79,18 @@ SearchLocBrandPresenter searchLocBrandPresenter;
          }
      } );
      locationPresenter=new LocationPresenter( getContext(),this );
-     locationPresenter.getLocationResult("en","10");
+
+
+    Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            String Id = bundle.getString( "id" );
+            locationPresenter.getLocationResult( "en", Id );
+        }
 
      brandPresenter=new BrandPresenter( getContext(),this );
 
       //searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
+
 
        return view;
     }

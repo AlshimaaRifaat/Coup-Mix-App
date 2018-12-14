@@ -20,6 +20,7 @@ import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
 import com.example.shosho.coupmix.model.BannerData;
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.model.CategorySendID;
 import com.example.shosho.coupmix.model.FeatureProductData;
 import com.example.shosho.coupmix.model.FeatureProductDetails;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
@@ -219,11 +220,6 @@ FeatureProductPresenter featureProductPresenter;
 
 
 
-    @Override
-    public void showOnClickItemCategoryResult(SearchLocBrandData searchLocBrandData) {
-        getFragmentManager().beginTransaction().replace( R.id.content_navigation,new SearchLocBrandFragment() )
-                .addToBackStack( null ).commit();
-    }
 
     @Override
     public void showOnClickItemFeatureProductResult(FeatureProductDetails featureProductDetails) {
@@ -241,6 +237,18 @@ FeatureProductPresenter featureProductPresenter;
                 .replace( R.id.content_navigation,detailsCategoryItemFragment )
                 .addToBackStack( null ).commit();
     }
+
+    @Override
+    public void showOnClickItemCategoryResult(SearchLocBrandData searchLocBrandData) {
+        SearchLocBrandFragment searchLocBrandFragment=new SearchLocBrandFragment();
+        Bundle bundle=new Bundle( );
+        bundle.putString( "id" ,searchLocBrandData.getId());
+        searchLocBrandFragment.setArguments( bundle );
+        getFragmentManager().beginTransaction().replace( R.id.content_navigation
+                ,searchLocBrandFragment )
+                .addToBackStack( null ).commit();
+    }
+
 
     public class AutoScrollTask extends TimerTask
     {
