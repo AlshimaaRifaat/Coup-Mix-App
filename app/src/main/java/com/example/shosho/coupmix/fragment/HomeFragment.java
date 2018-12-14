@@ -136,29 +136,14 @@ FeatureProductPresenter featureProductPresenter;
 
     @Override
     public void showData(List<BookData> booksData) {
-       /* banner=booksData;
-        bannerAdapter=new BannerAdapter( getContext(),booksData );
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager( getContext() );
-        linearLayoutManager.setOrientation( LinearLayoutManager.HORIZONTAL );
-        recyclerViewBanner.setLayoutManager( linearLayoutManager );
-        recyclerViewBanner.setAdapter( bannerAdapter );
 
-        if(booksData.size()>1) {
-            Timer timer = new Timer();
-            timer.scheduleAtFixedRate( new AutoScrollTask(), 3000, 5000 );
-        }*/
 
         homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
         homeCategoryAdapter.onClick( this );
         recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
 
-        /*homeFeatureProductAdapter=new HomeFeatureProductAdapter( getContext(),booksData );
-        homeFeatureProductAdapter.onClick( this );
-        recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
-        recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
 
-        swipeRefreshLayout.setRefreshing( false );*/
 
     }
 

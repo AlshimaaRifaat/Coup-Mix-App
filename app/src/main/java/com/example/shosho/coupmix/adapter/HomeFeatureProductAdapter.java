@@ -55,7 +55,7 @@ public class HomeFeatureProductAdapter extends RecyclerView.Adapter<HomeFeatureP
         FeatureProductDetails featureProductDetails=new FeatureProductDetails();
         featureProductDetails.setImage( featureProductDataList.get( position ).getImage() );
         featureProductDetails.setName( featureProductDataList.get( position ).getTitle() );
-        featureProductDetails.setDiscount( featureProductDataList.get( position ).getOfferPercentage()+" %" );
+        featureProductDetails.setDiscount( featureProductDataList.get( position ).getOfferPercentage());
         featureProductDetails.setCouponDetails( featureProductDataList.get( position ).getCoponDetails() );
         featureProductDetails.setFeaturesOffer( featureProductDataList.get( position ).getFeatureOffer() );
         featureProductDetails.setCountry( featureProductDataList.get( position ).getLocation() );

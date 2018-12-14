@@ -54,7 +54,7 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
         holder.description.setText( Description );
         holder.location.setText( searchLocBrandDataList.get(position).getLocation() );
         String OfferPercentage=searchLocBrandDataList.get(position).getOfferPercentage();
-        OfferPercentage="(-"+OfferPercentage+")";
+        OfferPercentage="(-"+OfferPercentage+"%)";
         holder.discount.setText(OfferPercentage);
 
         holder.showDetailsBtn.setOnClickListener( new View.OnClickListener() {

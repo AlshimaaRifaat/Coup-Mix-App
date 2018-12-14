@@ -1,6 +1,5 @@
 package com.example.shosho.coupmix.view;
 
-import com.example.shosho.coupmix.model.SearchLocBrand;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
 
 import java.util.List;

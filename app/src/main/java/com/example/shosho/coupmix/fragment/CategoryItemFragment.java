@@ -64,41 +64,7 @@ View view;
             searchLocBrandPresenter.getSearchLocBrandResult( "en", Location, Brand );
         }
 
-       /* showdetails.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
-                Bundle bundle=new Bundle( );
-                bundle.putString( "image" ,featureProductDetails.getImage());
-                bundle.putString( "name",featureProductDetails.getName() );
-                bundle.putString( "discount",featureProductDetails.getDiscount() );
-                bundle.putString( "couponDetails",featureProductDetails.getCouponDetails() );
-                bundle.putString( "featuresOffer",featureProductDetails.getFeaturesOffer() );
-                bundle.putString( "country",featureProductDetails.getCountry() );
-                bundle.putString( "phone",featureProductDetails.getPhone() );
-                detailsCategoryItemFragment.setArguments( bundle );
-                getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
-                        .addToBackStack( null ).commit();
-            }
-        } );*/
-       /* showdetails.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DetailsCategoryItemFragment detailsCategoryItemFragment=new DetailsCategoryItemFragment();
-                ArrayList<FeatureProductDetails> featureProductDetails=new FeatureProductDetails();
-                Bundle bundle=new Bundle( );
-                bundle.putString( "image" ,);
-                bundle.putString( "name", );
-                bundle.putString( "discount", );
-                bundle.putString(  "couponDetails", );
-                bundle.putString( "featuresOffer", );
-                bundle.putString( "country",);
-                bundle.putString( "phone", );
-                detailsCategoryItemFragment.setArguments( bundle );
-                getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
-                        .addToBackStack( null ).commit();
-            }
-        } );*/
+
         return view;
     }
 
@@ -113,7 +79,7 @@ View view;
 
     @Override
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
-        Toast.makeText( getContext(), locBrandDataList.get( 0 ).getTitle(), Toast.LENGTH_SHORT ).show();
+
      categoryItemAdapter=new CategoryItemAdapter( getContext(),locBrandDataList );
      categoryItemAdapter.onClick( this );
      LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
