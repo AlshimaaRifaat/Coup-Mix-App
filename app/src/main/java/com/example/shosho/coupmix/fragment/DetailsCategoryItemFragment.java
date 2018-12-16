@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ TextView couponDetails;
 TextView featuresOffer;
 TextView country;
 TextView phone;
-
+Button orderBtn;
 
     public DetailsCategoryItemFragment() {
         // Required empty public constructor
@@ -43,6 +44,7 @@ View view;
        featuresOffer=view.findViewById( R.id.details_category_item_text_features_offer);
        country =view.findViewById( R.id.details_category_item_text_country);
        phone=view.findViewById( R.id.details_category_item_text_phone);
+       orderBtn=view.findViewById( R.id.details_category_item_btn_order );
         Bundle bundle=this.getArguments();
         if(bundle!=null)
         {
@@ -70,9 +72,15 @@ View view;
             customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
             country.setTypeface( customFontLight );
             country.setText(Country);
-
             phone.setText(Phone);
         }
+        orderBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.content_navigation,
+                        new OrderItemFragment()).addToBackStack( null ).commit();
+            }
+        } );
         return view;
     }
 

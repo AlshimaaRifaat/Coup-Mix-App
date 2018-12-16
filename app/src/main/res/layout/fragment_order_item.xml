@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#e8e8ea"
     tools:context=".fragment.OrderItemFragment">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e8e8ea">
     <!-- TODO: Update blank fragment layout -->
   <EditText
+      android:id="@+id/order_item_edit_text_name"
       android:layout_width="match_parent"
       android:layout_height="@dimen/_60sdp"
       android:background="#fff"
@@ -18,11 +21,11 @@
       android:hint="@string/Name"
       android:paddingBottom="10sp"
       android:paddingLeft="@dimen/_14sdp"
-      android:textColorHint="#000"
       android:paddingTop="@dimen/_8sdp"
-      android:textStyle="bold"
+      android:textColorHint="#000"
      />
     <EditText
+        android:id="@+id/order_item_edit_text_address"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:background="#fff"
@@ -32,11 +35,11 @@
         android:hint="@string/Address"
         android:paddingBottom="10sp"
         android:paddingLeft="@dimen/_14sdp"
-        android:textColorHint="#000"
         android:paddingTop="@dimen/_8sdp"
-        android:textStyle="bold"
+        android:textColorHint="#000"
         />
     <EditText
+        android:id="@+id/order_item_edit_text_phone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:background="#fff"
@@ -46,11 +49,11 @@
         android:hint="@string/Phone"
         android:paddingBottom="10sp"
         android:paddingLeft="@dimen/_14sdp"
-        android:textColorHint="#000"
         android:paddingTop="@dimen/_8sdp"
-        android:textStyle="bold"
+        android:textColorHint="#000"
         />
     <EditText
+        android:id="@+id/order_item_edit_text_email"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:background="#fff"
@@ -60,12 +63,11 @@
         android:hint="@string/Email"
         android:paddingBottom="10sp"
         android:paddingLeft="@dimen/_14sdp"
-        android:textColorHint="#000"
         android:paddingTop="@dimen/_8sdp"
-        android:textStyle="bold"
+        android:textColorHint="#000"
         />
     <EditText
-        android:id="@+id/order_item_notes"
+        android:id="@+id/order_item_edit_text_notes"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_75sdp"
         android:background="#fff"
@@ -75,14 +77,14 @@
         android:hint="@string/Notes"
         android:paddingBottom="10sp"
         android:paddingLeft="@dimen/_14sdp"
-        android:textColorHint="#000"
         android:paddingTop="@dimen/_8sdp"
-        android:textStyle="bold"
+        android:textColorHint="#000"
         />
 
     <Button
+        android:id="@+id/order_item_btn_order"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_45sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:text="@string/Order"
         android:textColor="#fff"
@@ -90,8 +92,9 @@
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@drawable/button"
-        android:layout_below="@+id/order_item_notes"
-        android:id="@+id/lang_done_btn"
+        android:textAllCaps="false"
+        android:layout_below="@+id/order_item_edit_text_notes"
+        android:layout_marginBottom="@dimen/_23sdp"
         />
-
 </LinearLayout>
+</ScrollView>

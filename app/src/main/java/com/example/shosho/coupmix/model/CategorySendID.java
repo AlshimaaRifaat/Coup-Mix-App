@@ -1,7 +1,7 @@
 package com.example.shosho.coupmix.model;
 
 public class CategorySendID {
-    private String id;
+   /* private String id;
 
     public String getId() {
         return id;
@@ -88,5 +88,5 @@ public class CategorySendID {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
+    }*/
 }

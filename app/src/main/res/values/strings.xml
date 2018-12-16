@@ -35,5 +35,17 @@
     <string name="Notes">Notes</string>
     <string name="Location">Location</string>
     <string name="Discount">Discount :</string>
+    <string name="ThanksForyourorder">Thanks For your order</string>
+    <string name="BookOrderSuccess">Book Order Success</string>
+    <string name="Yourorderidis">Your order id is</string>
+    <string name="Pleasewriteyourname">Please, write your name</string>
+    <string name="Pleasewriteyouremail">Please, write your email</string>
+    <string name="Pleasewriteyourphone">Please, write your phone</string>
+
+    <string name="Pleasewriteyournotes">Please, write your notes</string>
+    <string name="Pleasefullyourinformation">Please, full your information</string>
+    <string name="Checkyourinternetconnection">Check your internet connection</string>
+    <string name="Invalidemail">Invalid email</string>
+    <string name="Pleasewriteyouraddress">Please, write your address</string>
 
 </resources>

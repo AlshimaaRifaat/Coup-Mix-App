@@ -212,6 +212,7 @@
                     android:layout_marginTop="@dimen/_22sdp"
                     />
                 <Button
+                    android:id="@+id/details_category_item_btn_order"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:textColor="#fff"
