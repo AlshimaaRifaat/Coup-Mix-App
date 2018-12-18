@@ -47,5 +47,13 @@
     <string name="Checkyourinternetconnection">Check your internet connection</string>
     <string name="Invalidemail">Invalid email</string>
     <string name="Pleasewriteyouraddress">Please, write your address</string>
+    <string name="Product">Product</string>
+    <string name="OrderBook">Order Book</string>
+    <string name="youcanfind">you can find best offers and can get with  best discount</string>
+    <string name="Coupondetail">Coupon detail</string>
+    <string name="FeaturesOffer">Features Offer</string>
+    <string name="Directions">Directions</string>
+    <string name="RequestOrder">Request Order</string>
+
 
 </resources>

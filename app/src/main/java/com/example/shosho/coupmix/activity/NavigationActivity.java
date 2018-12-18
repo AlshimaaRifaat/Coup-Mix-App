@@ -2,38 +2,35 @@ package com.example.shosho.coupmix.activity;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.fragment.AboutCoupMixFragment;
-import com.example.shosho.coupmix.fragment.BrandFragment;
-import com.example.shosho.coupmix.fragment.CategoryFragment;
 import com.example.shosho.coupmix.fragment.HomeFragment;
-import com.example.shosho.coupmix.fragment.MyOrdersFragment;
+import com.example.shosho.coupmix.fragment.OrderItemFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 private int currentSelectedPosition=0;
 Fragment fragment;
 NavigationView navigationView;
+    public static ActionBarDrawerToggle toggle;
+    public static DrawerLayout drawer;
+  // public static Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_navigation );
-        Toolbar toolbar = (Toolbar) findViewById( R.id.toolbar );
-        setSupportActionBar( toolbar );
+        // toolbar = (Toolbar) findViewById( R.id.toool );
+       // setSupportActionBar( toolbar );
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fab );
         fab.setOnClickListener( new View.OnClickListener() {
@@ -44,10 +41,10 @@ NavigationView navigationView;
             }
         } );*/
        navigationView=findViewById( R.id.nav_view );
-onNavigationItemSelected( navigationView.getMenu().getItem( 0 ) );
-        DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+       onNavigationItemSelected( navigationView.getMenu().getItem( 0 ) );
+         drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
+         toggle = new ActionBarDrawerToggle(
+                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawer.addDrawerListener( toggle );
         toggle.syncState();
 
@@ -97,20 +94,13 @@ onNavigationItemSelected( navigationView.getMenu().getItem( 0 ) );
                currentSelectedPosition=0;
                fragment=new HomeFragment();
                break;
-           case R.id.nav_category:
+
+           case R.id.nav_request_order:
                currentSelectedPosition=1;
-               fragment=new CategoryFragment();
-               break;
-           case R.id.nav_brand:
-               currentSelectedPosition=2;
-               fragment=new BrandFragment();
-               break;
-           case R.id.nav_my_orders:
-               currentSelectedPosition=3;
-               fragment=new MyOrdersFragment();
+               fragment=new OrderItemFragment();
                break;
            case R.id.nav_about_coup_mix:
-               currentSelectedPosition=4;
+               currentSelectedPosition=2;
                fragment=new AboutCoupMixFragment();
                break;
                default:

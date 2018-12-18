@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/about"
     tools:context=".fragment.AboutCoupMixFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="about" />
+        android:layout_height="wrap_content"
+        android:text="@string/youcanfind"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:textColor="#736e6e"
+        android:layout_marginTop="@dimen/_177sdp"
+        android:textSize="@dimen/_15sdp"/>
 
-</FrameLayout>
+</RelativeLayout>

@@ -7,14 +7,42 @@
     android:background="#fff"
     tools:context=".fragment.CategoryItemFragment">
     <!-- TODO: Update blank fragment layout -->
-
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:id="@+id/category_item_toolbar"
+        android:background="#07aba7">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+           <!-- <ImageView
+                android:id="@+id/category_item_image_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_white"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:text="@string/Brand"/>
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/category_item_swip_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/category_item_toolbar">
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:padding="@dimen/_1sdp"
         android:id="@+id/category_item_recycler_view">
     </android.support.v7.widget.RecyclerView>
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </RelativeLayout>

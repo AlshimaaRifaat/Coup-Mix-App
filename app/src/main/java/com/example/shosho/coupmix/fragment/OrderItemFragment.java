@@ -9,15 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.model.OrderItemData;
-import com.example.shosho.coupmix.model.OrderItemSendID;
 import com.example.shosho.coupmix.model.User;
 import com.example.shosho.coupmix.presenter.OrderItemPresenter;
-import com.example.shosho.coupmix.view.OnClickOrderItemView;
 import com.example.shosho.coupmix.view.OrderItemView;
 import com.fourhcode.forhutils.FUtilsValidation;
 
@@ -30,7 +29,7 @@ public class OrderItemFragment extends Fragment implements OrderItemView{
 OrderItemPresenter orderItemPresenter;
 EditText userName,userEmail,userAddress,userPhone,userNote;
 Button orderItem;
-
+ImageView imageBack;
     public OrderItemFragment() {
         // Required empty public constructor
     }
@@ -43,6 +42,13 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate( R.layout.fragment_order_item, container, false );
         init();
+      /*  imageBack.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace( R.id.content_navigation,
+                        new DetailsCategoryItemFragment()).addToBackStack( null ).commit();
+            }
+        } );*/
         orderItemPresenter=new OrderItemPresenter( getContext(),(OrderItemView) this );
         orderItem.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -64,6 +70,7 @@ View view;
         userPhone=view.findViewById( R.id.order_item_edit_text_phone);
         userNote=view.findViewById( R.id.order_item_edit_text_notes );
         orderItem=view.findViewById( R.id.order_item_btn_order );
+       // imageBack=view.findViewById( R.id.order_item_image_back );
     }
 
     public static boolean isValidEmail(String Email)

@@ -4,6 +4,7 @@ package com.example.shosho.coupmix.fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.squareup.picasso.Picasso;
+
+import static java.security.AccessController.getContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +30,7 @@ TextView featuresOffer;
 TextView country;
 TextView phone;
 Button orderBtn;
+ImageView imageBack;
 
     public DetailsCategoryItemFragment() {
         // Required empty public constructor
@@ -45,6 +50,15 @@ View view;
        country =view.findViewById( R.id.details_category_item_text_country);
        phone=view.findViewById( R.id.details_category_item_text_phone);
        orderBtn=view.findViewById( R.id.details_category_item_btn_order );
+      // imageBack=view.findViewById( R.id.details_category_item_image_back );
+
+       /* imageBack.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace( R.id.content_navigation,
+                        new CategoryItemFragment()).addToBackStack( null ).commit();
+            }
+        } );*/
         Bundle bundle=this.getArguments();
         if(bundle!=null)
         {
@@ -59,7 +73,7 @@ View view;
             Picasso.with( getContext() )
                     .load( "http://coupomix.com/"+Image ).into(imageView);
             title.setText(Name);
-            discount.setText( "( -"+Discount+"% )" );
+            discount.setText( "( "+Discount+"% )" );
 
             Typeface customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
             couponDetails.setTypeface( customFontLight );
@@ -74,6 +88,7 @@ View view;
             country.setText(Country);
             phone.setText(Phone);
         }
+
         orderBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +96,11 @@ View view;
                         new OrderItemFragment()).addToBackStack( null ).commit();
             }
         } );
+
         return view;
     }
+
+
+
 
 }

@@ -3,16 +3,25 @@ package com.example.shosho.coupmix.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.activity.NavigationActivity;
 import com.example.shosho.coupmix.adapter.BrandSpinnerAdapter;
 import com.example.shosho.coupmix.adapter.LocationSpinnerAdapter;
 import com.example.shosho.coupmix.model.BookData;
@@ -35,7 +44,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnItemSelectedListener
-        ,LocationView,BrandView {
+        ,LocationView,BrandView,SwipeRefreshLayout.OnRefreshListener {
 //ArrayAdapter<BookData> booksAdapter;
 LocationPresenter locationPresenter;
 Spinner locationSpinner;
@@ -49,8 +58,10 @@ Spinner brandSpinner;
 Integer BrandModelId;
 String BrandModel;
 BrandSpinnerAdapter brandSpinnerAdapter;
+ImageView imageBack;
+SwipeRefreshLayout swipeRefreshLayout;
+NetworkConnection networkConnection;
 
-SearchLocBrandPresenter searchLocBrandPresenter;
     public SearchLocBrandFragment() {
         // Required empty public constructor
     }
@@ -61,10 +72,26 @@ SearchLocBrandPresenter searchLocBrandPresenter;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        init();
 
 
-     init();
-
+     networkConnection=new NetworkConnection( getContext() );
+      /*imageBack.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getFragmentManager(); // or 'getSupportFragmentManager();'
+                int count = fm.getBackStackEntryCount();
+                if(count!=0) {
+                    for (int i = 0; i < count; ++i) {
+                        fm.popBackStack();
+                    }
+                }
+                getFragmentManager().beginTransaction()
+                        .replace( R.id.content_navigation,new HomeFragment() )
+                        .commit();
+            }
+        } );*/
      searchBtn.setOnClickListener( new View.OnClickListener() {
          @Override
          public void onClick(View view) {
@@ -91,15 +118,33 @@ SearchLocBrandPresenter searchLocBrandPresenter;
 
       //searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
 
-
+      swipRefresh();
        return view;
     }
 
-   private void init()
+    private void swipRefresh() {
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_orange_dark  );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if (networkConnection.isNetworkAvailable( getContext() ))
+                {
+                    swipeRefreshLayout.setRefreshing( true );
+                    brandPresenter.getBrandResult("en",LocationModel  );
+                }
+            }
+        } );
+    }
+
+    private void init()
     {
         locationSpinner=view.findViewById( R.id.search_location_spinner );
         brandSpinner=view.findViewById( R.id.search_brand_spinner );
         searchBtn=view.findViewById( R.id.search_btn2 );
+      //  imageBack=view.findViewById( R.id.search_image_back );
+        swipeRefreshLayout=view.findViewById( R.id.search_swip_refresh );
     }
 
     @Override
@@ -185,7 +230,7 @@ SearchLocBrandPresenter searchLocBrandPresenter;
             }
         } );
 
-
+        swipeRefreshLayout.setRefreshing( false );
 
     }
 
@@ -200,7 +245,7 @@ SearchLocBrandPresenter searchLocBrandPresenter;
 
     @Override
     public void error() {
-
+        swipeRefreshLayout.setRefreshing( false );
     }
 
     @Override
@@ -211,5 +256,12 @@ SearchLocBrandPresenter searchLocBrandPresenter;
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing( true );
+        brandPresenter.getBrandResult("en",LocationModel  );
     }
 }

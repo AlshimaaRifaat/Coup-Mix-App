@@ -28,14 +28,22 @@
     <string name="Notes">ملاحظات</string>
     <string name="Location">الموقع</string>
     <string name="Discount">الخصم :</string>
-    <string name="ThanksForyourorder">Thanks For your order</string>
-    <string name="BookOrderSuccess">Book Order Success</string>
-    <string name="Yourorderidis">Your order id is</string>
-    <string name="Pleasewriteyourname">Please, write your name</string>
-    <string name="Pleasewriteyourphone">Please, write your phone</string>
-    <string name="Pleasewriteyournotes">Please, write your notes</string>
-    <string name="Pleasefullyourinformation">Please, full your information</string>
-    <string name="Checkyourinternetconnection">Check your internet connection</string>
-    <string name="Invalidemail">Invalid email</string>
-    <string name="Pleasewriteyouraddress">Please, write your address</string>
+    <string name="ThanksForyourorder">شكرا لطلبك</string>
+    <string name="BookOrderSuccess">نجاح طلب الكتاب </string>
+    <string name="Yourorderidis">رقم طلبك هو</string>
+    <string name="Pleasewriteyourname">من فضك,اكتب اسمك</string>
+    <string name="Pleasewriteyourphone">من فضك,اكتب رقم التليفون الخاص بك</string>
+    <string name="Pleasewriteyournotes">من فضك,اكتب ملاحظاتك</string>
+    <string name="Pleasefullyourinformation">من فضك,املأ البيانات الخاصه بك</string>
+    <string name="Checkyourinternetconnection">تحقق من اتصالك بالانترنت</string>
+    <string name="Invalidemail">البريد إلكتروني خاطئ</string>
+    <string name="Pleasewriteyouraddress">من فضك,اكتب عنوانك</string>
+    <string name="Product">المنتج</string>
+    <string name="OrderBook">سجل الطلبيات</string>
+    <string name="youcanfind">يمكنك العثور على أفضل العروض وبافضل خصم</string>
+    <string name="Coupondetail">تفاصيل القسيمة</string>
+    <string name="FeaturesOffer">ميزات العرض</string>
+    <string name="Directions">الاتجاهات</string>
+    <string name="RequestOrder">Request Order</string>
+
 </resources>

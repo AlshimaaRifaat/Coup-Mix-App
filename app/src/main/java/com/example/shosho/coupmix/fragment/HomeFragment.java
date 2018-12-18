@@ -1,6 +1,8 @@
 package com.example.shosho.coupmix.fragment;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -66,6 +68,9 @@ RecyclerView recyclerViewFeatureProduct;
 HomeFeatureProductAdapter homeFeatureProductAdapter;
 
 FeatureProductPresenter featureProductPresenter;
+
+    SharedPreferences sharedPreferences;
+    //String Lang;
     View view;
     public HomeFragment() {
         // Required empty public constructor
@@ -82,6 +87,8 @@ FeatureProductPresenter featureProductPresenter;
 
        init();
        banner();
+       // sharedPreferences=this.getActivity().getSharedPreferences( "settings", Context.MODE_PRIVATE );
+        //Lang=sharedPreferences.getString( "my_lang","en");
        category();
        featureProduct();
        swipRefresh();
@@ -115,6 +122,7 @@ FeatureProductPresenter featureProductPresenter;
 
     private void category() {
         bookPresenter=new BookPresenter( getContext(),this );
+
         bookPresenter.getBookResult( "en" );
 
 
@@ -220,7 +228,7 @@ FeatureProductPresenter featureProductPresenter;
         detailsCategoryItemFragment.setArguments( bundle );
         getFragmentManager().beginTransaction()
                 .replace( R.id.content_navigation,detailsCategoryItemFragment )
-                .addToBackStack( null ).commit();
+                .commit();
     }
 
     @Override

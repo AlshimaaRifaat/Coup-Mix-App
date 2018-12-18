@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.fragment.SearchLocBrandFragment;
 import com.example.shosho.coupmix.model.CategoryItemDetails;
 import com.example.shosho.coupmix.model.FeatureProductDetails;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
@@ -54,7 +55,7 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
         holder.description.setText( Description );
         holder.location.setText( searchLocBrandDataList.get(position).getLocation() );
         String OfferPercentage=searchLocBrandDataList.get(position).getOfferPercentage();
-        OfferPercentage="(-"+OfferPercentage+"%)";
+        OfferPercentage="( Discount "+OfferPercentage+"%)";
         holder.discount.setText(OfferPercentage);
 
         holder.showDetailsBtn.setOnClickListener( new View.OnClickListener() {
@@ -86,9 +87,12 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
         private TextView location;
         private TextView discount;
         private Button showDetailsBtn;
+      //  private ImageView imageBack;
         private TextView couponDetail;
         private TextView featuresOffer;
         private TextView phone;
+
+
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_category_item_image );
@@ -101,6 +105,7 @@ public class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapte
             couponDetail=itemView.findViewById( R.id.row_category_item_text_coupon_detail );
             featuresOffer=itemView.findViewById( R.id.row_category_item_text_feature_offer );
             phone=itemView.findViewById( R.id.row_category_item_text_phone );
+         //   imageBack=itemView.findViewById( R.id.row_category_item_image_back );
 
 
         }
