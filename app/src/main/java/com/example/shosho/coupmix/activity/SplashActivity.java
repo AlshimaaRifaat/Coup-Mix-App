@@ -15,7 +15,7 @@ import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
 SharedPreferences sharedPreferences;
-    String Language;
+  public static   String Language;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );

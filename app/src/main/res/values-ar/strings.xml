@@ -17,7 +17,6 @@
     <string name="Search">بحث</string>
     <string name="FeaturesProducts">ميزات المنتجات</string>
     <string name="showDetails">اظهر التفاصيل</string>
-    <string name="Order">طلب</string>
     <string name="No">No.</string>
     <string name="CancelOrder">الغاء الطلب</string>
     <string name="Bookedon"> حجز فى</string>
@@ -29,7 +28,7 @@
     <string name="Location">الموقع</string>
     <string name="Discount">الخصم :</string>
     <string name="ThanksForyourorder">شكرا لطلبك</string>
-    <string name="BookOrderSuccess">نجاح طلب الكتاب </string>
+    <string name="BookOrderSuccess">تم بنجاح طلب الكتاب</string>
     <string name="Yourorderidis">رقم طلبك هو</string>
     <string name="Pleasewriteyourname">من فضك,اكتب اسمك</string>
     <string name="Pleasewriteyourphone">من فضك,اكتب رقم التليفون الخاص بك</string>
@@ -39,11 +38,13 @@
     <string name="Invalidemail">البريد إلكتروني خاطئ</string>
     <string name="Pleasewriteyouraddress">من فضك,اكتب عنوانك</string>
     <string name="Product">المنتج</string>
-    <string name="OrderBook">سجل الطلبيات</string>
+    <string name="OrderBook">احجزالكتيب</string>
     <string name="youcanfind">يمكنك العثور على أفضل العروض وبافضل خصم</string>
     <string name="Coupondetail">تفاصيل القسيمة</string>
     <string name="FeaturesOffer">ميزات العرض</string>
     <string name="Directions">الاتجاهات</string>
     <string name="RequestOrder">Request Order</string>
+    <string name="Pleasewriteyouremail">من فضلك ادخل بريدك الالكترونى</string>
+
 
 </resources>

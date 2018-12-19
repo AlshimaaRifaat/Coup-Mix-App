@@ -44,7 +44,8 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnItemSelectedListener
-        ,LocationView,BrandView,SwipeRefreshLayout.OnRefreshListener {
+        ,LocationView,BrandView,SwipeRefreshLayout.OnRefreshListener
+{
 //ArrayAdapter<BookData> booksAdapter;
 LocationPresenter locationPresenter;
 Spinner locationSpinner;
@@ -72,7 +73,7 @@ NetworkConnection networkConnection;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
-        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        NavigationActivity.toolbar.setVisibility(View.GONE );
         init();
 
 
@@ -141,10 +142,10 @@ NetworkConnection networkConnection;
     private void init()
     {
         locationSpinner=view.findViewById( R.id.search_location_spinner );
-        brandSpinner=view.findViewById( R.id.search_brand_spinner );
-        searchBtn=view.findViewById( R.id.search_btn2 );
-      //  imageBack=view.findViewById( R.id.search_image_back );
-        swipeRefreshLayout=view.findViewById( R.id.search_swip_refresh );
+       brandSpinner=view.findViewById( R.id.search_brand_spinner );
+      searchBtn=view.findViewById( R.id.search_btn2 );
+     //  imageBack=view.findViewById( R.id.search_image_back );
+       swipeRefreshLayout=view.findViewById( R.id.search_swip_refresh );
     }
 
     @Override

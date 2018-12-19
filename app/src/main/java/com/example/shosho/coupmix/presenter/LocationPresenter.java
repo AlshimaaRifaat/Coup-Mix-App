@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
 import com.example.shosho.coupmix.fragment.HomeFragment;
@@ -31,7 +32,7 @@ public class LocationPresenter {
 
     public void getLocationResult(String Lang,String Id) {
         Map<String,String> map=new HashMap<>(  );
-        map.put( "lang",Lang );
+        map.put( "lang",SplashActivity.Language );
         map.put( "id",Id );
         Service service = Client.getClient().create( Service.class );
         Call<LocationResponse> call = service.getLocationData(  map);

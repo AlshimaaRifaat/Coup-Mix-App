@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
 import com.example.shosho.coupmix.model.SearchLocBrandResponse;
@@ -27,7 +28,7 @@ public class SearchLocBrandPresenter {
     public void getSearchLocBrandResult(String Lang,String Country,String Brand)
     {
         Map<String,String> map=new HashMap<>( );
-        map.put( "lang", Lang);
+        map.put( "lang", SplashActivity.Language );
         map.put( "country",Country );
         map.put( "brand",Brand );
         Service service=Client.getClient().create( Service.class );

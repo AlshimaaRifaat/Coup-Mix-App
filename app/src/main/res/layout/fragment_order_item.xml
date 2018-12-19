@@ -41,9 +41,9 @@
   <EditText
       android:id="@+id/order_item_edit_text_name"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/_60sdp"
+      android:layout_height="@dimen/_70sdp"
       android:background="#fff"
-      android:layout_marginTop="@dimen/_40sdp"
+      android:layout_marginTop="@dimen/_60sdp"
       android:layout_marginLeft="@dimen/_25sdp"
       android:layout_marginRight="@dimen/_25sdp"
       android:hint="@string/Name"
@@ -56,7 +56,7 @@
     <EditText
         android:id="@+id/order_item_edit_text_address"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_70sdp"
         android:background="#fff"
         android:layout_marginTop="@dimen/_7sdp"
         android:layout_marginLeft="@dimen/_25sdp"
@@ -71,7 +71,7 @@
     <EditText
         android:id="@+id/order_item_edit_text_phone"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_70sdp"
         android:background="#fff"
         android:layout_marginTop="@dimen/_7sdp"
         android:layout_marginLeft="@dimen/_25sdp"
@@ -86,7 +86,7 @@
     <EditText
         android:id="@+id/order_item_edit_text_email"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_70sdp"
         android:background="#fff"
         android:layout_marginTop="@dimen/_7sdp"
         android:layout_marginLeft="@dimen/_25sdp"
@@ -101,7 +101,7 @@
     <EditText
         android:id="@+id/order_item_edit_text_notes"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_75sdp"
+        android:layout_height="@dimen/_90sdp"
         android:background="#fff"
         android:layout_marginTop="@dimen/_7sdp"
         android:layout_marginLeft="@dimen/_25sdp"
@@ -116,19 +116,18 @@
 
     <Button
         android:id="@+id/order_item_btn_order"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:text="@string/Order"
-        android:textColor="#fff"
-        android:textSize="@dimen/_15sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:background="@drawable/button"
-        android:textAllCaps="false"
+        android:layout_width="1073741800dp"
+        android:layout_height="1073742387dp"
         android:layout_below="@+id/order_item_edit_text_notes"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_23sdp"
-        />
+        android:background="@drawable/button"
+        android:text="@string/OrderBook"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="@dimen/_15sdp" />
 </LinearLayout>
   </RelativeLayout>
 

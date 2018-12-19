@@ -3,38 +3,29 @@
     android:layout_width="match_parent"
     android:layout_margin="@dimen/_1sdp"
     android:background="#f0f2f1"
-    android:layout_height="@dimen/_110sdp">
-<!--<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="horizontal">-->
-<RelativeLayout
+    android:layout_height="@dimen/_70sdp">
+
+    <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f0f2f1"
     android:layout_margin="@dimen/_1sdp">
+
     <ImageView
         android:id="@+id/row_home_feature_product_image"
-        android:layout_width="@dimen/_85sdp"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:background="#000"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
         android:scaleType="centerCrop"
         android:layout_centerVertical="true"
         />
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">-->
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/row_home_feature_product_image"
-        android:layout_marginLeft="@dimen/_7sdp"
         android:orientation="vertical"
         android:layout_centerVertical="true"
         >
@@ -44,72 +35,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="titleeeee"
-            android:gravity="left"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/_2sdp"
             android:textColor="#505455"
-            android:textSize="@dimen/_12sdp" />
+            android:textSize="@dimen/_8sdp" />
 
         <TextView
             android:id="@+id/row_home_feature_product_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="description"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_8sdp"
             android:gravity="left"
             android:layout_marginLeft="@dimen/_2sdp"
-            android:layout_marginTop="@dimen/_2sdp"
             android:textColor="#9c9898"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/row_home_feature_product_coupon_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="text coupon details"
-        android:layout_marginTop="@dimen/_22sdp"
-
-        android:textSize="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_7sdp"
-        android:textColor="#000"
-        android:visibility="gone"
-        />
-    <TextView
-        android:id="@+id/row_home_feature_product_features_offer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="text features offer"
-
-        android:textSize="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_7sdp"
-        android:textColor="#000"
-        android:layout_below="@+id/row_home_feature_product_coupon_details"
-       android:layout_marginTop="@dimen/_5sdp"
-        android:visibility="gone"
-        />
-    <TextView
-        android:id="@+id/row_home_feature_product_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="text country"
-        android:layout_marginTop="@dimen/_22sdp"
-        android:layout_toEndOf="@id/row_home_feature_product_coupon_details"
-        android:textSize="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_7sdp"
-        android:textColor="#000"
-        android:visibility="gone"
-        />
-    <TextView
-        android:id="@+id/row_home_feature_product_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="text phone"
-        android:layout_toEndOf="@id/row_home_feature_product_features_offer"
-        android:textSize="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_7sdp"
-        android:textColor="#000"
-        android:layout_below="@+id/row_home_feature_product_coupon_details"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:visibility="gone"
-        />
 </RelativeLayout>
 
 

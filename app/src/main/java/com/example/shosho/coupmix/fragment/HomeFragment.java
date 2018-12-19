@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -46,28 +48,27 @@ import java.util.TimerTask;
 public class HomeFragment extends Fragment implements
         BookView,SwipeRefreshLayout.OnRefreshListener,
         BannerView,OnClickItemCategoryView,OnClickItemFeatureProductView,FeatureProductView {
-RecyclerView recyclerViewBanner;
-BookPresenter bookPresenter;
-BannerAdapter bannerAdapter;
+    RecyclerView recyclerViewBanner;
+    BookPresenter bookPresenter;
+    BannerAdapter bannerAdapter;
 
-public static ScrollView scrollViewHome;
+    public static ScrollView scrollViewHome;
+    int position;
+    List<BannerData> banners =new ArrayList();
+    boolean end;
+    BannerPresenter bannerPresenter;
 
-int position;
-List<BannerData> banners =new ArrayList();
-boolean end;
-BannerPresenter bannerPresenter;
 
+    NetworkConnection networkConnection;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
-NetworkConnection networkConnection;
-private SwipeRefreshLayout swipeRefreshLayout;
+    RecyclerView recyclerViewCategory;
+    HomeCategoryAdapter homeCategoryAdapter;
 
-RecyclerView recyclerViewCategory;
-HomeCategoryAdapter homeCategoryAdapter;
+    RecyclerView recyclerViewFeatureProduct;
+    HomeFeatureProductAdapter homeFeatureProductAdapter;
 
-RecyclerView recyclerViewFeatureProduct;
-HomeFeatureProductAdapter homeFeatureProductAdapter;
-
-FeatureProductPresenter featureProductPresenter;
+    FeatureProductPresenter featureProductPresenter;
 
     SharedPreferences sharedPreferences;
     //String Lang;
@@ -81,17 +82,17 @@ FeatureProductPresenter featureProductPresenter;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       view= inflater.inflate( R.layout.fragment_home, container, false );
-       swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh );
-       networkConnection=new NetworkConnection( getContext() );
+        view= inflater.inflate( R.layout.fragment_home, container, false );
+        swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh );
+        networkConnection=new NetworkConnection( getContext() );
 
-       init();
-       banner();
-       // sharedPreferences=this.getActivity().getSharedPreferences( "settings", Context.MODE_PRIVATE );
+        init();
+        banner();
+        // sharedPreferences=this.getActivity().getSharedPreferences( "settings", Context.MODE_PRIVATE );
         //Lang=sharedPreferences.getString( "my_lang","en");
-       category();
-       featureProduct();
-       swipRefresh();
+        category();
+        featureProduct();
+        swipRefresh();
 
         return view;
 
@@ -226,9 +227,13 @@ FeatureProductPresenter featureProductPresenter;
         bundle.putString( "country" ,featureProductDetails.getCountry() );
         bundle.putString( "phone" ,featureProductDetails.getPhone() );
         detailsCategoryItemFragment.setArguments( bundle );
-        getFragmentManager().beginTransaction()
-                .replace( R.id.content_navigation,detailsCategoryItemFragment )
-                .commit();
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_navigation, detailsCategoryItemFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+
     }
 
     @Override

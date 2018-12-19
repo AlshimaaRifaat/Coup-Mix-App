@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
 import com.example.shosho.coupmix.fragment.HomeFragment;
@@ -29,7 +30,7 @@ public class BookPresenter {
 
     public void getBookResult(String Lang) {
         Map<String,String> map=new HashMap<>(  );
-        map.put( "lang","en" );
+        map.put( "lang",SplashActivity.Language );
         Service service = Client.getClient().create( Service.class );
         Call<BooksResponse> call = service.getBooksData(  map);
         call.enqueue( new Callback<BooksResponse>() {

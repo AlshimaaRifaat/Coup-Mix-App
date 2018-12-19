@@ -41,7 +41,6 @@
             android:layout_below="@+id/details_category_item_toolbar"
             android:layout_height="@dimen/_140sdp"
             android:scaleType="fitXY"
-            android:background="#da0d0d"
             />
         <android.support.v7.widget.CardView
 
@@ -250,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:textColor="#fff"
-                    android:text="@string/Order"
+                    android:text="@string/OrderBook"
                     android:textSize="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_22sdp"
                     android:layout_marginLeft="@dimen/_17sdp"

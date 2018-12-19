@@ -49,20 +49,20 @@ public class HomeFeatureProductAdapter extends RecyclerView.Adapter<HomeFeatureP
         holder.discount.setText(featureProductDataList.get( position ).getOfferPercentage()+"% Discount");
 
 
-       holder.itemView.setOnClickListener( new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        FeatureProductDetails featureProductDetails=new FeatureProductDetails();
-        featureProductDetails.setImage( featureProductDataList.get( position ).getImage() );
-        featureProductDetails.setName( featureProductDataList.get( position ).getTitle() );
-        featureProductDetails.setDiscount( featureProductDataList.get( position ).getOfferPercentage());
-        featureProductDetails.setCouponDetails( featureProductDataList.get( position ).getCoponDetails() );
-        featureProductDetails.setFeaturesOffer( featureProductDataList.get( position ).getFeatureOffer() );
-        featureProductDetails.setCountry( featureProductDataList.get( position ).getLocation() );
-        featureProductDetails.setPhone( featureProductDataList.get( position ).getPhone() );
-        onClickItemFeatureProductView.showOnClickItemFeatureProductResult( featureProductDetails );
-    }
-} );
+        holder.itemView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FeatureProductDetails featureProductDetails=new FeatureProductDetails();
+                featureProductDetails.setImage( featureProductDataList.get( position ).getImage() );
+                featureProductDetails.setName( featureProductDataList.get( position ).getTitle() );
+                featureProductDetails.setDiscount( featureProductDataList.get( position ).getOfferPercentage());
+                featureProductDetails.setCouponDetails( featureProductDataList.get( position ).getCoponDetails() );
+                featureProductDetails.setFeaturesOffer( featureProductDataList.get( position ).getFeatureOffer() );
+                featureProductDetails.setCountry( featureProductDataList.get( position ).getLocation() );
+                featureProductDetails.setPhone( featureProductDataList.get( position ).getPhone() );
+                onClickItemFeatureProductView.showOnClickItemFeatureProductResult( featureProductDetails );
+            }
+        } );
 
     }
 
@@ -75,10 +75,7 @@ public class HomeFeatureProductAdapter extends RecyclerView.Adapter<HomeFeatureP
         private ImageView imageView;
         private TextView title;
         private TextView discount;
-        private TextView couponDetail;
-        private TextView featuresOffer;
-        private TextView country;
-        private TextView phone;
+
 
         public ViewHolder(View itemView) {
             super( itemView );
@@ -86,11 +83,6 @@ public class HomeFeatureProductAdapter extends RecyclerView.Adapter<HomeFeatureP
             imageView=itemView.findViewById( R.id.row_home_feature_product_image );
             title=itemView.findViewById( R.id.row_home_feature_product_title );
             discount=itemView.findViewById( R.id.row_home_feature_product_discount );
-
-            couponDetail=itemView.findViewById( R.id.row_home_feature_product_coupon_details );
-            featuresOffer=itemView.findViewById( R.id.row_home_feature_product_features_offer );
-            country=itemView.findViewById( R.id.row_home_feature_product_country );
-            phone=itemView.findViewById( R.id.row_home_feature_product_phone );
         }
     }
 }

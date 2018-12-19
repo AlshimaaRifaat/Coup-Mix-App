@@ -9,8 +9,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.fragment.AboutCoupMixFragment;
@@ -24,13 +26,13 @@ Fragment fragment;
 NavigationView navigationView;
     public static ActionBarDrawerToggle toggle;
     public static DrawerLayout drawer;
-  // public static Toolbar toolbar;
+    public static Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_navigation );
-        // toolbar = (Toolbar) findViewById( R.id.toool );
-       // setSupportActionBar( toolbar );
+        toolbar = (Toolbar) findViewById( R.id.toolbar );
+      setSupportActionBar( toolbar );
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fab );
         fab.setOnClickListener( new View.OnClickListener() {
@@ -50,6 +52,18 @@ NavigationView navigationView;
 
         NavigationView navigationView = (NavigationView) findViewById( R.id.nav_view );
         navigationView.setNavigationItemSelectedListener( this );
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    drawer.openDrawer(GravityCompat.START);
+                }
+            }
+        });
     }
 
     @Override

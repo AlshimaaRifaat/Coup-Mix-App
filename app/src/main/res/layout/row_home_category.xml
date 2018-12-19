@@ -1,36 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_1sdp"
-    android:background="#f0f2f1"
+    android:layout_height="@dimen/_70sdp"
+    android:orientation="vertical"
+    android:background="#fff"
     >
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/row_home_category_image"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+
+        />
+    <TextView
+        android:id="@+id/row_home_category_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/_1sdp"
-        android:background="#f0f2f1"
-        >
+        android:text="#######"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#666666"/>
 
-        <ImageView
-            android:id="@+id/row_home_category_image"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/_5sdp"
-
-            />
-        <TextView
-            android:id="@+id/row_home_category_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="#######"
-            android:gravity="center"
-            android:textColor="#666666"
-            android:layout_marginBottom="@dimen/_10sdp"/>
-
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+</LinearLayout>
