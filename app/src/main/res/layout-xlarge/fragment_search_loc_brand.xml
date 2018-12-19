@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8e8ea"
+    tools:context=".fragment.SearchLocBrandFragment"
+    tools:layout_editor_absoluteY="25dp">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/search_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:background="#07aba7">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--<ImageView
+                android:id="@+id/search_image_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_white"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/Search"
+                android:textColor="#fff"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/search_swip_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+
+
+        <RelativeLayout
+            android:id="@+id/search_main_relative"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <!-- <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_swip_refresh">-->
+            <!-- TODO: Update blank fragment layout -->
+            <RelativeLayout
+                android:id="@+id/search_relative_location"
+                android:layout_width="@dimen/_287sdp"
+                android:layout_height="@dimen/_55sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_160sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="#fff">
+
+                <Spinner
+                    android:id="@+id/search_location_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"></Spinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/search_relative_brand"
+                android:layout_width="@dimen/_287sdp"
+                android:layout_height="@dimen/_55sdp"
+                android:layout_below="@id/search_relative_location"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="#fff">
+
+                <Spinner
+                    android:id="@+id/search_brand_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"></Spinner>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/search_btn2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_17sdp"
+
+                android:layout_marginRight="@dimen/_17sdp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button"
+                android:text="@string/Search"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="@dimen/_12sdp" />
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>
