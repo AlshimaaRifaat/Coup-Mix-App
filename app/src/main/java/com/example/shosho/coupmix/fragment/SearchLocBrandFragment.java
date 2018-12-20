@@ -73,7 +73,7 @@ NetworkConnection networkConnection;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
-        NavigationActivity.toolbar.setVisibility(View.GONE );
+       // NavigationActivity.toolbar.setVisibility(View.GONE );
         init();
 
 
@@ -237,7 +237,7 @@ NetworkConnection networkConnection;
 
    /* @Override
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
-        *//* locationPresenter.getLocationResult("en", "10");
+        *//* locationPresenter.getLocationResult("en", "about");
          brandPresenter.getBrandResult("en",LocationModel  );
          *//*
 

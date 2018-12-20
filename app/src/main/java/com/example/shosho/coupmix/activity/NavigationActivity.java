@@ -26,13 +26,13 @@ Fragment fragment;
 NavigationView navigationView;
     public static ActionBarDrawerToggle toggle;
     public static DrawerLayout drawer;
-    public static Toolbar toolbar;
+    //public static Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_navigation );
-        toolbar = (Toolbar) findViewById( R.id.toolbar );
-      setSupportActionBar( toolbar );
+       // toolbar = (Toolbar) findViewById( R.id.toolbar );
+      //setSupportActionBar( toolbar );
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fab );
         fab.setOnClickListener( new View.OnClickListener() {
@@ -53,17 +53,17 @@ NavigationView navigationView;
         NavigationView navigationView = (NavigationView) findViewById( R.id.nav_view );
         navigationView.setNavigationItemSelectedListener( this );
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (drawer.isDrawerOpen(GravityCompat.START)) {
-                    drawer.closeDrawer(GravityCompat.START);
-                } else {
-                    drawer.openDrawer(GravityCompat.START);
-                }
-            }
-        });
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                if (drawer.isDrawerOpen(GravityCompat.START)) {
+//                    drawer.closeDrawer(GravityCompat.START);
+//                } else {
+//                    drawer.openDrawer(GravityCompat.START);
+//                }
+//            }
+//        });
     }
 
     @Override
