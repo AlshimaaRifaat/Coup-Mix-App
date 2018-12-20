@@ -27,8 +27,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="0dp"
-                android:text="@string/Brand"
                 android:textColor="#fff"
+                android:layout_centerVertical="true"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
         </RelativeLayout>
