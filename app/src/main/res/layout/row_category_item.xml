@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_255sdp"
+    android:layout_height="@dimen/_228sdp"
     android:layout_marginTop="@dimen/_4sdp"
     android:layout_marginRight="@dimen/_10sdp"
     android:layout_marginLeft="@dimen/_10sdp">
@@ -56,9 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-
         android:textColor="#000"
-        android:textSize="@dimen/_17sdp"
+        android:textSize="@dimen/_14sdp"
         android:text="title"
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_below="@id/row_category_item_image"/>
@@ -67,8 +66,8 @@
             android:id="@+id/row_category_item_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:textSize="@dimen/_12sdp"
             android:text="description"
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_below="@id/row_category_item_title"/>
@@ -76,7 +75,7 @@
             android:id="@+id/row_category_item_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:text="country"
             android:textAlignment="gravity"
             android:gravity="left"
@@ -95,26 +94,26 @@
             android:gravity="center"
             android:textSize="@dimen/_12sdp"
             android:background="@drawable/subtraction3"
-            android:layout_marginTop="@dimen/_155sdp"
+            android:layout_marginTop="@dimen/_132sdp"
             android:layout_alignParentRight="true"
             />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_202sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_100sdp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/relative_category_item">
             <Button
                 android:id="@+id/row_category_item_btn"
-                android:layout_width="@dimen/_105sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="@string/showDetails"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:text="@string/ShowDetails"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_5sdp"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_12sdp"
+                android:textAllCaps="false"
                 android:background="@drawable/button_show_details"/>
 
 

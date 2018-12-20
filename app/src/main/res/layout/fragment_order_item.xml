@@ -9,7 +9,7 @@
       android:layout_height="match_parent">
   <android.support.v7.widget.Toolbar
       android:layout_width="match_parent"
-      android:layout_height="@dimen/_45sdp"
+      android:layout_height="@dimen/_42sdp"
       android:id="@+id/order_item_toolbar"
       android:background="#07aba7">
     <RelativeLayout
@@ -31,104 +31,105 @@
     </RelativeLayout>
   </android.support.v7.widget.Toolbar>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/order_item_toolbar"
-    android:orientation="vertical"
-    android:background="#e8e8ea">
-    <!-- TODO: Update blank fragment layout -->
-  <EditText
-      android:id="@+id/order_item_edit_text_name"
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/_55sdp"
-      android:background="#fff"
-      android:layout_marginTop="@dimen/_40sdp"
-      android:layout_marginLeft="@dimen/_25sdp"
-      android:layout_marginRight="@dimen/_25sdp"
-      android:hint="@string/Name"
-      android:paddingBottom="10sp"
-      android:paddingLeft="@dimen/_14sdp"
-      android:paddingRight="@dimen/_14sdp"
-      android:paddingTop="@dimen/_8sdp"
-      android:textColorHint="#000"
-     />
-    <EditText
-        android:id="@+id/order_item_edit_text_address"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
-        android:background="#fff"
-        android:layout_marginTop="@dimen/_7sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:hint="@string/Address"
-        android:paddingBottom="10sp"
-        android:paddingLeft="@dimen/_14sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:textColorHint="#000"
-        android:paddingRight="@dimen/_14sdp"
-        />
-    <EditText
-        android:id="@+id/order_item_edit_text_phone"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
-        android:background="#fff"
-        android:layout_marginTop="@dimen/_7sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:hint="@string/Phone"
-        android:paddingBottom="10sp"
-        android:paddingLeft="@dimen/_14sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:textColorHint="#000"
-        android:paddingRight="@dimen/_14sdp"
-        />
-    <EditText
-        android:id="@+id/order_item_edit_text_email"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
-        android:background="#fff"
-        android:layout_marginTop="@dimen/_7sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:hint="@string/Email"
-        android:paddingBottom="10sp"
-        android:paddingLeft="@dimen/_14sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:textColorHint="#000"
-        android:paddingRight="@dimen/_14sdp"
-        />
-    <EditText
-        android:id="@+id/order_item_edit_text_notes"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_70sdp"
-        android:background="#fff"
-        android:layout_marginTop="@dimen/_7sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:hint="@string/Notes"
-        android:paddingBottom="10sp"
-        android:paddingLeft="@dimen/_14sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:textColorHint="#000"
-        android:paddingRight="@dimen/_14sdp"
-        />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@+id/order_item_toolbar"
+          android:layout_alignParentBottom="true"
+          android:layout_marginBottom="1dp"
+          android:background="#e8e8ea"
+          android:orientation="vertical">
+          <!-- TODO: Update blank fragment layout -->
+          <EditText
+              android:id="@+id/order_item_edit_text_name"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_55sdp"
+              android:layout_marginLeft="@dimen/_25sdp"
+              android:layout_marginTop="@dimen/_40sdp"
+              android:layout_marginRight="@dimen/_25sdp"
+              android:background="#fff"
+              android:hint="@string/Name"
+              android:paddingLeft="@dimen/_14sdp"
+              android:paddingTop="@dimen/_8sdp"
+              android:paddingRight="@dimen/_14sdp"
+              android:paddingBottom="10sp"
+              android:textColorHint="#000" />
 
-    <Button
-        android:id="@+id/order_item_btn_order"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/order_item_edit_text_notes"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_33sdp"
-        android:background="@drawable/button"
-        android:text="@string/OrderBook"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="@dimen/_15sdp" />
-</LinearLayout>
+          <EditText
+              android:id="@+id/order_item_edit_text_address"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_55sdp"
+              android:layout_marginLeft="@dimen/_25sdp"
+              android:layout_marginTop="@dimen/_7sdp"
+              android:layout_marginRight="@dimen/_25sdp"
+              android:background="#fff"
+              android:hint="@string/Address"
+              android:paddingLeft="@dimen/_14sdp"
+              android:paddingTop="@dimen/_8sdp"
+              android:paddingRight="@dimen/_14sdp"
+              android:paddingBottom="10sp"
+              android:textColorHint="#000" />
+
+          <EditText
+              android:id="@+id/order_item_edit_text_phone"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_55sdp"
+              android:layout_marginLeft="@dimen/_25sdp"
+              android:layout_marginTop="@dimen/_7sdp"
+              android:layout_marginRight="@dimen/_25sdp"
+              android:background="#fff"
+              android:hint="@string/Phone"
+              android:paddingLeft="@dimen/_14sdp"
+              android:paddingTop="@dimen/_8sdp"
+              android:paddingRight="@dimen/_14sdp"
+              android:paddingBottom="10sp"
+              android:textColorHint="#000" />
+
+          <EditText
+              android:id="@+id/order_item_edit_text_email"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_55sdp"
+              android:layout_marginLeft="@dimen/_25sdp"
+              android:layout_marginTop="@dimen/_7sdp"
+              android:layout_marginRight="@dimen/_25sdp"
+              android:background="#fff"
+              android:hint="@string/Email"
+              android:paddingLeft="@dimen/_14sdp"
+              android:paddingTop="@dimen/_8sdp"
+              android:paddingRight="@dimen/_14sdp"
+              android:paddingBottom="10sp"
+              android:textColorHint="#000" />
+
+          <EditText
+              android:id="@+id/order_item_edit_text_notes"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_70sdp"
+              android:layout_marginLeft="@dimen/_25sdp"
+              android:layout_marginTop="@dimen/_7sdp"
+              android:layout_marginRight="@dimen/_25sdp"
+              android:background="#fff"
+              android:hint="@string/Notes"
+              android:paddingLeft="@dimen/_14sdp"
+              android:paddingTop="@dimen/_8sdp"
+              android:paddingRight="@dimen/_14sdp"
+              android:paddingBottom="10sp"
+              android:textColorHint="#000" />
+
+          <Button
+              android:id="@+id/order_item_btn_order"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_45sdp"
+              android:layout_below="@+id/order_item_edit_text_notes"
+              android:layout_marginLeft="@dimen/_27sdp"
+              android:layout_marginTop="@dimen/_32sdp"
+              android:layout_marginRight="@dimen/_27sdp"
+              android:layout_marginBottom="@dimen/_37sdp"
+              android:background="@drawable/button"
+              android:text="@string/OrderBook"
+              android:textAllCaps="false"
+              android:textColor="#fff"
+              android:textSize="@dimen/_15sdp" />
+      </LinearLayout>
   </RelativeLayout>
 
 </ScrollView>

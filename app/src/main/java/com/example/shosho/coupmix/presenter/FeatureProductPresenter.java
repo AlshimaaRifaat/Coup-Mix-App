@@ -39,7 +39,7 @@ public class FeatureProductPresenter {
             public void onResponse(Call<FeatureProductResponse> call, Response<FeatureProductResponse> response) {
                 if (response.isSuccessful()) {
 
-                    HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
+                   // HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
                     featureProductView.showFeaturesProductsData( response.body().getData() );
                 }
             }

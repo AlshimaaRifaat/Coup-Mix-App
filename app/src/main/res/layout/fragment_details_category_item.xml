@@ -13,7 +13,7 @@
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/_42sdp"
             android:id="@+id/details_category_item_toolbar"
             android:background="#07aba7">
             <RelativeLayout
@@ -31,7 +31,7 @@
                     android:textColor="#fff"
                     android:textStyle="bold"
                     android:textSize="@dimen/_15sdp"
-                    android:text="@string/Product"/>
+                    android:text="@string/Details"/>
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
@@ -214,7 +214,7 @@
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_19sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
                     />
 
                 <ImageView
@@ -242,7 +242,7 @@
                     android:gravity="left"
                     android:layout_toEndOf="@+id/details_category_item_image_phone"
                     android:layout_below="@id/details_category_item_text_country"
-                    android:layout_marginTop="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
                     />
                 <Button
                     android:id="@+id/details_category_item_btn_order"

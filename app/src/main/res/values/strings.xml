@@ -23,7 +23,7 @@
     <string name="Categories">Categories</string>
     <string name="Search">Search</string>
     <string name="FeaturesProducts">Features Products</string>
-    <string name="showDetails">show Details</string>
+    <string name="ShowDetails">Show Details</string>
     <string name="No">No.</string>
     <string name="CancelOrder">Cancel Order</string>
     <string name="Bookedon">Booked on</string>
@@ -46,13 +46,14 @@
     <string name="Checkyourinternetconnection">Check your internet connection</string>
     <string name="Invalidemail">Invalid email</string>
     <string name="Pleasewriteyouraddress">Please, write your address</string>
-    <string name="Product">Product</string>
     <string name="OrderBook">Order Book</string>
     <string name="youcanfind">you can find best offers and can get with  best discount</string>
     <string name="Coupondetail">Coupon detail</string>
     <string name="FeaturesOffer">Features Offer</string>
     <string name="Directions">Directions</string>
     <string name="RequestOrder">Request Order</string>
+    <string name="Searchbybrand">Search by brand...</string>
+    <string name="Details">Details</string>
 
 
 </resources>

@@ -57,7 +57,7 @@ Button searchBtn;
 BrandPresenter brandPresenter;
 Spinner brandSpinner;
 Integer BrandModelId;
-String BrandModel;
+public static String BrandModel;
 BrandSpinnerAdapter brandSpinnerAdapter;
 ImageView imageBack;
 SwipeRefreshLayout swipeRefreshLayout;

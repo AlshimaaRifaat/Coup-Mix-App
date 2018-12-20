@@ -38,7 +38,7 @@ public class BookPresenter {
             public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
                 if (response.isSuccessful()) {
 
-                    HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
+                    //HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
                     bookView.showData( response.body().getData() );
                 }
             }

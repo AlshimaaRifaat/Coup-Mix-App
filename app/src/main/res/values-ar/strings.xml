@@ -16,7 +16,7 @@
     <string name="Categories">الفئات</string>
     <string name="Search">بحث</string>
     <string name="FeaturesProducts">ميزات المنتجات</string>
-    <string name="showDetails">اظهر التفاصيل</string>
+    <string name="ShowDetails">اظهر التفاصيل</string>
     <string name="No">No.</string>
     <string name="CancelOrder">الغاء الطلب</string>
     <string name="Bookedon"> حجز فى</string>
@@ -37,14 +37,15 @@
     <string name="Checkyourinternetconnection">تحقق من اتصالك بالانترنت</string>
     <string name="Invalidemail">البريد إلكتروني خاطئ</string>
     <string name="Pleasewriteyouraddress">من فضك,اكتب عنوانك</string>
-    <string name="Product">المنتج</string>
     <string name="OrderBook">احجزالكتيب</string>
     <string name="youcanfind">يمكنك العثور على أفضل العروض وبافضل خصم</string>
     <string name="Coupondetail">تفاصيل القسيمة</string>
     <string name="FeaturesOffer">ميزات العرض</string>
     <string name="Directions">الاتجاهات</string>
-    <string name="RequestOrder">Request Order</string>
+    <string name="RequestOrder">اطلب الكتيب</string>
     <string name="Pleasewriteyouremail">من فضلك ادخل بريدك الالكترونى</string>
+    <string name="Searchbybrand">ابحث عن الماركه</string>
+    <string name="Details">التفاصيل</string>
 
 
 </resources>

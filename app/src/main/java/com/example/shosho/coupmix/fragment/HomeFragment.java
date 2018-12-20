@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.activity.NavigationActivity;
 import com.example.shosho.coupmix.adapter.BannerAdapter;
 import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeFeatureProductAdapter;
@@ -71,6 +75,7 @@ public class HomeFragment extends Fragment implements
     FeatureProductPresenter featureProductPresenter;
 
     SharedPreferences sharedPreferences;
+    Toolbar toolbar;
     //String Lang;
     View view;
     public HomeFragment() {
@@ -93,7 +98,26 @@ public class HomeFragment extends Fragment implements
         category();
         featureProduct();
         swipRefresh();
+        NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
+        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
+        NavigationActivity.toggle.syncState();
+
+        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        toolbar.setNavigationIcon(R.drawable. icon_menu);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                }
+            }
+        });
         return view;
 
     }
@@ -141,6 +165,7 @@ public class HomeFragment extends Fragment implements
         recyclerViewBanner=view.findViewById( R.id.home_recycler_banner );
         recyclerViewCategory=view.findViewById( R.id.home_recycler_view_category );
         recyclerViewFeatureProduct=view.findViewById( R.id.home_recycler_view_features_products );
+        toolbar=view.findViewById( R.id.home_toolbar );
     }
 
     @Override
@@ -171,9 +196,9 @@ public class HomeFragment extends Fragment implements
         recyclerViewBanner.setLayoutManager( linearLayoutManager );
         recyclerViewBanner.setAdapter( bannerAdapter );
 
-        if(bannersData.size()>1) {
+        if(banners.size()>1) {
             Timer timer = new Timer();
-            timer.scheduleAtFixedRate( new AutoScrollTask(), 3000, 5000 );
+            timer.scheduleAtFixedRate( new AutoScrollTask(), 2000, 2000 );
         }
         swipeRefreshLayout.setRefreshing( false );
     }

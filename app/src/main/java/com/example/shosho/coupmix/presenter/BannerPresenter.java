@@ -35,7 +35,7 @@ public class BannerPresenter {
             public void onResponse(Call<BannerResponse> call, Response<BannerResponse> response) {
                 if(response.isSuccessful())
                 {
-                    HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
+                   // HomeFragment.scrollViewHome.setVisibility( View.VISIBLE );
                     bannerView.showBannerData( response.body().getData() );
                 }
             }

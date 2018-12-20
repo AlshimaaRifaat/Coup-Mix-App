@@ -49,6 +49,8 @@ Button showdetails;
 ImageView imageBack;
 SwipeRefreshLayout swipeRefreshLayout;
 NetworkConnection networkConnection;
+
+TextView textToolbar;
 //CategoryItemDetails categoryItemDetails;
     public CategoryItemFragment() {
         // Required empty public constructor
@@ -98,12 +100,12 @@ View view;
                     }
                 } );
             }
-
-            private void init()
+     private void init()
     {
         showdetails=view.findViewById( R.id.row_category_item_btn );
        // imageBack=view.findViewById( R.id.category_item_image_back );
         swipeRefreshLayout=view.findViewById( R.id.category_item_swip_refresh );
+        textToolbar=view.findViewById( R.id.category_item_text_toolbar );
 
     }
 
@@ -114,7 +116,7 @@ View view;
 
     @Override
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
-
+        textToolbar.setText( SearchLocBrandFragment.BrandModel );
      categoryItemAdapter=new CategoryItemAdapter( getContext(),locBrandDataList );
      categoryItemAdapter.onClick( this );
      LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -146,6 +148,7 @@ View view;
                 detailsCategoryItemFragment.setArguments( bundle );
                 getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
                         .addToBackStack( null ).commit();
+
             //    swipeRefreshLayout.setRefreshing( false );
             }
 
