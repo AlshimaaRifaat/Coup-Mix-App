@@ -45,6 +45,7 @@
     <string name="Pleasewriteyouremail">من فضلك ادخل بريدك الالكترونى</string>
     <string name="Searchbybrand">ابحث عن الماركه</string>
     <string name="Details">التفاصيل</string>
+    <string name="NoDataFound">عفوا, لا يتواجد نتيجه</string>
 
 
 </resources>

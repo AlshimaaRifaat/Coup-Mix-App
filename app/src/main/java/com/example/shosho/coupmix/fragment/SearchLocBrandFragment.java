@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.NavigationActivity;
+import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.adapter.BrandSpinnerAdapter;
 import com.example.shosho.coupmix.adapter.LocationSpinnerAdapter;
 import com.example.shosho.coupmix.model.BookData;
@@ -46,22 +47,22 @@ import java.util.List;
 public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnItemSelectedListener
         ,LocationView,BrandView,SwipeRefreshLayout.OnRefreshListener
 {
-//ArrayAdapter<BookData> booksAdapter;
-LocationPresenter locationPresenter;
-Spinner locationSpinner;
-Integer LocationModelID;
-String LocationModel;
-LocationSpinnerAdapter locationSpinnerAdapter;
-Button searchBtn;
+    //ArrayAdapter<BookData> booksAdapter;
+    LocationPresenter locationPresenter;
+    Spinner locationSpinner;
+    Integer LocationModelID;
+    String LocationModel;
+    LocationSpinnerAdapter locationSpinnerAdapter;
+    Button searchBtn;
 
-BrandPresenter brandPresenter;
-Spinner brandSpinner;
-Integer BrandModelId;
-public static String BrandModel;
-BrandSpinnerAdapter brandSpinnerAdapter;
-ImageView imageBack;
-SwipeRefreshLayout swipeRefreshLayout;
-NetworkConnection networkConnection;
+    BrandPresenter brandPresenter;
+    Spinner brandSpinner;
+    Integer BrandModelId;
+    public static String BrandModel;
+    BrandSpinnerAdapter brandSpinnerAdapter;
+    ImageView imageBack;
+    SwipeRefreshLayout swipeRefreshLayout;
+    NetworkConnection networkConnection;
 
     public SearchLocBrandFragment() {
         // Required empty public constructor
@@ -72,12 +73,12 @@ NetworkConnection networkConnection;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
-       // NavigationActivity.toolbar.setVisibility(View.GONE );
+        view=  inflater.inflate( R.layout.fragment_search_loc_brand, container, false );
+        // NavigationActivity.toolbar.setVisibility(View.GONE );
         init();
 
 
-     networkConnection=new NetworkConnection( getContext() );
+        networkConnection=new NetworkConnection( getContext() );
       /*imageBack.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,34 +94,34 @@ NetworkConnection networkConnection;
                         .commit();
             }
         } );*/
-     searchBtn.setOnClickListener( new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             CategoryItemFragment categoryItemFragment=new CategoryItemFragment();
-             Bundle bundle = new Bundle();
-             bundle.putString("location", LocationModel);
-             bundle.putString("brand", BrandModel);
-             categoryItemFragment.setArguments(bundle);
-             getFragmentManager().beginTransaction().replace
-                     ( R.id.content_navigation,categoryItemFragment )
-                     .addToBackStack( null ).commit();
-         }
-     } );
-     locationPresenter=new LocationPresenter( getContext(),this );
+        searchBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CategoryItemFragment categoryItemFragment=new CategoryItemFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("location", LocationModel);
+                bundle.putString("brand", BrandModel);
+                categoryItemFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace
+                        ( R.id.content_navigation,categoryItemFragment )
+                        .addToBackStack( null ).commit();
+            }
+        } );
+        locationPresenter=new LocationPresenter( getContext(),this );
 
 
-    Bundle bundle = this.getArguments();
+        Bundle bundle = this.getArguments();
         if (bundle != null) {
             String Id = bundle.getString( "id" );
-            locationPresenter.getLocationResult( "en", Id );
+            locationPresenter.getLocationResult( SplashActivity.Language, Id );
         }
 
-     brandPresenter=new BrandPresenter( getContext(),this );
+        brandPresenter=new BrandPresenter( getContext(),this );
 
-      //searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
+        //searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
 
-      swipRefresh();
-       return view;
+        swipRefresh();
+        return view;
     }
 
     private void swipRefresh() {
@@ -142,10 +143,10 @@ NetworkConnection networkConnection;
     private void init()
     {
         locationSpinner=view.findViewById( R.id.search_location_spinner );
-       brandSpinner=view.findViewById( R.id.search_brand_spinner );
-      searchBtn=view.findViewById( R.id.search_btn2 );
-     //  imageBack=view.findViewById( R.id.search_image_back );
-       swipeRefreshLayout=view.findViewById( R.id.search_swip_refresh );
+        brandSpinner=view.findViewById( R.id.search_brand_spinner );
+        searchBtn=view.findViewById( R.id.search_btn2 );
+        //  imageBack=view.findViewById( R.id.search_image_back );
+        swipeRefreshLayout=view.findViewById( R.id.search_swip_refresh );
     }
 
     @Override

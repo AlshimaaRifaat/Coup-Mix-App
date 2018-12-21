@@ -14,7 +14,6 @@
         android:id="@+id/row_category_item_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_85sdp"
-        android:scaleType="fitXY"
         android:layout_alignParentTop="true" />
         <TextView
             android:id="@+id/row_category_item_text_coupon_detail"

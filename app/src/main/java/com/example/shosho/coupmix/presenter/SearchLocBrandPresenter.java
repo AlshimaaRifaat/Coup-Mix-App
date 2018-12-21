@@ -45,7 +45,7 @@ public class SearchLocBrandPresenter {
             @Override
             public void onFailure(Call<SearchLocBrandResponse> call, Throwable t) {
                 searchLocBrandView.error();
-                Toast.makeText( context, R.string.NoNetworkAvailable,
+                Toast.makeText( context, R.string.NoDataFound,
                         Toast.LENGTH_SHORT).show();
             }
         } );

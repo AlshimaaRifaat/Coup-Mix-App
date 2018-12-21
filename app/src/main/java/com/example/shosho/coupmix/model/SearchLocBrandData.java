@@ -1,5 +1,6 @@
 package com.example.shosho.coupmix.model;
 
+import com.example.shosho.coupmix.view.SearchBrandView;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
