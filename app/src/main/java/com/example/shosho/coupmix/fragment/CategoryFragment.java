@@ -16,8 +16,10 @@ import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.model.BookData;
+import com.example.shosho.coupmix.model.SearchLocBrandData;
 import com.example.shosho.coupmix.presenter.BookPresenter;
 import com.example.shosho.coupmix.view.BookView;
+import com.example.shosho.coupmix.view.OnClickItemCategoryView;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class CategoryFragment extends Fragment implements
-        BookView,SwipeRefreshLayout.OnRefreshListener {
+        BookView,SwipeRefreshLayout.OnRefreshListener,OnClickItemCategoryView {
 
     NetworkConnection networkConnection;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -93,6 +95,7 @@ View view;
     @Override
     public void showData(List<BookData> booksData) {
         homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
+        homeCategoryAdapter.onClick( this );
         recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
         swipeRefreshLayout.setRefreshing( false );
@@ -101,5 +104,16 @@ View view;
     @Override
     public void error() {
         swipeRefreshLayout.setRefreshing( false );
+    }
+
+    @Override
+    public void showOnClickItemCategoryResult(SearchLocBrandData searchLocBrandData) {
+        SearchLocBrandFragment searchLocBrandFragment=new SearchLocBrandFragment();
+        Bundle bundle=new Bundle( );
+        bundle.putString( "id" ,searchLocBrandData.getId());
+        searchLocBrandFragment.setArguments( bundle );
+        getFragmentManager().beginTransaction().replace( R.id.content_navigation
+                ,searchLocBrandFragment )
+                .addToBackStack( null ).commit();
     }
 }

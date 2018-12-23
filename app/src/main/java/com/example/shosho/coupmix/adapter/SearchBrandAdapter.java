@@ -41,11 +41,11 @@ public class SearchBrandAdapter extends RecyclerView.Adapter<SearchBrandAdapter.
                 searchBrandDataList.get( position ).getImage() ).into(holder.imageView);
 
         holder.title.setText(searchBrandDataList.get( position ).getTitle());
-        String Description=searchBrandDataList.get(position).getDescription();
+        /*String Description=searchBrandDataList.get(position).getDescription();
 
         if(Description.length()>=35)
             Description=Description.substring( 0,35 )+"...";
-        holder.description.setText( Description );
+        holder.description.setText( Description );*/
         holder.address.setText( searchBrandDataList.get(position).getAddress() );
 
         holder.phone.setText( searchBrandDataList.get( position ).getPhone() );
@@ -68,7 +68,7 @@ public class SearchBrandAdapter extends RecyclerView.Adapter<SearchBrandAdapter.
         private TextView address;
         private TextView phone;
 
-        //  private ImageView imageBack;
+         private ImageView imageBack;
 
 
 
@@ -76,7 +76,7 @@ public class SearchBrandAdapter extends RecyclerView.Adapter<SearchBrandAdapter.
             super( itemView );
             imageView=itemView.findViewById( R.id.row_search_brand_image );
             title=itemView.findViewById( R.id.row_search_brand_title );
-            description=itemView.findViewById( R.id.row_search_brand_description );
+           // description=itemView.findViewById( R.id.row_search_brand_description );
             address=itemView.findViewById( R.id.row_search_brand_address );
             phone=itemView.findViewById( R.id.row_search_brand_phone );
 

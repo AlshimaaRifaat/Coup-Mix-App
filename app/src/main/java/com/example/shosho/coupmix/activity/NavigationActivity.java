@@ -12,13 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.fragment.AboutCoupMixFragment;
+import com.example.shosho.coupmix.fragment.AllBrandFragment;
 import com.example.shosho.coupmix.fragment.CategoryFragment;
-import com.example.shosho.coupmix.fragment.CategoryItemFragment;
 import com.example.shosho.coupmix.fragment.HomeFragment;
 import com.example.shosho.coupmix.fragment.OrderItemFragment;
 
@@ -123,8 +121,12 @@ NavigationView navigationView;
                currentSelectedPosition=2;
                fragment=new CategoryFragment();
                break;
-           case R.id.nav_about_coup_mix:
+           case R.id.nav_brand:
                currentSelectedPosition=3;
+               fragment=new AllBrandFragment();
+               break;
+           case R.id.nav_about_coup_mix:
+               currentSelectedPosition=4;
                fragment=new AboutCoupMixFragment();
                break;
 
@@ -141,7 +143,8 @@ if(item.isChecked())
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace( R.id.content_navigation,fragment ).commit();
+        fragmentTransaction.replace( R.id.content_navigation,fragment )
+                .addToBackStack( null ).commit();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
