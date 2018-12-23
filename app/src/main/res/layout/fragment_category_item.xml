@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_1sdp"
-    android:background="#fff"
+    android:background="#e8e8ea"
     tools:context=".fragment.CategoryItemFragment">
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.Toolbar

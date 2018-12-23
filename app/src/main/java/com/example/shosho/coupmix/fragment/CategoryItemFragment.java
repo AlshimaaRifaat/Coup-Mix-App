@@ -12,34 +12,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.adapter.CategoryItemAdapter;
-import com.example.shosho.coupmix.adapter.CategoryItemBrandAdapter;
+import com.example.shosho.coupmix.adapter.SearchBrandAdapter;
 import com.example.shosho.coupmix.model.CategoryItemDetails;
-import com.example.shosho.coupmix.model.FeatureProductDetails;
 import com.example.shosho.coupmix.model.SearchBrandData;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
-import com.example.shosho.coupmix.presenter.BrandPresenter;
-import com.example.shosho.coupmix.presenter.LocationPresenter;
 import com.example.shosho.coupmix.presenter.SearchBrandPresenter;
 import com.example.shosho.coupmix.presenter.SearchLocBrandPresenter;
 import com.example.shosho.coupmix.view.OnClickDetailsCategoryItemView;
 import com.example.shosho.coupmix.view.SearchBrandView;
 import com.example.shosho.coupmix.view.SearchLocBrandView;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CategoryItemFragment extends Fragment implements
-        SearchLocBrandView,OnClickDetailsCategoryItemView,SwipeRefreshLayout.OnRefreshListener,SearchBrandView
+        SearchLocBrandView,OnClickDetailsCategoryItemView,SwipeRefreshLayout.OnRefreshListener
 {
 
 
@@ -47,8 +41,8 @@ public class CategoryItemFragment extends Fragment implements
     RecyclerView recyclerView;
     SearchLocBrandPresenter searchLocBrandPresenter;
     CategoryItemAdapter categoryItemAdapter;
-    CategoryItemBrandAdapter categoryItemBrandAdapter;
-    String Location,Brand,Key;
+    SearchBrandAdapter categoryItemBrandAdapter;
+    String Location,Brand;
 
 
     Button showdetails;
@@ -76,7 +70,7 @@ public class CategoryItemFragment extends Fragment implements
         Recycle();
         init();
         networkConnection=new NetworkConnection( getContext() );
-        searchBrandPresenter=new SearchBrandPresenter( getContext(),this );
+
       /* imageBack.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +83,7 @@ public class CategoryItemFragment extends Fragment implements
         if (bundle != null) {
             Location = bundle.getString( "location" );
             Brand = bundle.getString( "brand" );
-            Key=bundle.getString( "key" );
+
 
         }
         swipRefresh();
@@ -109,10 +103,7 @@ public class CategoryItemFragment extends Fragment implements
                     if(Location != null && Brand != null ) {
                         searchLocBrandPresenter.getSearchLocBrandResult( SplashActivity.Language, Location, Brand );
                     }
-                    else if (Key!=null)
-                    {
-                        searchBrandPresenter.getSearhBrandResult( SplashActivity.Language,Key );
-                    }
+
                 }
             }
         } );
@@ -146,19 +137,7 @@ public class CategoryItemFragment extends Fragment implements
 
     }
 
-    @Override
-    public void showSearchBrandData(List<SearchBrandData> searchBrandDataList) {
-        textToolbar.setText( "Search Result" );
-        categoryItemBrandAdapter=new CategoryItemBrandAdapter( getContext(),searchBrandDataList );
 
-        categoryItemBrandAdapter.onClick( this );
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter( categoryItemBrandAdapter );
-        swipeRefreshLayout.setRefreshing( false );
-
-    }
 
     @Override
     public void error() {

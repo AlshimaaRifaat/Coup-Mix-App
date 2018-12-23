@@ -36,14 +36,16 @@ public class SearchBrandPresenter {
         call.enqueue( new Callback<SearchBrandResponse>() {
             @Override
             public void onResponse(Call<SearchBrandResponse> call, Response<SearchBrandResponse> response) {
-                searchBrandView.showSearchBrandData( response.body().getData() );
+                if(response.isSuccessful()) {
+                    searchBrandView.showSearchBrandData( response.body().getData() );
+                }
             }
 
             @Override
             public void onFailure(Call<SearchBrandResponse> call, Throwable t) {
                 searchBrandView.error();
                 Toast.makeText( context, R.string.NoDataFound,
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_LONG).show();
 
             }
         } );

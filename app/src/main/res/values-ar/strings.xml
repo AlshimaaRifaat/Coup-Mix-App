@@ -46,6 +46,7 @@
     <string name="Searchbybrand">ابحث عن الماركه</string>
     <string name="Details">التفاصيل</string>
     <string name="NoDataFound">عفوا, لا يتواجد نتيجه</string>
+    <string name="SearchResult">نتيجه البحث</string>
 
 
 </resources>

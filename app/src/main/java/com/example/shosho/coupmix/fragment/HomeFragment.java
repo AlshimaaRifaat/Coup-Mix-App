@@ -149,11 +149,11 @@ public class HomeFragment extends Fragment implements
         {
             if(!editTextSearch.getText().toString().equals( "" ))
             {
-                CategoryItemFragment categoryItemFragment = new CategoryItemFragment();
+                SearchBrandFragment searchBrandFragment = new SearchBrandFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString( "key", editTextSearch.getText().toString() );
-                categoryItemFragment.setArguments( bundle );
-                getFragmentManager().beginTransaction().replace( R.id.content_navigation,categoryItemFragment )
+                searchBrandFragment.setArguments( bundle );
+                getFragmentManager().beginTransaction().replace( R.id.content_navigation,searchBrandFragment )
                         .addToBackStack( null ).commit();
             }
         }

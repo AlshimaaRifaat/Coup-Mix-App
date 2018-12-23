@@ -54,6 +54,7 @@
     <string name="Searchbybrand">Search by brand...</string>
     <string name="Details">Details</string>
     <string name="NoDataFound">No Result Found</string>
+    <string name="SearchResult">Search Result</string>
 
 
 </resources>
