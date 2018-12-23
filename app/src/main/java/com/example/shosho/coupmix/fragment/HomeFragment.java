@@ -191,10 +191,7 @@ public class HomeFragment extends Fragment implements
 
     private void category() {
         bookPresenter=new BookPresenter( getContext(),this );
-
         bookPresenter.getBookResult( "en" );
-
-
 
     }
 
@@ -216,21 +213,13 @@ public class HomeFragment extends Fragment implements
 
     @Override
     public void showData(List<BookData> booksData) {
-
-
         homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
         homeCategoryAdapter.onClick( this );
         recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
         recyclerViewCategory.setAdapter( homeCategoryAdapter );
-
-
-
     }
 
-    @Override
-    public void showBrandData(List<BookData> booksData) {
 
-    }
 
     @Override
     public void showBannerData(List<BannerData> bannersData) {
@@ -256,7 +245,6 @@ public class HomeFragment extends Fragment implements
         homeFeatureProductAdapter.onClick( this );
         recyclerViewFeatureProduct.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
         recyclerViewFeatureProduct.setAdapter( homeFeatureProductAdapter );
-
         swipeRefreshLayout.setRefreshing( false );
 
     }

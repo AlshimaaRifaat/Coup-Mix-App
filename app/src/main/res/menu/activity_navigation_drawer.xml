@@ -8,6 +8,10 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/home_2"
             android:title="@string/Home" />
+        <item
+            android:id="@+id/nav_category"
+            android:icon="@drawable/box"
+            android:title="@string/Categories"/>
 
         <item
             android:id="@+id/nav_request_order"
@@ -17,6 +21,7 @@
             android:id="@+id/nav_about_coup_mix"
             android:icon="@drawable/faq"
             android:title="@string/AboutCoupMix"/>
+
     </group>
 
 

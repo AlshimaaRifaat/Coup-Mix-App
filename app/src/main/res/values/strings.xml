@@ -55,6 +55,7 @@
     <string name="Details">Details</string>
     <string name="NoDataFound">No Result Found</string>
     <string name="SearchResult">Search Result</string>
+    <string name="AllCategories">All Categories</string>
 
 
 </resources>

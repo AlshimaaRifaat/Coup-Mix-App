@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface BookView {
     void showData(List<BookData> booksData);//show location data in spinner
-    void showBrandData(List<BookData> booksData);
+
     void error();
 }

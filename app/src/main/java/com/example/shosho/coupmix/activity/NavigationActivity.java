@@ -17,6 +17,8 @@ import android.widget.ImageView;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.fragment.AboutCoupMixFragment;
+import com.example.shosho.coupmix.fragment.CategoryFragment;
+import com.example.shosho.coupmix.fragment.CategoryItemFragment;
 import com.example.shosho.coupmix.fragment.HomeFragment;
 import com.example.shosho.coupmix.fragment.OrderItemFragment;
 
@@ -117,10 +119,15 @@ NavigationView navigationView;
                currentSelectedPosition=1;
                fragment=new OrderItemFragment();
                break;
-           case R.id.nav_about_coup_mix:
+           case R.id.nav_category:
                currentSelectedPosition=2;
+               fragment=new CategoryFragment();
+               break;
+           case R.id.nav_about_coup_mix:
+               currentSelectedPosition=3;
                fragment=new AboutCoupMixFragment();
                break;
+
                default:
                    currentSelectedPosition=0;
        }
