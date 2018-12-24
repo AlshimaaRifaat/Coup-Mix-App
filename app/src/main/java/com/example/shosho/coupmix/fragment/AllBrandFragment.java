@@ -25,6 +25,7 @@ import com.example.shosho.coupmix.presenter.BookPresenter;
 import com.example.shosho.coupmix.presenter.SearchBrandPresenter;
 import com.example.shosho.coupmix.view.AllBrandView;
 import com.example.shosho.coupmix.view.BookView;
+import com.example.shosho.coupmix.view.OnClickItemAllBrandView;
 import com.example.shosho.coupmix.view.OnClickItemCategoryView;
 
 import java.util.List;
@@ -32,7 +33,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AllBrandFragment extends Fragment implements AllBrandView,SwipeRefreshLayout.OnRefreshListener {
+public class AllBrandFragment extends Fragment implements
+        AllBrandView,SwipeRefreshLayout.OnRefreshListener ,OnClickItemAllBrandView{
 
     NetworkConnection networkConnection;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -40,6 +42,8 @@ public class AllBrandFragment extends Fragment implements AllBrandView,SwipeRefr
     RecyclerView recyclerViewAllBrand;
     AllBrandAdapter allBrandAdapter;
     AllBrandPresenter allBrandPresenter;
+
+    Bundle bundle;
     public AllBrandFragment() {
         // Required empty public constructor
     }
@@ -51,10 +55,13 @@ public class AllBrandFragment extends Fragment implements AllBrandView,SwipeRefr
         // Inflate the layout for this fragment
         view= inflater.inflate( R.layout.fragment_all_brand, container, false );
         allBrandPresenter=new AllBrandPresenter( getContext(),this );
+
         Recycle();
         init();
         networkConnection=new NetworkConnection( getContext() );
         allBrand();
+        bundle=new Bundle(  );
+
         swipeRefresh();
         return view;
     }
@@ -110,6 +117,7 @@ public class AllBrandFragment extends Fragment implements AllBrandView,SwipeRefr
     @Override
     public void showAllBrandData(List<AllBrandData> allBrandDataList) {
         allBrandAdapter=new AllBrandAdapter( getContext(),allBrandDataList );
+        allBrandAdapter.onClick( this );
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerViewAllBrand.setLayoutManager(linearLayoutManager);
         recyclerViewAllBrand.setAdapter( allBrandAdapter );
@@ -122,4 +130,14 @@ public class AllBrandFragment extends Fragment implements AllBrandView,SwipeRefr
 
     }
 
+
+    @Override
+    public void showOnClickItemAllBrandResult(AllBrandData allBrandData) {
+        CategoryItemFragment categoryItemFragment=new CategoryItemFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putInt( "id",allBrandData.getId() );
+        categoryItemFragment.setArguments( bundle );
+        getFragmentManager().beginTransaction().replace( R.id.content_navigation,categoryItemFragment )
+                .addToBackStack( null ).commit();
+    }
 }

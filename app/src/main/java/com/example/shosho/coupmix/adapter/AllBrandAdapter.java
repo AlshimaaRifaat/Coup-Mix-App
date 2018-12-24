@@ -11,7 +11,10 @@ import android.widget.TextView;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.model.AllBrandData;
+import com.example.shosho.coupmix.model.OfferListData;
 import com.example.shosho.coupmix.model.SearchBrandData;
+import com.example.shosho.coupmix.model.SearchLocBrandData;
+import com.example.shosho.coupmix.view.OnClickItemAllBrandView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,6 +22,7 @@ import java.util.List;
 public class AllBrandAdapter  extends RecyclerView.Adapter<AllBrandAdapter.ViewHolder> {
     private Context context;
     private List<AllBrandData> allBrandDataList;
+OnClickItemAllBrandView onClickItemAllBrandView;
 
     public AllBrandAdapter(Context context, List<AllBrandData> allBrandDataList) {
         this.context = context;
@@ -30,6 +34,10 @@ public class AllBrandAdapter  extends RecyclerView.Adapter<AllBrandAdapter.ViewH
     public AllBrandAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view=LayoutInflater.from( context ).inflate(R.layout.row_search_brand,parent,false);
         return new AllBrandAdapter.ViewHolder(view);
+    }
+    public void onClick(OnClickItemAllBrandView onClickItemAllBrandView)
+    {
+        this.onClickItemAllBrandView=onClickItemAllBrandView;
     }
 
     @Override
@@ -51,6 +59,15 @@ public class AllBrandAdapter  extends RecyclerView.Adapter<AllBrandAdapter.ViewH
 
 
 
+
+holder.itemView.setOnClickListener( new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        AllBrandData allBrandData=new AllBrandData();
+        allBrandData=allBrandDataList.get(position);
+        onClickItemAllBrandView.showOnClickItemAllBrandResult( allBrandData );
+    }
+} );
     }
 
     @Override

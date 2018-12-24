@@ -5,6 +5,7 @@ import com.example.shosho.coupmix.model.BooksResponse;
 import com.example.shosho.coupmix.model.BrandResponse;
 import com.example.shosho.coupmix.model.FeatureProductResponse;
 import com.example.shosho.coupmix.model.LocationResponse;
+import com.example.shosho.coupmix.model.OfferListResponse;
 import com.example.shosho.coupmix.model.OrderItemResponse;
 import com.example.shosho.coupmix.model.SearchBrandData;
 import com.example.shosho.coupmix.model.SearchBrandResponse;
@@ -46,4 +47,7 @@ public interface Service {
 
     @POST("api/brandsearch")
     Call<AllBrandResponse> getAllBrandData(@Body Map<String,String> map);
+
+    @POST("api/offersearchlist")
+    Call<SearchLocBrandResponse>getOfferListData(@Body Map<String,String> map);
 }

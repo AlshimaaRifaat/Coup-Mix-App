@@ -17,14 +17,12 @@ import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.adapter.CategoryItemAdapter;
-import com.example.shosho.coupmix.adapter.SearchBrandAdapter;
 import com.example.shosho.coupmix.model.CategoryItemDetails;
-import com.example.shosho.coupmix.model.SearchBrandData;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
-import com.example.shosho.coupmix.presenter.SearchBrandPresenter;
+import com.example.shosho.coupmix.presenter.OfferListPresenter;
 import com.example.shosho.coupmix.presenter.SearchLocBrandPresenter;
+import com.example.shosho.coupmix.view.OfferListView;
 import com.example.shosho.coupmix.view.OnClickDetailsCategoryItemView;
-import com.example.shosho.coupmix.view.SearchBrandView;
 import com.example.shosho.coupmix.view.SearchLocBrandView;
 
 import java.util.List;
@@ -34,16 +32,16 @@ import java.util.List;
  */
 public class CategoryItemFragment extends Fragment implements
         SearchLocBrandView,OnClickDetailsCategoryItemView,SwipeRefreshLayout.OnRefreshListener
+    ,OfferListView
+
 {
-
-
 
     RecyclerView recyclerView;
     SearchLocBrandPresenter searchLocBrandPresenter;
     CategoryItemAdapter categoryItemAdapter;
-    SearchBrandAdapter categoryItemBrandAdapter;
-    String Location,Brand;
 
+    String Location,Brand;
+    Integer Id;
 
     Button showdetails;
     ImageView imageBack;
@@ -53,7 +51,9 @@ public class CategoryItemFragment extends Fragment implements
     TextView textToolbar;
 
     Bundle bundle;
-    SearchBrandPresenter searchBrandPresenter;
+
+    OfferListPresenter offerListPresenter;
+
     //CategoryItemDetails categoryItemDetails;
     public CategoryItemFragment() {
         // Required empty public constructor
@@ -69,6 +69,7 @@ public class CategoryItemFragment extends Fragment implements
 
         Recycle();
         init();
+        offerList();
         networkConnection=new NetworkConnection( getContext() );
 
       /* imageBack.setOnClickListener( new View.OnClickListener() {
@@ -83,11 +84,18 @@ public class CategoryItemFragment extends Fragment implements
         if (bundle != null) {
             Location = bundle.getString( "location" );
             Brand = bundle.getString( "brand" );
+            Id=bundle.getInt( "id" );
 
 
         }
         swipRefresh();
         return view;
+    }
+
+    private void offerList() {
+
+       offerListPresenter=new OfferListPresenter(getContext(),this);
+       //offerListPresenter.getOfferListResult( SplashActivity.Language,"8"  );
     }
 
     private void swipRefresh() {
@@ -102,6 +110,9 @@ public class CategoryItemFragment extends Fragment implements
                     swipeRefreshLayout.setRefreshing( true );
                     if(Location != null && Brand != null ) {
                         searchLocBrandPresenter.getSearchLocBrandResult( SplashActivity.Language, Location, Brand );
+                    }else
+                    {
+                        offerListPresenter.getOfferListResult( SplashActivity.Language,Integer.toString( Id ) );
                     }
 
                 }
@@ -121,7 +132,9 @@ public class CategoryItemFragment extends Fragment implements
 
 
     private void Recycle() {
+
         recyclerView=view.findViewById( R.id.category_item_recycler_view );
+
     }
 
     @Override
@@ -138,6 +151,17 @@ public class CategoryItemFragment extends Fragment implements
     }
 
 
+
+    @Override
+    public void showOfferListData(List<SearchLocBrandData> searchLocBrandData) {
+        textToolbar.setText( SearchLocBrandFragment.BrandModel );
+        categoryItemAdapter=new CategoryItemAdapter( getContext(),searchLocBrandData );
+        categoryItemAdapter.onClick( this );
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter( categoryItemAdapter );
+        swipeRefreshLayout.setRefreshing( false );
+    }
 
     @Override
     public void error() {
@@ -169,5 +193,8 @@ public class CategoryItemFragment extends Fragment implements
     public void onRefresh() {
         swipeRefreshLayout.setRefreshing( true );
         searchLocBrandPresenter.getSearchLocBrandResult( "en", Location, Brand );
+        offerListPresenter.getOfferListResult( SplashActivity.Language,"8"  );
     }
+
+
 }
