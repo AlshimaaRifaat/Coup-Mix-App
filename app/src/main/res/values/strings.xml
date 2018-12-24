@@ -56,6 +56,8 @@
     <string name="NoDataFound">No Result Found</string>
     <string name="SearchResult">Search Result</string>
     <string name="Brand">Brand</string>
+    <string name="Offers">Offers</string>
+    <string name="Subscribe">Subscribe</string>
 
 
 </resources>

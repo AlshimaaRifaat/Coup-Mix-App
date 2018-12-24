@@ -11,9 +11,6 @@ import android.widget.TextView;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.model.AllBrandData;
-import com.example.shosho.coupmix.model.OfferListData;
-import com.example.shosho.coupmix.model.SearchBrandData;
-import com.example.shosho.coupmix.model.SearchLocBrandData;
 import com.example.shosho.coupmix.view.OnClickItemAllBrandView;
 import com.squareup.picasso.Picasso;
 

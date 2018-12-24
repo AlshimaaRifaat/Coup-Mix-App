@@ -5,9 +5,7 @@ import com.example.shosho.coupmix.model.BooksResponse;
 import com.example.shosho.coupmix.model.BrandResponse;
 import com.example.shosho.coupmix.model.FeatureProductResponse;
 import com.example.shosho.coupmix.model.LocationResponse;
-import com.example.shosho.coupmix.model.OfferListResponse;
 import com.example.shosho.coupmix.model.OrderItemResponse;
-import com.example.shosho.coupmix.model.SearchBrandData;
 import com.example.shosho.coupmix.model.SearchBrandResponse;
 import com.example.shosho.coupmix.model.SearchLocBrandResponse;
 
@@ -17,7 +15,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.QueryMap;
 
 public interface Service {
     // /api_elshekh/Allpeotry/?api_token=100&lang=ar&section=book

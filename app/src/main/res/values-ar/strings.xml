@@ -48,6 +48,8 @@
     <string name="NoDataFound">عفوا, لا يتواجد نتيجه</string>
     <string name="SearchResult">نتيجه البحث</string>
     <string name="Brand">Brand</string>
+    <string name="Offers">Offers</string>
+    <string name="Subscribe">Subscribe</string>
 
 
 </resources>

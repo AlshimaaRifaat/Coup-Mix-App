@@ -7,10 +7,7 @@ import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
-import com.example.shosho.coupmix.model.BooksResponse;
-import com.example.shosho.coupmix.model.OfferListResponse;
 import com.example.shosho.coupmix.model.SearchLocBrandResponse;
-import com.example.shosho.coupmix.view.BookView;
 import com.example.shosho.coupmix.view.OfferListView;
 
 import java.util.HashMap;

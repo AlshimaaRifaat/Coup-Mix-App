@@ -11,19 +11,24 @@
         <item
             android:id="@+id/nav_category"
             android:icon="@drawable/box"
-            android:title="@string/Categories"/>
+            android:title="@string/Categories" />
         <item
             android:id="@+id/nav_brand"
             android:icon="@drawable/layer1"
-            android:title="@string/Brand"/>
+            android:title="@string/Brand" />
         <item
             android:id="@+id/nav_request_order"
+            android:icon="@drawable/orders"
+            android:title="@string/RequestOrder" />
+        <item
+            android:id="@+id/nav_subscribe"
+            android:layout_width="match_parent"
             android:icon="@drawable/box"
-            android:title="@string/RequestOrder"/>
+            android:title="@string/Subscribe" />
         <item
             android:id="@+id/nav_about_coup_mix"
             android:icon="@drawable/faq"
-            android:title="@string/AboutCoupMix"/>
+            android:title="@string/AboutCoupMix" />
 
     </group>
 

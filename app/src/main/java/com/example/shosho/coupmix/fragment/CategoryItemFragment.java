@@ -154,7 +154,7 @@ public class CategoryItemFragment extends Fragment implements
 
     @Override
     public void showOfferListData(List<SearchLocBrandData> searchLocBrandData) {
-        textToolbar.setText( SearchLocBrandFragment.BrandModel );
+        textToolbar.setText( R.string.Offers );
         categoryItemAdapter=new CategoryItemAdapter( getContext(),searchLocBrandData );
         categoryItemAdapter.onClick( this );
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
