@@ -52,9 +52,9 @@
     android:layout_width="@dimen/_22sdp"
     android:layout_height="@dimen/_22sdp"
    android:background="@drawable/search"
-    android:layout_marginRight="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
     android:layout_marginTop="@dimen/_6sdp"
-    android:layout_alignParentRight="true"/>
+    android:layout_alignParentEnd="true"/>
 
     <EditText
         android:id="@+id/home_edit_text_search"

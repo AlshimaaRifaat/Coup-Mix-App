@@ -53,11 +53,13 @@
     <string name="RequestOrder">Request Order</string>
     <string name="Searchbybrand">Search by brand...</string>
     <string name="Details">Details</string>
-    <string name="NoDataFound">No Result Found</string>
+    <string name="NoDataFound">No Data Found</string>
     <string name="SearchResult">Search Result</string>
     <string name="Brand">Brand</string>
     <string name="Offers">Offers</string>
     <string name="Subscribe">Subscribe</string>
+    <string name="YourEmail">Your Email</string>
+    <string name="ThanksForyoursubscribe">Thanks For your subscribe...</string>
 
 
 </resources>

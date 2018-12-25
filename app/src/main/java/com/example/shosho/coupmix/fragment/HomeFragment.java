@@ -233,7 +233,7 @@ public class HomeFragment extends Fragment implements
 
         if(banners.size()>1) {
             Timer timer = new Timer();
-            timer.scheduleAtFixedRate( new AutoScrollTask(), 2000, 2000 );
+            timer.scheduleAtFixedRate( new AutoScrollTask(), 3000, 3000 );
         }
         swipeRefreshLayout.setRefreshing( false );
     }

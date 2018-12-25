@@ -7,5 +7,5 @@ import java.util.List;
 public interface SearchLocBrandView {
    // void showSearhLocBrandPage(SearchLocBrand searchLocBrand);
    void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList);
-   void error();
+   void error(String error);
 }

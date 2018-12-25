@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface OfferListView {
     void showOfferListData(List<SearchLocBrandData> searchLocBrandData);
-    void error();
+    void error(String error);
 }

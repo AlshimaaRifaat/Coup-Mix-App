@@ -37,13 +37,19 @@ public class OfferListPresenter {
             @Override
             public void onResponse(Call<SearchLocBrandResponse> call, Response<SearchLocBrandResponse> response) {
                 if (response.isSuccessful()) {
-                    offerListView.showOfferListData( response.body().getData() );
+                    if (response.body().getData()!=null) {
+                        offerListView.showOfferListData( response.body().getData() );
+                    }
+                    else
+                    {
+                        Toast.makeText( context, "No Result Found", Toast.LENGTH_SHORT ).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<SearchLocBrandResponse> call, Throwable t) {
-                offerListView.error();
+                offerListView.error("No Result Found");
                 Toast.makeText( context, R.string.NoDataFound,
                         Toast.LENGTH_SHORT).show();
             }

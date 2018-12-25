@@ -9,7 +9,7 @@
     <string name="Home">الصفحه الرئيسيه</string>
     <string name="Category">الفئه</string>
     <string name="MyOrders">طلباتي</string>
-    <string name="AboutCoupMix">  حول كوبو ميكس</string>
+    <string name="AboutCoupMix">  عن كوبو ميكس</string>
     <string name="title_activity_navigation">الصفحه الرئيسيه</string>
     <string name="NoNetworkAvailable">لا يتوفر انترنت</string>
     <string name="Categories">الفئات</string>
@@ -27,7 +27,7 @@
     <string name="Location">الموقع</string>
     <string name="Discount">الخصم :</string>
     <string name="ThanksForyourorder">شكرا لطلبك</string>
-    <string name="BookOrderSuccess">تم بنجاح طلب الكتاب</string>
+    <string name="BookOrderSuccess"> تم طلب الكتاب بنجاح</string>
     <string name="Yourorderidis">رقم طلبك هو</string>
     <string name="Pleasewriteyourname">من فضك,اكتب اسمك</string>
     <string name="Pleasewriteyourphone">من فضك,اكتب رقم التليفون الخاص بك</string>
@@ -36,7 +36,7 @@
     <string name="Checkyourinternetconnection">تحقق من اتصالك بالانترنت</string>
     <string name="Invalidemail">البريد إلكتروني خاطئ</string>
     <string name="Pleasewriteyouraddress">من فضك,اكتب عنوانك</string>
-    <string name="OrderBook">احجزالكتيب</string>
+    <string name="OrderBook">احجز الكتيب</string>
     <string name="youcanfind">يمكنك العثور على أفضل العروض وبافضل خصم</string>
     <string name="Coupondetail">تفاصيل القسيمة</string>
     <string name="FeaturesOffer">ميزات العرض</string>
@@ -47,9 +47,11 @@
     <string name="Details">التفاصيل</string>
     <string name="NoDataFound">عفوا, لا يتواجد نتيجه</string>
     <string name="SearchResult">نتيجه البحث</string>
-    <string name="Brand">Brand</string>
-    <string name="Offers">Offers</string>
-    <string name="Subscribe">Subscribe</string>
+    <string name="Brand">الماركه</string>
+    <string name="Offers">العروض</string>
+    <string name="Subscribe">إشترك معنا</string>
+    <string name="YourEmail">بريدك الالكترونى</string>
+    <string name="ThanksForyoursubscribe">شكرا لاشتراكك ...</string>
 
 
 </resources>

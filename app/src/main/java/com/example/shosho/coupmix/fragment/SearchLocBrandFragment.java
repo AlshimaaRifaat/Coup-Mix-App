@@ -236,6 +236,12 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
 
     }
 
+    @Override
+    public void error(String error) {
+        Toast.makeText( getContext(), error, Toast.LENGTH_SHORT ).show();
+        swipeRefreshLayout.setRefreshing( false );
+    }
+
    /* @Override
     public void showSearhLocBrandResult(List<SearchLocBrandData> locBrandDataList) {
         *//* locationPresenter.getLocationResult("en", "about");

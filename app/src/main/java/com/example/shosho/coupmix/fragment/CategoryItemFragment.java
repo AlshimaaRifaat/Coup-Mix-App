@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
@@ -152,6 +153,9 @@ public class CategoryItemFragment extends Fragment implements
 
 
 
+
+
+
     @Override
     public void showOfferListData(List<SearchLocBrandData> searchLocBrandData) {
         textToolbar.setText( R.string.Offers );
@@ -164,10 +168,10 @@ public class CategoryItemFragment extends Fragment implements
     }
 
     @Override
-    public void error() {
+    public void error(String error) {
+        Toast.makeText( getContext(), error, Toast.LENGTH_SHORT ).show();
         swipeRefreshLayout.setRefreshing( false );
     }
-
 
 
     @Override
@@ -193,7 +197,7 @@ public class CategoryItemFragment extends Fragment implements
     public void onRefresh() {
         swipeRefreshLayout.setRefreshing( true );
         searchLocBrandPresenter.getSearchLocBrandResult( "en", Location, Brand );
-        offerListPresenter.getOfferListResult( SplashActivity.Language,"8"  );
+        offerListPresenter.getOfferListResult( SplashActivity.Language,Integer.toString( Id )  );
     }
 
 

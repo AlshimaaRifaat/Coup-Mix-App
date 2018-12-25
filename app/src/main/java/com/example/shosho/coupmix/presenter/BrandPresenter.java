@@ -49,7 +49,7 @@ public class BrandPresenter {
 
             @Override
             public void onFailure(Call<BrandResponse> call, Throwable t) {
-                   brandView.error();
+                   brandView.error("No Data found");
                 Toast.makeText( context, R.string.NoNetworkAvailable,
                         Toast.LENGTH_SHORT).show();
             }

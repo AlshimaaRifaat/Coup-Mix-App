@@ -58,7 +58,7 @@
         android:textColor="#000"
         android:textSize="@dimen/_14sdp"
         android:text="title"
-        android:layout_marginLeft="@dimen/_5sdp"
+      android:layout_centerHorizontal="true"
         android:layout_below="@id/row_category_item_image"/>
 
         <TextView
@@ -68,7 +68,7 @@
             android:layout_marginTop="@dimen/_4sdp"
             android:textSize="@dimen/_12sdp"
             android:text="description"
-            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_below="@id/row_category_item_title"/>
         <TextView
             android:id="@+id/row_category_item_country"

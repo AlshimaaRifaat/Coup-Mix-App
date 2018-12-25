@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface BrandView {
     void showBrandData(List<BrandData> brandDataList);
-    void error();
+    void error(String error);
 }

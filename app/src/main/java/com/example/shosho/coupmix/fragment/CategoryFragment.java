@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.SplashActivity;
+import com.example.shosho.coupmix.adapter.AllCategoryAdapter;
 import com.example.shosho.coupmix.adapter.HomeCategoryAdapter;
 import com.example.shosho.coupmix.model.BookData;
 import com.example.shosho.coupmix.model.SearchLocBrandData;
@@ -33,7 +34,7 @@ public class CategoryFragment extends Fragment implements
     private SwipeRefreshLayout swipeRefreshLayout;
 
     RecyclerView recyclerViewCategory;
-    HomeCategoryAdapter homeCategoryAdapter;
+    AllCategoryAdapter allCategoryAdapter;
     BookPresenter bookPresenter;
     public CategoryFragment() {
         // Required empty public constructor
@@ -94,10 +95,10 @@ View view;
 
     @Override
     public void showData(List<BookData> booksData) {
-        homeCategoryAdapter=new HomeCategoryAdapter( getContext(),booksData );
-        homeCategoryAdapter.onClick( this );
-        recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),3) );
-        recyclerViewCategory.setAdapter( homeCategoryAdapter );
+        allCategoryAdapter=new AllCategoryAdapter( getContext(),booksData );
+        allCategoryAdapter.onClick( this );
+        recyclerViewCategory.setLayoutManager( new GridLayoutManager( getContext(),2) );
+        recyclerViewCategory.setAdapter( allCategoryAdapter );
         swipeRefreshLayout.setRefreshing( false );
     }
 

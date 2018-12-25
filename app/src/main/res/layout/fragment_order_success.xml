@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/_52sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_17sdp"
                 android:text="@string/Yourorderidis"
                 android:textSize="@dimen/_12sdp"
                 android:textColor="#000"

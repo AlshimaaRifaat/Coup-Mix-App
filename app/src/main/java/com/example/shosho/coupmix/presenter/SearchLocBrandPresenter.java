@@ -38,13 +38,17 @@ public class SearchLocBrandPresenter {
             public void onResponse(Call<SearchLocBrandResponse> call, Response<SearchLocBrandResponse> response) {
                 if (response.isSuccessful())
                 {
-                    searchLocBrandView.showSearhLocBrandResult( response.body().getData(  ));
+                    if (response.body().getData()!=null) {
+                        searchLocBrandView.showSearhLocBrandResult( response.body().getData() );
+                    }else {
+                        Toast.makeText( context, "No Result Found", Toast.LENGTH_SHORT ).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<SearchLocBrandResponse> call, Throwable t) {
-                searchLocBrandView.error();
+                searchLocBrandView.error("No result found");
                 Toast.makeText( context, R.string.NoDataFound,
                         Toast.LENGTH_SHORT).show();
             }
