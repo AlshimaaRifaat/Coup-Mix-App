@@ -52,7 +52,7 @@
     android:layout_width="@dimen/_22sdp"
     android:layout_height="@dimen/_22sdp"
    android:background="@drawable/search"
-    android:layout_marginEnd="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_7sdp"
     android:layout_marginTop="@dimen/_6sdp"
     android:layout_alignParentEnd="true"/>
 
