@@ -120,6 +120,9 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
         brandPresenter=new BrandPresenter( getContext(),this );
 
         //searchLocBrandPresenter=new SearchLocBrandPresenter( getContext(),this );
+
+        swipRefresh();
+
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
@@ -140,7 +143,6 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
                 }
             }
         });
-        swipRefresh();
         return view;
     }
 
@@ -167,7 +169,7 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
         searchBtn=view.findViewById( R.id.search_btn2 );
         //  imageBack=view.findViewById( R.id.search_image_back );
         swipeRefreshLayout=view.findViewById( R.id.search_swip_refresh );
-        toolbar=view.findViewById( R.id.search_toolbar );
+        toolbar=view.findViewById( R.id.search_loc_brand_toolbar );
     }
 
     @Override
@@ -293,4 +295,5 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
         swipeRefreshLayout.setRefreshing( true );
         brandPresenter.getBrandResult("en",LocationModel  );
     }
+
 }
