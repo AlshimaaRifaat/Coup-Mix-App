@@ -78,6 +78,26 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
         // NavigationActivity.toolbar.setVisibility(View.GONE );
         init();
 
+        NavigationActivity.toggle = new ActionBarDrawerToggle(
+                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
+        NavigationActivity.toggle.syncState();
+
+        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
+        toolbar.setNavigationIcon(R.drawable. icon_menu);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
+                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
+                }
+            }
+        });
 
         networkConnection=new NetworkConnection( getContext() );
       /*imageBack.setOnClickListener( new View.OnClickListener() {
@@ -123,26 +143,6 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
 
         swipRefresh();
 
-        NavigationActivity.toggle = new ActionBarDrawerToggle(
-                getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        NavigationActivity.drawer.addDrawerListener(NavigationActivity.toggle);
-        NavigationActivity.toggle.syncState();
-
-        NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
-        toolbar.setNavigationIcon(R.drawable. icon_menu);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (NavigationActivity.drawer.isDrawerOpen(GravityCompat.START)) {
-                    NavigationActivity.drawer.closeDrawer(GravityCompat.START);
-                } else {
-                    NavigationActivity.drawer.openDrawer(GravityCompat.START);
-                }
-            }
-        });
         return view;
     }
 
