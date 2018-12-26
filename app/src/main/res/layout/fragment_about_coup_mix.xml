@@ -5,7 +5,29 @@
     android:layout_height="match_parent"
     android:background="@drawable/about"
     tools:context=".fragment.AboutCoupMixFragment">
-
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:id="@+id/about_toolbar"
+        android:background="#07aba7">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- <ImageView
+                 android:id="@+id/order_item_image_back"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:background="@drawable/back_white"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:text="@string/AboutCoupMix"/>
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
