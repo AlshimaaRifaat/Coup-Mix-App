@@ -36,6 +36,8 @@ public void   getOrderResult(User user)
         map.put("c_email", user.getEmail());
         map.put( "c_address",user.getAddress() );
         map.put( "c_phone",user.getPhone() );
+        if(user.getNote()==null || user.getNote().equals( "" ))
+            user.setNote( "No Note" );
         map.put( "c_note",user.getNote() );
         Service service=Client.getClient().create( Service.class );
         Call<OrderItemResponse> call =service.getOrderItemData(  map);

@@ -117,7 +117,7 @@ View view;
                     !userEmail.getText().toString().equals( "" )&&
                     !userAddress.getText().toString().equals("")&&
                     !userPhone.getText().toString().equals("")&&
-                    !userNote.getText().toString().equals("")&&validateEmail())
+                    validateEmail())
             {
                 User user=new User();
                 user.setName( userName.getText().toString() );
