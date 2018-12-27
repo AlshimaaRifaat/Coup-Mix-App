@@ -313,22 +313,25 @@ public class HomeFragment extends Fragment implements
 
         @Override
         public void run() {
-            if(position==banners.size()-1)
-            {
-                end=true;
-            }else if(position==0)
-            {
-                end=false;
-            }
+            try {
 
-            if(!end)
+
+                if (position == banners.size() - 1) {
+                    end = true;
+                } else if (position == 0) {
+                    end = false;
+                }
+
+                if (!end) {
+                    position++;
+                } else {
+                    position--;
+                }
+                recyclerViewBanner.smoothScrollToPosition( position );
+            }catch (Exception e)
             {
-                position++;
-            }else
-            {
-                position--;
+
             }
-            recyclerViewBanner.smoothScrollToPosition( position );
         }
     }
 }
