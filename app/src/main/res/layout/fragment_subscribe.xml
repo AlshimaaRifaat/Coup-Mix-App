@@ -61,7 +61,7 @@
         android:layout_marginRight="@dimen/_13sdp"
         android:layout_marginBottom="@dimen/_37sdp"
        android:layout_alignParentBottom="true"
-        android:text="@string/Subscribe"
+        android:text="@string/subscribe"
         android:textColor="#fff"
         android:textAllCaps="false"
         android:textSize="@dimen/_14sdp"

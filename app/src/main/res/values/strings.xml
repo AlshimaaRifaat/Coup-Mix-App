@@ -60,6 +60,7 @@
     <string name="Subscribe">Newsletter Subscribtion</string>
     <string name="YourEmail">Your Email</string>
     <string name="ThanksForyoursubscribe">Thanks For your subscribe...</string>
+    <string name="subscribe">Subscribe</string>
 
 
 </resources>
