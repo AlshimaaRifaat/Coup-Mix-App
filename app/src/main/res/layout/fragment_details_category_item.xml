@@ -195,26 +195,31 @@
                     android:background="@drawable/layer_1"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
+
                     android:layout_below="@id/details_category_item_text_direction"
                     android:layout_marginTop="@dimen/_17sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     />
 
-                <TextView android:layout_below="@id/details_category_item_text_direction"
-
+                <TextView
                     android:id="@+id/details_category_item_text_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/details_category_item_image_location"
                     android:text="Egypt"
-                    android:layout_marginEnd="@dimen/_12sdp"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_17sdp"
-
+                    android:layout_below="@id/details_category_item_text_direction"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
                     />
-
+            <RelativeLayout
+                android:id="@+id/details_category_item_phone_layout"
+                android:layout_below="@id/details_category_item_text_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp">
                 <ImageView
                     android:id="@+id/details_category_item_image_phone"
                     android:layout_width="@dimen/_30sdp"
@@ -222,27 +227,23 @@
                     android:background="@drawable/layer_0"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_below="@id/details_category_item_text_country"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
                     />
                 <TextView
                     android:id="@+id/details_category_item_text_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_3sdp"
-                    android:layout_marginStart="@dimen/_3sdp"
                     android:text="0114158652"
                     android:textColor="#6b6c6e"
                     android:textSize="@dimen/_12sdp"
                     android:textAlignment="gravity"
                     android:gravity="left"
                     android:layout_toEndOf="@+id/details_category_item_image_phone"
-                    android:layout_below="@id/details_category_item_text_country"
-                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     />
+            </RelativeLayout>
                 <Button
                     android:id="@+id/details_category_item_btn_order"
                     android:layout_width="match_parent"
@@ -256,7 +257,7 @@
                     android:layout_marginBottom="@dimen/_30sdp"
                     android:background="@drawable/button"
                     android:textAllCaps="false"
-                    android:layout_below="@+id/details_category_item_image_phone"
+                    android:layout_below="@+id/details_category_item_phone_layout"
                     />
 
             </RelativeLayout>
