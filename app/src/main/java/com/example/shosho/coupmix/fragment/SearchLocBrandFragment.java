@@ -218,44 +218,43 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
 
     @Override
     public void showBrandData(final List<BrandData> brandDataList) {
-        ArrayList<String> brands=new ArrayList<>(  );
-        for(int i=0;i<brandDataList.size();i++)
-        {
-            brands.add( brandDataList.get( i ).getName() );
-        }
+        try {
+            ArrayList<String> brands = new ArrayList<>();
+            for (int i = 0; i < brandDataList.size(); i++) {
+                brands.add( brandDataList.get( i ).getName() );
+            }
 
-        brandSpinnerAdapter =new BrandSpinnerAdapter( getContext(), android.R.layout.simple_list_item_1);
-        brandSpinnerAdapter.addAll( brands );
-        brandSpinnerAdapter.add( "Brand");
-        brandSpinner.setAdapter( brandSpinnerAdapter );
-        brandSpinner.setSelection( brandSpinnerAdapter.getCount() );
-        brandSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (brandSpinner.getSelectedItem()=="Brand")
-                {
+            brandSpinnerAdapter = new BrandSpinnerAdapter( getContext(), android.R.layout.simple_list_item_1 );
+            brandSpinnerAdapter.addAll( brands );
+            brandSpinnerAdapter.add( "Brand" );
+            brandSpinner.setAdapter( brandSpinnerAdapter );
+            brandSpinner.setSelection( brandSpinnerAdapter.getCount() );
+            brandSpinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if (brandSpinner.getSelectedItem() == "Brand") {
 
-                }
-                else
-                {
-                    BrandModel=brandSpinner.getSelectedItem().toString();
-                    for (i=0;i<brandDataList.size();i++)
-                    {
-                        if(brandDataList.get(i).getName().equals( BrandModel ))
-                        {
-                            BrandModelId=brandDataList.get(i).getId();
+                    } else {
+                        BrandModel = brandSpinner.getSelectedItem().toString();
+                        for (i = 0; i < brandDataList.size(); i++) {
+                            if (brandDataList.get( i ).getName().equals( BrandModel )) {
+                                BrandModelId = brandDataList.get( i ).getId();
+                            }
                         }
                     }
                 }
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
 
-            }
-        } );
+                }
+            } );
 
-        swipeRefreshLayout.setRefreshing( false );
+            swipeRefreshLayout.setRefreshing( false );
+        }catch (Exception e)
+        {
+
+        }
 
     }
 
