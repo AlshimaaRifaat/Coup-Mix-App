@@ -140,7 +140,7 @@ View view;
         Bundle bundle=new Bundle( );
         bundle.putString( "id" ,searchLocBrandData.getId());
         searchLocBrandFragment.setArguments( bundle );
-        getFragmentManager().beginTransaction().replace( R.id.content_navigation
+        getFragmentManager().beginTransaction().add( R.id.content_navigation
                 ,searchLocBrandFragment )
                 .addToBackStack( null ).commit();
     }

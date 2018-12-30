@@ -115,7 +115,7 @@ public class SubscribeFragment extends Fragment implements SubscribeView {
     @Override
     public void showSubscribeResult(String Data) {
         Toast.makeText( getContext(),R.string.ThanksForyoursubscribe, Toast.LENGTH_LONG ).show();
-        getFragmentManager().beginTransaction().replace( R.id.content_navigation,new HomeFragment() )
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,new HomeFragment() )
                 .addToBackStack( null ).commit();
     }
 

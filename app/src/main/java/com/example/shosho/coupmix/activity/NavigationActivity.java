@@ -148,7 +148,7 @@ if(item.isChecked())
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace( R.id.content_navigation,fragment )
+        fragmentTransaction.add( R.id.content_navigation,fragment )
                 .addToBackStack( null ).commit();
 
 

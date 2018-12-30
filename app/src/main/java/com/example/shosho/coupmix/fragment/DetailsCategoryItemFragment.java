@@ -98,7 +98,7 @@ View view;
         orderBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.content_navigation,
+                getFragmentManager().beginTransaction().add(R.id.content_navigation,
                         new OrderItemFragment()).addToBackStack( null ).commit();
             }
         } );

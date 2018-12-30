@@ -149,7 +149,7 @@ View view;
             Bundle bundle=new Bundle( );
             bundle.putString( "id",orderid);
             orderSuccessFragment.setArguments( bundle );
-            getFragmentManager().beginTransaction().replace( R.id.content_navigation,
+            getFragmentManager().beginTransaction().add( R.id.content_navigation,
                     orderSuccessFragment )
                     .addToBackStack( null).commit();
 

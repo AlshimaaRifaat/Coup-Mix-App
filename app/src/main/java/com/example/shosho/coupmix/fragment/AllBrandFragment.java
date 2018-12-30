@@ -165,7 +165,7 @@ public class AllBrandFragment extends Fragment implements
         Bundle bundle=new Bundle(  );
         bundle.putInt( "id",allBrandData.getId() );
         categoryItemFragment.setArguments( bundle );
-        getFragmentManager().beginTransaction().replace( R.id.content_navigation,categoryItemFragment )
+        getFragmentManager().beginTransaction().add( R.id.content_navigation,categoryItemFragment )
                 .addToBackStack( null ).commit();
     }
 }

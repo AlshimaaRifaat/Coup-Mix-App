@@ -153,7 +153,7 @@ public class HomeFragment extends Fragment implements
                 Bundle bundle = new Bundle();
                 bundle.putString( "key", editTextSearch.getText().toString() );
                 searchBrandFragment.setArguments( bundle );
-                getFragmentManager().beginTransaction().replace( R.id.content_navigation,searchBrandFragment )
+                getFragmentManager().beginTransaction().add( R.id.content_navigation,searchBrandFragment )
                         .addToBackStack( null ).commit();
             }
         }
@@ -289,7 +289,7 @@ public class HomeFragment extends Fragment implements
         detailsCategoryItemFragment.setArguments( bundle );
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_navigation, detailsCategoryItemFragment);
+        fragmentTransaction.add(R.id.content_navigation, detailsCategoryItemFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
@@ -302,7 +302,7 @@ public class HomeFragment extends Fragment implements
         Bundle bundle=new Bundle( );
         bundle.putString( "id" ,searchLocBrandData.getId());
         searchLocBrandFragment.setArguments( bundle );
-        getFragmentManager().beginTransaction().replace( R.id.content_navigation
+        getFragmentManager().beginTransaction().add( R.id.content_navigation
                 ,searchLocBrandFragment )
                 .addToBackStack( null ).commit();
     }

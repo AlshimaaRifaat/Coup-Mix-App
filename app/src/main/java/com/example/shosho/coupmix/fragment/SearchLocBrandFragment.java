@@ -123,7 +123,7 @@ public class SearchLocBrandFragment extends Fragment implements  AdapterView.OnI
                 bundle.putString("location", LocationModel);
                 bundle.putString("brand", BrandModel);
                 categoryItemFragment.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace
+                getFragmentManager().beginTransaction().add
                         ( R.id.content_navigation,categoryItemFragment )
                         .addToBackStack( null ).commit();
             }

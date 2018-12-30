@@ -213,7 +213,7 @@ public class CategoryItemFragment extends Fragment implements
         bundle.putString( "country" ,categoryItemDetails.getCountry() );
         bundle.putString( "phone" ,categoryItemDetails.getPhone() );
         detailsCategoryItemFragment.setArguments( bundle );
-        getFragmentManager().beginTransaction().replace(R.id.content_navigation,detailsCategoryItemFragment)
+        getFragmentManager().beginTransaction().add(R.id.content_navigation,detailsCategoryItemFragment)
                 .addToBackStack( null ).commit();
 
         //    swipeRefreshLayout.setRefreshing( false );
