@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,6 +44,9 @@ public class SubscribeFragment extends Fragment implements SubscribeView {
         // Inflate the layout for this fragment
         view = inflater.inflate( R.layout.fragment_subscribe, container, false );
         init();
+
+       
+
         subscribePresenter = new SubscribePresenter( getContext(), this );
         subscribeBtn.setOnClickListener( new View.OnClickListener() {
             @Override
