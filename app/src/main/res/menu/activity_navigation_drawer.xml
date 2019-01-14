@@ -17,13 +17,23 @@
             android:icon="@drawable/layer1"
             android:title="@string/Brand" />
         <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/picture"
+            android:title="@string/Gallery"
+            />
+        <item
             android:id="@+id/nav_request_order"
             android:icon="@drawable/orders"
             android:title="@string/RequestOrder" />
         <item
+            android:id="@+id/nav_sponsor"
+            android:icon="@drawable/hand_shake"
+            android:title="@string/Sponsor"
+            />
+        <item
             android:id="@+id/nav_subscribe"
             android:layout_width="match_parent"
-            android:icon="@drawable/box"
+            android:icon="@drawable/mail"
             android:title="@string/Subscribe" />
         <item
             android:id="@+id/nav_about_coup_mix"

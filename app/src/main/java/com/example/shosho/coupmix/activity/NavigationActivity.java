@@ -17,8 +17,10 @@ import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.fragment.AboutCoupMixFragment;
 import com.example.shosho.coupmix.fragment.AllBrandFragment;
 import com.example.shosho.coupmix.fragment.CategoryFragment;
+import com.example.shosho.coupmix.fragment.GalleryFragment;
 import com.example.shosho.coupmix.fragment.HomeFragment;
 import com.example.shosho.coupmix.fragment.OrderItemFragment;
+import com.example.shosho.coupmix.fragment.SponsorFragment;
 import com.example.shosho.coupmix.fragment.SubscribeFragment;
 
 public class NavigationActivity extends AppCompatActivity
@@ -114,24 +116,32 @@ NavigationView navigationView;
                fragment=new HomeFragment();
                break;
 
-           case R.id.nav_request_order:
-               currentSelectedPosition=1;
-               fragment=new OrderItemFragment();
-               break;
            case R.id.nav_category:
-               currentSelectedPosition=2;
+               currentSelectedPosition=1;
                fragment=new CategoryFragment();
                break;
            case R.id.nav_brand:
-               currentSelectedPosition=3;
+               currentSelectedPosition=2;
                fragment=new AllBrandFragment();
                break;
-          case R.id.nav_subscribe:
+           case R.id.nav_gallery:
+               currentSelectedPosition=3;
+               fragment=new GalleryFragment();
+               break;
+           case R.id.nav_request_order:
                currentSelectedPosition=4;
+               fragment=new OrderItemFragment();
+               break;
+           case R.id.nav_sponsor:
+               currentSelectedPosition=5;
+               fragment=new SponsorFragment();
+               break;
+          case R.id.nav_subscribe:
+               currentSelectedPosition=6;
                fragment=new SubscribeFragment();
                break;
            case R.id.nav_about_coup_mix:
-               currentSelectedPosition=5;
+               currentSelectedPosition=7;
                fragment=new AboutCoupMixFragment();
                break;
 

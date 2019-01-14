@@ -32,7 +32,7 @@
     <string name="Pleasewriteyourname">من فضك,اكتب اسمك</string>
     <string name="Pleasewriteyourphone">من فضك,اكتب رقم التليفون الخاص بك</string>
     <string name="Pleasewriteyournotes">من فضك,اكتب ملاحظاتك</string>
-    <string name="Pleasefullyourinformation">من فضك,املأ البيانات الخاصه بك</string>
+    <string name="Pleasefullyourinformation">من فضلك,املأ البيانات الخاصه بك</string>
     <string name="Checkyourinternetconnection">تحقق من اتصالك بالانترنت</string>
     <string name="Invalidemail">البريد إلكتروني خاطئ</string>
     <string name="Pleasewriteyouraddress">من فضك,اكتب عنوانك</string>
@@ -53,6 +53,8 @@
     <string name="YourEmail">بريدك الالكترونى</string>
     <string name="ThanksForyoursubscribe">شكرا لاشتراكك ...</string>
     <string name="subscribe">إشترك معنا</string>
+    <string name="Gallery">الصور</string>
+    <string name="Sponsor">الراعى الرسمى</string>
 
 
 </resources>
