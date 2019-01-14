@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_119sdp"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/row_home_banner_image"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_117sdp"
+        android:scaleType="fitXY"
+        android:background="@color/colorAccent"
+        android:layout_margin="@dimen/_2sdp"
+        />
+</RelativeLayout>
