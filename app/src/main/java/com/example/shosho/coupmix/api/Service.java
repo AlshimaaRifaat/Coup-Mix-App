@@ -4,6 +4,7 @@ import com.example.shosho.coupmix.model.BannerResponse;
 import com.example.shosho.coupmix.model.BooksResponse;
 import com.example.shosho.coupmix.model.BrandResponse;
 import com.example.shosho.coupmix.model.FeatureProductResponse;
+import com.example.shosho.coupmix.model.GalleryResponse;
 import com.example.shosho.coupmix.model.LocationResponse;
 import com.example.shosho.coupmix.model.OrderItemResponse;
 import com.example.shosho.coupmix.model.SearchBrandResponse;
@@ -16,6 +17,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 
 public interface Service {
     // /api_elshekh/Allpeotry/?api_token=100&lang=ar&section=book
@@ -51,4 +53,8 @@ public interface Service {
 
     @POST("api/subscribe")
     Call<SubscribeResponse> getSubscribeData(@Body Map<String,String> map);
+
+    @POST("api/galary_list")
+    Call<GalleryResponse> getGalleryData(@QueryMap Map<String,String> map);
+
 }

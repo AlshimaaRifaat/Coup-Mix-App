@@ -5,11 +5,23 @@
     android:background="#fff">
 
     <ImageView
-        android:id="@+id/row_home_banner_image"
+        android:id="@+id/row_gallery_image"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_117sdp"
         android:scaleType="fitXY"
-        android:background="@color/colorAccent"
         android:layout_margin="@dimen/_2sdp"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_36sdp"
+            android:id="@+id/row_gallery_progress"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:visibility="visible"
+            />
+
+    </RelativeLayout>
 </RelativeLayout>
