@@ -9,6 +9,7 @@ import com.example.shosho.coupmix.model.LocationResponse;
 import com.example.shosho.coupmix.model.OrderItemResponse;
 import com.example.shosho.coupmix.model.SearchBrandResponse;
 import com.example.shosho.coupmix.model.SearchLocBrandResponse;
+import com.example.shosho.coupmix.model.SponsorResponse;
 import com.example.shosho.coupmix.model.SubscribeResponse;
 
 import java.util.Map;
@@ -57,4 +58,6 @@ public interface Service {
     @POST("api/galary_list")
     Call<GalleryResponse> getGalleryData(@QueryMap Map<String,String> map);
 
+    @POST("api/sponsors_list")
+    Call<SponsorResponse> getSponsorData(@QueryMap Map<String,String> map);
 }

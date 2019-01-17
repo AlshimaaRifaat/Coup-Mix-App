@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
+import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.api.Client;
 import com.example.shosho.coupmix.api.Service;
 import com.example.shosho.coupmix.model.GalleryResponse;
@@ -27,7 +28,7 @@ public class GalleryPresenter {
     public  void getGallryResult(String Lang)
     {
         Map<String,String> map=new HashMap<>(  );
-        map.put( "lang",Lang );
+        map.put( "lang","ar");
         Service service=Client.getClient().create( Service.class );
         Call<GalleryResponse> call=service.getGalleryData( map );
         call.enqueue( new Callback<GalleryResponse>() {

@@ -1,9 +1,11 @@
 package com.example.shosho.coupmix.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,7 +20,13 @@ String Image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        Dialog dialog=new Dialog( this );
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+       // requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable( true );
         setContentView( R.layout.activity_details_gallery );
+
+
         imageView=findViewById( R.id.details_gallery_Image );
 
 

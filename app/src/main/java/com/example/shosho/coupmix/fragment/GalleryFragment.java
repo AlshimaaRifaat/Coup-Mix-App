@@ -1,7 +1,10 @@
 package com.example.shosho.coupmix.fragment;
 
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +15,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.DetailsGalleryActivity;
 import com.example.shosho.coupmix.activity.NavigationActivity;
+import com.example.shosho.coupmix.activity.SplashActivity;
 import com.example.shosho.coupmix.adapter.GalleryAdapter;
 import com.example.shosho.coupmix.model.GalleryData;
 import com.example.shosho.coupmix.presenter.GalleryPresenter;

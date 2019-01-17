@@ -76,6 +76,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
                 videoLinkView.sendLink( galleryDataList.get( position ).getLinkvideo()
                         ,galleryDataList.get( position ).getImage() );
+
+
             }
         } );
 

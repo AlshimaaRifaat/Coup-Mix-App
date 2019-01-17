@@ -68,7 +68,8 @@ String Link;
 
             // loadVideo() will auto play video
             // Use cueVideo() method, if you don't want to play it automatically
-            youTubePlayer.loadVideo(Link);
+           String Url=Link.substring( Link.lastIndexOf( "=")+1  );
+            youTubePlayer.loadVideo(Url);
 
 
         }
