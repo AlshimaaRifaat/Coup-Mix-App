@@ -17,6 +17,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.fragment.DetailsGalleryFragment;
+import com.example.shosho.coupmix.fragment.GalleryFragment;
 import com.example.shosho.coupmix.model.FeatureProductData;
 import com.example.shosho.coupmix.model.FeatureProductDetails;
 import com.example.shosho.coupmix.model.GalleryData;
@@ -25,6 +26,7 @@ import com.example.shosho.coupmix.view.VideoLinkView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.security.PublicKey;
 import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
@@ -65,6 +67,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
                     @Override
                     public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                         holder.progressBar.setVisibility( View.GONE );
+                        if (!galleryDataList.get( position ).getLinkvideo().equals( "" ))
+                        {
+                            holder.iconYoutube.setVisibility( View.VISIBLE );
+                        }else
+                        {
+                            holder.iconYoutube.setVisibility( View.GONE );
+                        }
                         return false;
                     }
                 } )
@@ -92,11 +101,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
         private ProgressBar progressBar;
-
+     public  ImageView iconYoutube;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_gallery_image );
             progressBar=itemView.findViewById( R.id.row_gallery_progress );
+            iconYoutube=itemView.findViewById( R.id.row_gallery_icon_youtube);
         }
     }
 }

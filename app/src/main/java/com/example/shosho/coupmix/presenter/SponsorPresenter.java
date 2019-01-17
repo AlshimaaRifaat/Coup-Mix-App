@@ -43,7 +43,8 @@ public class SponsorPresenter {
             @Override
             public void onFailure(Call<SponsorResponse> call, Throwable t) {
                  sponsorView.error();
-                Toast.makeText( context, R.string.NoDataFound, Toast.LENGTH_SHORT ).show();
+                Toast.makeText( context, R.string.NoNetworkAvailable,
+                        Toast.LENGTH_SHORT).show();
             }
         } );
     }

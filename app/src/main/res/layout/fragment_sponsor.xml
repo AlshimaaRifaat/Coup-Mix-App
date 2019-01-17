@@ -29,11 +29,16 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sponsor_swip_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sponsor_toolbar">
    <android.support.v7.widget.RecyclerView
        android:id="@+id/sponsor_recycler"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:layout_below="@+id/sponsor_toolbar"
        ></android.support.v7.widget.RecyclerView>
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

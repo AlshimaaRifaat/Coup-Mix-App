@@ -28,6 +28,11 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/gallery_swip_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/gallery_toolbar">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/gallery_recycler"
         android:layout_width="match_parent"
@@ -35,6 +40,7 @@
         android:layout_below="@+id/gallery_toolbar"
         android:padding="@dimen/_1sdp"
         ></android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 

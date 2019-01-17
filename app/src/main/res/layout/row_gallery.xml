@@ -17,11 +17,25 @@
         <ProgressBar
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:layout_marginLeft="@dimen/_36sdp"
+            android:layout_marginStart="@dimen/_37sdp"
+            android:layout_marginEnd="@dimen/_37sdp"
             android:id="@+id/row_gallery_progress"
             android:layout_marginTop="@dimen/_43sdp"
             android:visibility="visible"
             />
 
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/row_gallery_icon_youtube"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+           android:layout_marginTop="@dimen/_45sdp"
+            android:src="@drawable/icon_tube"
+            android:layout_marginStart="@dimen/_37sdp"
+            android:layout_marginEnd="@dimen/_37sdp"
+            android:visibility="gone"/>
     </RelativeLayout>
 </RelativeLayout>

@@ -102,6 +102,7 @@ public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.ViewHold
         private TextView address;
         private TextView phone;
         ProgressBar progressBar;
+
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_sponsor_image );
@@ -109,6 +110,8 @@ public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.ViewHold
             address=itemView.findViewById( R.id.row_sponsor_address );
             phone=itemView.findViewById( R.id.row_sponsor_phone );
             progressBar=itemView.findViewById( R.id.row_sponsor_progress_bar );
+
+
 
         }
     }

@@ -43,7 +43,8 @@ public class GalleryPresenter {
             @Override
             public void onFailure(Call<GalleryResponse> call, Throwable t) {
                  galleryView.showError(  );
-                Toast.makeText( context, R.string.NoDataFound, Toast.LENGTH_SHORT ).show();
+                Toast.makeText( context, R.string.NoNetworkAvailable,
+                        Toast.LENGTH_SHORT).show();
             }
         } );
     }

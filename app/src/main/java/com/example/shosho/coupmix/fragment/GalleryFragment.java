@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.shosho.coupmix.NetworkConnection;
 import com.example.shosho.coupmix.R;
 import com.example.shosho.coupmix.activity.DetailsGalleryActivity;
 import com.example.shosho.coupmix.activity.NavigationActivity;
@@ -35,7 +37,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GalleryFragment extends Fragment implements GalleryView,VideoLinkView {
+public class GalleryFragment extends Fragment implements GalleryView,VideoLinkView
+        ,SwipeRefreshLayout.OnRefreshListener{
 
 Toolbar toolbar;
 
@@ -43,6 +46,8 @@ GalleryAdapter galleryAdapter;
 GalleryPresenter galleryPresenter;
 RecyclerView recyclerViewGallery;
 
+    NetworkConnection networkConnection;
+    private SwipeRefreshLayout swipeRefreshLayout;
     public GalleryFragment() {
         // Required empty public constructor
     }
@@ -54,6 +59,7 @@ View view;
         // Inflate the layout for this fragment
         view= inflater.inflate( R.layout.fragment_gallery, container, false );
         init();
+        networkConnection=new NetworkConnection( getContext() );
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
@@ -77,12 +83,32 @@ View view;
 
         galleryPresenter=new GalleryPresenter( getContext(),this );
         galleryPresenter.getGallryResult( "ar" );
+        swipeRefresh();
         return view;
+    }
+
+    private void swipeRefresh() {
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_orange_dark  );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if (networkConnection.isNetworkAvailable( getContext() ))
+                {
+                    swipeRefreshLayout.setRefreshing( true );
+
+                    galleryPresenter.getGallryResult( "ar");
+
+                }
+            }
+        } );
     }
 
     private void init() {
         toolbar=view.findViewById( R.id.gallery_toolbar );
         recyclerViewGallery=view.findViewById( R.id.gallery_recycler );
+        swipeRefreshLayout=view.findViewById( R.id.gallery_swip_refresh );
 
     }
 
@@ -93,19 +119,20 @@ View view;
         recyclerViewGallery.setLayoutManager( new GridLayoutManager( getContext(),3 ) );
         recyclerViewGallery.setAdapter( galleryAdapter );
 
-
+        swipeRefreshLayout.setRefreshing( false );
     }
 
     @Override
     public void showError() {
 
-
+        swipeRefreshLayout.setRefreshing( false );
     }
 
 
     @Override
     public void sendLink(String Link, String Image) {
         if(!Link.equals( "" )){
+
             DetailsGalleryFragment detailsGalleryFragment=new DetailsGalleryFragment();
             Bundle bundle=new Bundle(  );
             bundle.putString( "video_link",Link);
@@ -120,6 +147,20 @@ View view;
                     DetailsGalleryActivity.class );
             intent.putExtra("image",Image  );
             getActivity().startActivity( intent );
+        }
+    }
+
+    @Override
+    public void onRefresh() {
+        if(networkConnection.isNetworkAvailable( getContext() ))
+        {
+            swipeRefreshLayout.setRefreshing( true );
+            galleryPresenter.getGallryResult("ar" );
+
+
+        }else
+        {
+            Toast.makeText( getContext(), R.string.NoNetworkAvailable, Toast.LENGTH_SHORT ).show();
         }
     }
 }

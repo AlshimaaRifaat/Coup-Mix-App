@@ -23,7 +23,7 @@ String Image;
         Dialog dialog=new Dialog( this );
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
        // requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable( true );
+        dialog.setCancelable( false );
         setContentView( R.layout.activity_details_gallery );
 
 
