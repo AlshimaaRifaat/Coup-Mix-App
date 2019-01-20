@@ -34,7 +34,7 @@
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:layout_below="@+id/order_item_toolbar"
+          android:layout_marginTop="@dimen/_41sdp"
           android:layout_alignParentBottom="true"
           android:layout_marginBottom="1dp"
           android:background="#e8e8ea"
@@ -121,14 +121,15 @@
               android:layout_height="@dimen/_45sdp"
               android:layout_below="@+id/order_item_edit_text_notes"
               android:layout_marginLeft="@dimen/_27sdp"
-              android:layout_marginTop="@dimen/_32sdp"
+              android:layout_marginTop="@dimen/_65sdp"
               android:layout_marginRight="@dimen/_27sdp"
-              android:layout_marginBottom="@dimen/_37sdp"
+              android:layout_marginBottom="@dimen/_50sdp"
               android:background="@drawable/button"
               android:text="@string/OrderBook"
               android:textAllCaps="false"
               android:textColor="#fff"
-              android:textSize="@dimen/_15sdp" />
+              android:textSize="@dimen/_15sdp"
+             />
       </LinearLayout>
   </RelativeLayout>
 
