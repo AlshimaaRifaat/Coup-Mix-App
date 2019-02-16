@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -17,11 +19,14 @@ import java.util.Locale;
 public class LanguageActivity extends AppCompatActivity implements View.OnClickListener {
     CheckBox arabicLanguage, englishlanguage;
     Button doneButton;
-    String Language;
+  //  String Language;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-       // loadLocale();
+        // loadLocale();
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView( R.layout.activity_language );
         arabicLanguage=findViewById( R.id.lang_checkbox_arabic );
         arabicLanguage.setOnClickListener( this );
@@ -32,14 +37,14 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
         doneButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Language!=null) {
-                    setLocale( Language );
+                if(SplashActivity.Language!=null) {
+                    setLocale( SplashActivity.Language );
                     startActivity( new Intent( LanguageActivity.this,NavigationActivity.class ) );
-
-
+                    finish();
                 }else {
                     Toast.makeText( LanguageActivity.this, R.string.choose_language, Toast.LENGTH_SHORT ).show();
                 }
+
 
             }
         } );
@@ -54,9 +59,9 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
                 if(arabicLanguage.isChecked())
                 {
                     englishlanguage.setChecked( false );
-                    Language="ar";
+                    SplashActivity.Language="ar";
                     //setLocale("ar");
-                   // recreate();
+                    // recreate();
 
 
                 }
@@ -66,7 +71,7 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
                     //setLocale("en");
                     //recreate();
                     arabicLanguage.setChecked( false );
-                    Language="en";
+                    SplashActivity.Language="en";
 
                 }
         }

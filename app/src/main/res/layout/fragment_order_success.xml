@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8e8ea"
+    tools:context=".fragment.OrderSuccessFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_275sdp">
+            <ImageView
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:background="@drawable/web_hi_res_512"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/order_succes_image"
+                />
+
+
+            <TextView
+                android:id="@+id/order_success_book_order_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/order_item_succes"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/BookOrderSuccess"
+                android:textColor="#000"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/order_item_succes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_52sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_below="@id/order_succes_image"
+                android:text="@string/ThanksForyourorder"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="#8a8b8e"
+                />
+            <TextView
+                android:id="@+id/order_item_your_id_is"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_52sdp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:text="@string/Yourorderidis"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="#000"
+                android:layout_below="@+id/order_success_book_order_success"
+                />
+            <TextView
+                android:id="@+id/order_succes_text_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:text="id"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="#000"
+                android:layout_below="@+id/order_item_your_id_is"
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

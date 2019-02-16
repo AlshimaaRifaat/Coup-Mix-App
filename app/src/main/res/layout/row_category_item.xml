@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_228sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginRight="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <ImageView
+        android:id="@+id/row_category_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_85sdp"
+        android:layout_alignParentTop="true" />
+        <TextView
+            android:id="@+id/row_category_item_text_coupon_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="#6b6c6e"
+            android:textSize="@dimen/_12sdp"
+            android:text="coupon detail"
+            android:layout_below="@id/row_category_item_image"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/row_category_item_text_feature_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="#6b6c6e"
+            android:textSize="@dimen/_12sdp"
+            android:text="feature offer"
+            android:layout_below="@+id/row_category_item_text_coupon_detail"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/row_category_item_text_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="#6b6c6e"
+            android:textSize="@dimen/_12sdp"
+            android:text="phone"
+            android:layout_below="@+id/row_category_item_text_feature_offer"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/row_category_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="#000"
+        android:textSize="@dimen/_14sdp"
+        android:text="title"
+      android:layout_centerHorizontal="true"
+        android:layout_below="@id/row_category_item_image"/>
+
+        <TextView
+            android:id="@+id/row_category_item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:textSize="@dimen/_12sdp"
+            android:text="description"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_below="@id/row_category_item_title"/>
+        <TextView
+            android:id="@+id/row_category_item_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="country"
+            android:textAlignment="gravity"
+            android:gravity="left"
+            android:layout_toStartOf="@id/row_category_item_discount_ratio"
+            android:layout_alignParentStart="true"
+            android:textColor="#07aba7"
+            android:layout_below="@id/row_category_item_description"
+            android:layout_marginLeft="@dimen/_5sdp"/>
+
+        <TextView
+            android:id="@+id/row_category_item_discount_ratio"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:text="discount ratio"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/subtraction3"
+            android:layout_marginTop="@dimen/_132sdp"
+            android:layout_alignParentRight="true"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/relative_category_item">
+            <Button
+                android:id="@+id/row_category_item_btn"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:text="@string/ShowDetails"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:textAllCaps="false"
+                android:background="@drawable/button_show_details"/>
+
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</android.support.v7.widget.CardView>

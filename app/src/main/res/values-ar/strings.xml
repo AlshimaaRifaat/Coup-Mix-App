@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CoupMix</string>
+    <string name="app_name">كوبو ميكس</string>
     <string name="choose_language"> قم باختيار اللغه</string>
     <string name="English">انجليزي</string>
     <string name="Arabic">عربي</string>
@@ -8,22 +8,53 @@
     <string name="hello_blank_fragment">هالو بلانك فراجمنت</string>
     <string name="Home">الصفحه الرئيسيه</string>
     <string name="Category">الفئه</string>
-    <string name="Brand">الماركه</string>
     <string name="MyOrders">طلباتي</string>
-    <string name="AboutCoupMix">CoupMix حول</string>
+    <string name="AboutCoupMix">  عن كوبو ميكس</string>
     <string name="title_activity_navigation">الصفحه الرئيسيه</string>
     <string name="NoNetworkAvailable">لا يتوفر انترنت</string>
     <string name="Categories">الفئات</string>
     <string name="Search">بحث</string>
     <string name="FeaturesProducts">ميزات المنتجات</string>
-    <string name="showDetails">اظهر التفاصيل</string>
-    <string name="Order">Order</string>
+    <string name="ShowDetails">اظهر التفاصيل</string>
     <string name="No">No.</string>
-    <string name="CancelOrder">Cancel Order</string>
-    <string name="Bookedon">Booked on</string>
-    <string name="Name">Name</string>
-    <string name="Address">Address</string>
-    <string name="Phone">Phone</string>
-    <string name="Email">Email</string>
-    <string name="Notes">Notes</string>
+    <string name="CancelOrder">الغاء الطلب</string>
+    <string name="Bookedon"> حجز فى</string>
+    <string name="Name">الاسم</string>
+    <string name="Address">العنوان</string>
+    <string name="Phone">التليفون</string>
+    <string name="Email">البريد الالكترونى</string>
+    <string name="Notes">ملاحظات</string>
+    <string name="Location">الموقع</string>
+    <string name="Discount">الخصم :</string>
+    <string name="ThanksForyourorder">شكرا لطلبك</string>
+    <string name="BookOrderSuccess"> تم طلب الكتاب بنجاح</string>
+    <string name="Yourorderidis">رقم طلبك هو</string>
+    <string name="Pleasewriteyourname">من فضك,اكتب اسمك</string>
+    <string name="Pleasewriteyourphone">من فضك,اكتب رقم التليفون الخاص بك</string>
+    <string name="Pleasewriteyournotes">من فضك,اكتب ملاحظاتك</string>
+    <string name="Pleasefullyourinformation">من فضلك,املأ البيانات الخاصه بك</string>
+    <string name="Checkyourinternetconnection">تحقق من اتصالك بالانترنت</string>
+    <string name="Invalidemail">البريد إلكتروني خاطئ</string>
+    <string name="Pleasewriteyouraddress">من فضك,اكتب عنوانك</string>
+    <string name="OrderBook">احجز الكتيب</string>
+    <string name="youcanfind">يمكنك العثور على أفضل العروض وبافضل خصم</string>
+    <string name="Coupondetail">تفاصيل القسيمة</string>
+    <string name="FeaturesOffer">ميزات العرض</string>
+    <string name="Directions">الاتجاهات</string>
+    <string name="RequestOrder">اطلب الكتيب</string>
+    <string name="Pleasewriteyouremail">من فضلك ادخل بريدك الالكترونى</string>
+    <string name="Searchbybrand">ابحث عن الماركه</string>
+    <string name="Details">التفاصيل</string>
+    <string name="NoDataFound">عفوا, لا يتواجد نتيجه</string>
+    <string name="SearchResult">نتيجه البحث</string>
+    <string name="Brand">الماركه</string>
+    <string name="Offers">العروض</string>
+    <string name="Subscribe">إشترك معنا</string>
+    <string name="YourEmail">بريدك الالكترونى</string>
+    <string name="ThanksForyoursubscribe">شكرا لاشتراكك ...</string>
+    <string name="subscribe">إشترك معنا</string>
+    <string name="Gallery">الصور</string>
+    <string name="Sponsor">الرعاه </string>
+
+
 </resources>

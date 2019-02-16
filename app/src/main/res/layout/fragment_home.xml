@@ -1,32 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/home_swip_refresh"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.HomeFragment">
-<RelativeLayout
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/home_swip_refresh"
+        tools:context=".fragment.HomeFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/home_scroll"
+       >
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="#e8e6e9">
+
 
   <android.support.v7.widget.RecyclerView
        android:layout_width="match_parent"
-       android:layout_height="@dimen/_130sdp"
+       android:layout_height="@dimen/_190sdp"
        android:id="@+id/home_recycler_banner"
       >
    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:id="@+id/card"
+        app:cardBackgroundColor="@android:color/white"
+        >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_toolbar"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<ImageView
+    android:id="@+id/home_image_search"
+    android:layout_width="@dimen/_22sdp"
+    android:layout_height="@dimen/_22sdp"
+   android:background="@drawable/search"
+    android:layout_marginEnd="@dimen/_7sdp"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:layout_alignParentEnd="true"/>
 
+    <EditText
+        android:id="@+id/home_edit_text_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_toStartOf="@+id/home_image_search"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:background="#fff"
+        android:hint="@string/Searchbybrand"
+        android:textColor="#7b797c"
+        android:textSize="@dimen/_11sdp"
+        />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+    </android.support.v7.widget.CardView>
 <android.support.v7.widget.CardView
     android:id="@+id/home_card_view_category"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#fff"
-    android:layout_marginLeft="@dimen/_2sdp"
-    android:layout_marginRight="@dimen/_2sdp"
+    android:layout_marginLeft="@dimen/_4sdp"
+    android:layout_marginRight="@dimen/_4sdp"
     android:layout_below="@+id/home_recycler_banner"
-    android:layout_marginTop="@dimen/_2sdp"
-    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_marginTop="@dimen/_8sdp"
     >
 
     <TextView
@@ -35,41 +89,52 @@
         android:layout_height="wrap_content"
         android:text="@string/Categories"
         android:textSize="@dimen/_13sdp"
-        android:textColor="#959595"
+        android:textColor="#4c4d4f"
         android:layout_below="@+id/home_recycler_banner"
-        android:layout_margin="@dimen/_5sdp"/>
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"/>
+
+
 <android.support.v7.widget.RecyclerView
     android:id="@+id/home_recycler_view_category"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/_30sdp"
+    android:layout_marginBottom="@dimen/_17sdp"
     android:layout_below="@+id/home_categories_text"></android.support.v7.widget.RecyclerView>
 </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/home_card_view_features_products"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#fff"
-        android:layout_marginLeft="@dimen/_2sdp"
-        android:layout_marginRight="@dimen/_2sdp"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginRight="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_below="@+id/home_card_view_category"
-        android:layout_marginBottom="@dimen/_2sdp">
+        >
 
         <TextView
             android:id="@+id/home_features_products_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/FeaturesProducts"
+            android:text="@string/FeaturesOffer"
             android:textSize="@dimen/_13sdp"
-            android:textColor="#959595"
-            android:layout_margin="@dimen/_5sdp"/>
+            android:textColor="#4c4d4f"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/home_recycler_view_features_products"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_17sdp"
             android:layout_below="@+id/home_features_products_text"></android.support.v7.widget.RecyclerView>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
-</android.support.v4.widget.SwipeRefreshLayout>
+    </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

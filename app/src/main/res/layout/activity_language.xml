@@ -55,18 +55,18 @@
 
     </android.support.v7.widget.CardView>
 
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_60sdp"
-    android:text="@string/Done"
-    android:textColor="#fff"
-    android:textSize="@dimen/_15sdp"
-    android:layout_marginLeft="@dimen/_20sdp"
-    android:layout_marginRight="@dimen/_20sdp"
-    android:background="@drawable/button"
-    android:layout_below="@+id/main_card_view"
-    android:id="@+id/lang_done_btn"
-    />
+    <Button
+        android:id="@+id/lang_done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_card_view"
+        android:layout_marginLeft="@dimen/_20sdp"
+       android:layout_marginBottom="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_110sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:background="@drawable/button"
+        android:text="@string/Done"
+        android:textColor="#fff"
+        android:textSize="@dimen/_15sdp" />
 
 </RelativeLayout>
